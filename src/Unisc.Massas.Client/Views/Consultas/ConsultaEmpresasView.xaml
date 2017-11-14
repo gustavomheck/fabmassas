@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="Unisc.Massas.Client.Views.ConsultaEmpresasView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
+             xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance vm:ConsultaEstoqueViewModel}"
+             d:DesignHeight="600"
+             d:DesignWidth="900"
+             Background="{DynamicResource MaterialDesignPaper}">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="ContentRendered">
+            <i:InvokeCommandAction Command="{Binding CarregarCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <local:TituloUserControl />
+
+        <local:FiltragemUserControl Grid.Row="1" />
+
+        <DataGrid Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  Margin="20,14,20,20"
+                  ItemsSource="{Binding CollectionView}"
+                  SelectedIndex="{Binding IndiceSelecionado}"
+                  SelectedItem="{Binding EntidadeSelecionada}"
+                  SelectionMode="Single">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding EditarCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="CNPJ"
+                                    Binding="{Binding Cnpj, Converter={StaticResource CnpjCpfFormatter}}"
+                                    Width="12*" />
+                <DataGridTextColumn Header="Inscrição Estadual"
+                                    Width="12*">
+                    <DataGridTextColumn.Binding>
+                        <MultiBinding Converter="{StaticResource InscricaoEstadualFormatter}">
+                            <Binding Path="InscEstadual" />
+                            <Binding Path="Cep" />
+                        </MultiBinding>
+                    </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Razão Social"
+                                    Binding="{Binding RazaoSocial}"
+                                    Width="21*" />
+                <DataGridTextColumn Header="CEP"
+                                    Binding="{Binding Cep, Converter={StaticResource CepFormatter}}"
+                                    Width="9*" />
+                <DataGridTextColumn Header="Logradouro"
+                                    Binding="{Binding Logradouro}"
+                                    Width="20*" />
+                <DataGridTextColumn Header="Bairro"
+                                    Binding="{Binding Bairro}"
+                                    Width="18*" />
+                <DataGridTextColumn Header="Número"
+                                    Binding="{Binding Numero}"
+                                    Width="8*" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button ToolTip="Editar"
+                                        Style="{DynamicResource ToolButton}">
+                                    <md:PackIcon Kind="Pencil"
+                                                 Foreground="#337AB7" />
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid FocusVisualStyle="{x:Null}">
+                                <Button Command="{Binding Path=DataContext.ExcluirCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                        ToolTip="Excluir"
+                                        Style="{DynamicResource ToolButton}">
+                                    <md:PackIcon Kind="Close"
+                                                 Foreground="#D9534F" />
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

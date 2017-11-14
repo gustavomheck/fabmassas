@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{85BB7640-B24B-4EF8-8057-D41699B608A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unisc.Massas.Client", "src\Unisc.Massas.Client\Unisc.Massas.Client.csproj", "{52E220F9-55A9-4839-8EDF-E55F5CB167B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unisc.Massas.Domain", "src\Unisc.Massas.Domain\Unisc.Massas.Domain.csproj", "{DE5593CF-470B-48B9-AF96-8B54023018EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unisc.Massas.Data", "src\Unisc.Massas.Data\Unisc.Massas.Data.csproj", "{1178771D-2D3E-4D38-9808-3FAF69385940}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{67DF91C3-671B-40A7-85CD-F062F07CCD6E}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\seed.sql = Solution Items\seed.sql
+		TODO.md = TODO.md
+		Solution Items\truncate.sql = Solution Items\truncate.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unisc.Massas.Core", "src\Unisc.Massas.Common\Unisc.Massas.Core.csproj", "{FBBE645D-5C08-4433-B598-B08453A89751}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{0DF3B7D7-2404-406E-8FDA-3A3E75028E06}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\lib\Microsoft.Expression.Interactions.dll = Solution Items\lib\Microsoft.Expression.Interactions.dll
+		Solution Items\lib\System.Windows.Interactivity.dll = Solution Items\lib\System.Windows.Interactivity.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52E220F9-55A9-4839-8EDF-E55F5CB167B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52E220F9-55A9-4839-8EDF-E55F5CB167B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52E220F9-55A9-4839-8EDF-E55F5CB167B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52E220F9-55A9-4839-8EDF-E55F5CB167B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5593CF-470B-48B9-AF96-8B54023018EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5593CF-470B-48B9-AF96-8B54023018EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5593CF-470B-48B9-AF96-8B54023018EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5593CF-470B-48B9-AF96-8B54023018EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1178771D-2D3E-4D38-9808-3FAF69385940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1178771D-2D3E-4D38-9808-3FAF69385940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1178771D-2D3E-4D38-9808-3FAF69385940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1178771D-2D3E-4D38-9808-3FAF69385940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBBE645D-5C08-4433-B598-B08453A89751}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBBE645D-5C08-4433-B598-B08453A89751}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBBE645D-5C08-4433-B598-B08453A89751}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBBE645D-5C08-4433-B598-B08453A89751}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{52E220F9-55A9-4839-8EDF-E55F5CB167B7} = {85BB7640-B24B-4EF8-8057-D41699B608A8}
+		{DE5593CF-470B-48B9-AF96-8B54023018EE} = {85BB7640-B24B-4EF8-8057-D41699B608A8}
+		{1178771D-2D3E-4D38-9808-3FAF69385940} = {85BB7640-B24B-4EF8-8057-D41699B608A8}
+		{FBBE645D-5C08-4433-B598-B08453A89751} = {85BB7640-B24B-4EF8-8057-D41699B608A8}
+		{0DF3B7D7-2404-406E-8FDA-3A3E75028E06} = {67DF91C3-671B-40A7-85CD-F062F07CCD6E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {042E4563-D229-4678-A87D-D71210D8AD75}
+	EndGlobalSection
+EndGlobal

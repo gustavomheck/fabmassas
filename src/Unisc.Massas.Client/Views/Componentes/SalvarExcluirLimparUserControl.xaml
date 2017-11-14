@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="Unisc.Massas.Client.Views.SalvarExcluirLimparUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d">
+
+    <Border Background="#FAFAFA"
+            BorderBrush="Silver"
+            BorderThickness="0,1,0,0">
+        <StackPanel Margin="5"
+                    Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Command="md:DialogHost.CloseDialogCommand"
+                    IsEnabled="{Binding EntidadeSelecionada.IsValid}"
+                    Style="{StaticResource ButtonPrimary}">
+                <Button.CommandParameter>
+                    <sys:Boolean>True</sys:Boolean>
+                </Button.CommandParameter>
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Left"
+                               Text="{StaticResource FaSave}"
+                               Style="{StaticResource TextBlockIconStyle}" />
+                    <TextBlock DockPanel.Dock="Right"
+                               Text="Salvar"
+                               Style="{StaticResource TextBlockContentStyle}" />
+                </DockPanel>
+            </Button>
+
+            <Button Command="md:DialogHost.CloseDialogCommand"
+                    Style="{StaticResource ButtonDanger}">
+                <Button.CommandParameter>
+                    <sys:String>Excluir</sys:String>
+                </Button.CommandParameter>
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Left"
+                               Text="{StaticResource FaTrash}"
+                               Style="{StaticResource TextBlockIconStyle}" />
+                    <TextBlock DockPanel.Dock="Right"
+                               Text="Excluir"
+                               Style="{StaticResource TextBlockContentStyle}" />
+                </DockPanel>
+            </Button>
+
+            <Button Command="{Binding LimparCommand}"
+                    Style="{StaticResource ButtonDefault}"
+                    Visibility="Collapsed">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Left"
+                               Text="{StaticResource FaEraser}"
+                               Style="{StaticResource TextBlockIconDarkStyle}" />
+                    <TextBlock DockPanel.Dock="Right"
+                               Text="Limpar"
+                               Style="{StaticResource TextBlockContentDarkStyle}" />
+                </DockPanel>
+            </Button>
+        </StackPanel>
+    </Border>
+</UserControl>

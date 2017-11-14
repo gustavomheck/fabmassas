@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1178771D-2D3E-4D38-9808-3FAF69385940}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Unisc.Massas.Data</RootNamespace>
+    <AssemblyName>Unisc.Massas.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\DatabaseSeeder.cs" />
+    <Compile Include="Context\MassasContext.cs" />
+    <Compile Include="Interfaces\ICidadeRepositorio.cs" />
+    <Compile Include="Interfaces\IClienteRepositorio.cs" />
+    <Compile Include="Interfaces\IEmpresaRepositorio.cs" />
+    <Compile Include="Interfaces\IEncomendaRepositoriocs.cs" />
+    <Compile Include="Interfaces\IEstadoRepositorio.cs" />
+    <Compile Include="Interfaces\IEstoqueRepositorio.cs" />
+    <Compile Include="Interfaces\IFormaRepositorio.cs" />
+    <Compile Include="Interfaces\IFuncaoRepositorio.cs" />
+    <Compile Include="Interfaces\IFuncaoUsuarioRepositorio.cs" />
+    <Compile Include="Interfaces\ILocalRepositorio.cs" />
+    <Compile Include="Interfaces\IMaquinaRepositorio.cs" />
+    <Compile Include="Interfaces\IPaisRepositorio.cs" />
+    <Compile Include="Interfaces\IPermisaoFuncaoRepositorio.cs" />
+    <Compile Include="Interfaces\IProdutoRepositorio.cs" />
+    <Compile Include="Interfaces\IRepositorio.cs" />
+    <Compile Include="Interfaces\ITelefoneRepositorio.cs" />
+    <Compile Include="Interfaces\ITipoMassaRepositorio.cs" />
+    <Compile Include="Interfaces\IUnidadeMedidaRepositorio.cs" />
+    <Compile Include="Interfaces\IUsuarioRepositorio.cs" />
+    <Compile Include="Mapping\CidadeMap.cs" />
+    <Compile Include="Mapping\ClienteMap.cs" />
+    <Compile Include="Mapping\EmpresaMap.cs" />
+    <Compile Include="Mapping\EncomendaMap.cs" />
+    <Compile Include="Mapping\EstadoMap.cs" />
+    <Compile Include="Mapping\EstoqueMap.cs" />
+    <Compile Include="Mapping\FormaMap.cs" />
+    <Compile Include="Mapping\FuncaoMap.cs" />
+    <Compile Include="Mapping\FuncaoUsuarioMap.cs" />
+    <Compile Include="Mapping\LocalMap.cs" />
+    <Compile Include="Mapping\MaquinaMap.cs" />
+    <Compile Include="Mapping\PaisMap.cs" />
+    <Compile Include="Mapping\PermissaoFuncaoMap.cs" />
+    <Compile Include="Mapping\PermissaoMap.cs" />
+    <Compile Include="Mapping\ProdutoMap.cs" />
+    <Compile Include="Mapping\TelefoneMap.cs" />
+    <Compile Include="Mapping\TipoMassaMap.cs" />
+    <Compile Include="Mapping\UnidadeMedidaMap.cs" />
+    <Compile Include="Mapping\UsuarioMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorios\EmpresaRepositorio.cs" />
+    <Compile Include="Repositorios\FormaRepositorio.cs" />
+    <Compile Include="Repositorios\CidadeRepositorio.cs" />
+    <Compile Include="Repositorios\ClienteRepositorio.cs" />
+    <Compile Include="Repositorios\EncomendaRepositoriocs.cs" />
+    <Compile Include="Repositorios\EstadoRepositorio.cs" />
+    <Compile Include="Repositorios\EstoqueRepositorio.cs" />
+    <Compile Include="Repositorios\FuncaoRepositorio.cs" />
+    <Compile Include="Repositorios\FuncaoUsuarioRepositorio.cs" />
+    <Compile Include="Repositorios\LocalRepositorio.cs" />
+    <Compile Include="Repositorios\PaisRepositorio.cs" />
+    <Compile Include="Repositorios\PermisaoFuncaoRepositorio.cs" />
+    <Compile Include="Repositorios\ProdutoRepositorio.cs" />
+    <Compile Include="Repositorios\TelefoneRepositorio.cs" />
+    <Compile Include="Repositorios\UnidadeMedidaRepositorio.cs" />
+    <Compile Include="Repositorios\UsuarioRepositorio.cs" />
+    <Compile Include="Repositorios\MaquinaRepositorio.cs" />
+    <Compile Include="Repositorios\RepositorioBase.cs" />
+    <Compile Include="Repositorios\TipoMassaRepositorio.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Unisc.Massas.Common\Unisc.Massas.Core.csproj">
+      <Project>{fbbe645d-5c08-4433-b598-b08453a89751}</Project>
+      <Name>Unisc.Massas.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Unisc.Massas.Domain\Unisc.Massas.Domain.csproj">
+      <Project>{de5593cf-470b-48b9-af96-8b54023018ee}</Project>
+      <Name>Unisc.Massas.Domain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,148 @@
+﻿<Window x:Class="Unisc.Massas.Client.Views.Testes.Controles"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:c="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
+        mc:Ignorable="d"
+        Title="Controles" Height="300" Width="700">
+    <StackPanel>
+        <materialDesign:ColorZone Mode="PrimaryMid"
+                                  Background="{StaticResource BackgroundColor}"
+                                  Padding="16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Grid.RowSpan="2"
+                       Content="{Binding ViewName, Mode=OneTime}"
+                       Padding="0,0,0,0"
+                       FontSize="18pt"
+                       FontWeight="Medium"
+                       FontFamily="{DynamicResource MaterialDesignFont}" />
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="2"
+                            Command="{Binding CadastrarCommand}"
+                            Style="{StaticResource ButtonSuccess}">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       Text="{StaticResource FaPlus}"
+                                       Style="{StaticResource TextBlockIconStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       Text="Cadastrar"
+                                       Style="{StaticResource TextBlockContentStyle}" />
+                        </DockPanel>
+                    </Button>
+
+                    <Button Grid.Column="3"
+                            Command="{Binding EditarCommand}"
+                            Style="{StaticResource ButtonPrimary}">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       Text="{StaticResource FaEdit}"
+                                       Style="{StaticResource TextBlockIconStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       Text="Editar"
+                                       Style="{StaticResource TextBlockContentStyle}" />
+                        </DockPanel>
+                    </Button>
+
+                    <Button Grid.Column="4"
+                            Command="{Binding ExcluirCommand}"
+                            Style="{StaticResource ButtonDanger}">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       Text="{StaticResource FaRemove}"
+                                       Style="{StaticResource TextBlockIconStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       Text="Excluir"
+                                       Style="{StaticResource TextBlockContentStyle}" />
+                        </DockPanel>
+                    </Button>
+
+                    <Button Grid.Column="5"
+                            Style="{StaticResource ButtonDefault}">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       Text="{StaticResource FaSignOut}"
+                                       Style="{StaticResource TextBlockIconDarkStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       Text="Voltar"
+                                       Style="{StaticResource TextBlockContentDarkStyle}" />
+                        </DockPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <ei:CallMethodAction TargetObject="{Binding ElementName=wnd}"
+                                                     MethodName="Close" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </Grid>
+
+                <materialDesign:ColorZone Grid.ColumnSpan="2"
+                                          Grid.Row="1"
+                                          Mode="Standard"
+                                          Padding="8,0,8,0"
+                                          CornerRadius="2"
+                                          Panel.ZIndex="1"
+                                          Margin="16,0,0,0"
+                                          materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <materialDesign:PackIcon Kind="Magnify"
+                                                     Opacity=".56" />
+                        </Button>
+
+                        <TextBox Grid.Column="1"
+                                 Margin="8,0,0,0"
+                                 Padding="0,0,0,5"
+                                 materialDesign:HintAssist.Hint="Filtrar registros..."
+                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                 BorderThickness="0"
+                                 Width="Auto"
+                                 VerticalAlignment="Center" />
+                        <!--<Button Style="{DynamicResource MaterialDesignToolButton}"
+                                        Grid.Column="2">
+                                </Button>-->
+                    </Grid>
+                </materialDesign:ColorZone>
+
+                <!--<DockPanel Grid.ColumnSpan="2"
+                           Grid.Row="1">
+                    <StackPanel Orientation="Horizontal"
+                                materialDesign:RippleAssist.IsCentered="True">
+                        
+                    </StackPanel>
+                </DockPanel>-->
+            </Grid>
+        </materialDesign:ColorZone>
+
+        <c:WatermarkTextBox Margin="10" 
+                            Placeholder="Filtrar registros..." Style="{StaticResource TextBoxPesquisaStyle}" />
+    </StackPanel>
+</Window>

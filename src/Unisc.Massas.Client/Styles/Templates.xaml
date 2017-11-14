@@ -1,0 +1,97 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:c="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+                    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+                    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+
+    <DataTemplate x:Key="CabecalhoCadastroTemplate">
+        <Border Background="WhiteSmoke"
+                BorderBrush="Silver"
+                BorderThickness="0,0,0,1">
+            <Grid Margin="10,7,10,7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label Content="{Binding ViewName, Mode=OneTime}"
+                       FontSize="12pt"
+                       Margin="5,0,0,2"
+                       Style="{StaticResource LabelDefault}" />
+                <TextBlock Grid.Row="1"
+                           Margin="5,0,0,0"
+                           FontFamily="{DynamicResource MaterialDesignFont}"
+                           Text="Dados obrigatórios estão destacados vermelho" />
+                <c:ImageButton Grid.Column="1"
+                               Grid.RowSpan="2"
+                               Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                               Content="{StaticResource VectorClose}"
+                               Margin="0,2,0,0"
+                               Style="{StaticResource ImageButtonNoText}" />
+            </Grid>
+        </Border>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CancelarSalvarTemplate">
+        <Border Background="#FAFAFA"
+                BorderBrush="Silver"
+                BorderThickness="0,1,0,0"
+                Margin="0,7,0,0">
+            <StackPanel Margin="0,5,5,5"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button Command="{Binding CancelarCommand}"
+                        Style="{StaticResource ButtonDefault}">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left"
+                                   Text="{StaticResource FaBan}"
+                                   Style="{StaticResource TextBlockIconDarkStyle}" />
+                        <TextBlock DockPanel.Dock="Right"
+                                   Text="Cancelar"
+                                   Style="{StaticResource TextBlockContentDarkStyle}" />
+                    </DockPanel>
+                </Button>
+
+                <Button Command="md:DialogHost.CloseDialogCommand"
+                        Visibility="{Binding EstaEditando, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Style="{StaticResource ButtonDanger}">
+                    <Button.CommandParameter>
+                        <sys:String>Excluir</sys:String>
+                    </Button.CommandParameter>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left"
+                                   Text="{StaticResource FaTrash}"
+                                   Style="{StaticResource TextBlockIconStyle}" />
+                        <TextBlock DockPanel.Dock="Right"
+                                   Text="Excluir"
+                                   Style="{StaticResource TextBlockContentStyle}" />
+                    </DockPanel>
+                </Button>
+
+                <Button Command="md:DialogHost.CloseDialogCommand"
+                        IsEnabled="{Binding EntidadeSelecionada.IsValid}"
+                        Style="{StaticResource ButtonPrimary}">
+                    <Button.CommandParameter>
+                        <sys:Boolean>True</sys:Boolean>
+                    </Button.CommandParameter>
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left"
+                                   Text="{StaticResource FaSave}"
+                                   Style="{StaticResource TextBlockIconStyle}" />
+                        <TextBlock DockPanel.Dock="Right"
+                                   Text="Salvar"
+                                   Style="{StaticResource TextBlockContentStyle}" />
+                    </DockPanel>
+                </Button>
+            </StackPanel>
+        </Border>
+    </DataTemplate>
+</ResourceDictionary>

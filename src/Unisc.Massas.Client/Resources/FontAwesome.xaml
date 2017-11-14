@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="FaPlus">&#xf067;</system:String>
+    <system:String x:Key="FaEdit">&#xf044;</system:String>
+    <system:String x:Key="FaRemove">&#xf00d;</system:String>
+    <system:String x:Key="FaFilePdfO">&#xf1c2;</system:String>
+    <system:String x:Key="FaListO">&#xf0cb;</system:String>
+    <system:String x:Key="FaMoney">&#xf0d6;</system:String>
+    <system:String x:Key="FaWindowClose">&#xf2d3;</system:String>
+    <system:String x:Key="FaBan">&#xf05e;</system:String>
+    <system:String x:Key="FaHandUp">&#xf0a6;</system:String>
+    <system:String x:Key="FaSearch">&#xf002;</system:String>
+    <system:String x:Key="FaPhoto">&#xf03e;</system:String>
+    <system:String x:Key="FaOpenFolder">&#xf07c;</system:String>
+    <system:String x:Key="FaClose">&#xf00d;</system:String>
+    <system:String x:Key="FaSave">&#xf0c7;</system:String>
+    <system:String x:Key="FaTrash">&#xf014;</system:String>
+    <system:String x:Key="FaSignOut">&#xf08b;</system:String>
+    <system:String x:Key="FaCubes">&#xf1b3;</system:String>
+    <system:String x:Key="FaEraser">&#xf12d;</system:String>
+</ResourceDictionary>

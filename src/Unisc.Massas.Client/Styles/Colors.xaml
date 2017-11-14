@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <SolidColorBrush x:Key="BackgroundColor"
+                     Color="#F0EFF4" />
+    <SolidColorBrush x:Key="BorderColor"
+                     Color="#A7A6AB" />
+    <SolidColorBrush x:Key="ForegroundColor"
+                     Color="#F5F5F7" />
+    <SolidColorBrush x:Key="TextBoxBackgroundColor"
+                     Color="#E1E2E7" />
+    <SolidColorBrush x:Key="TabControlHeaderColor"
+                     Color="#40A387" />
+    <SolidColorBrush x:Key="TabControlContentColor"
+                     Color="#2B7963" />
+    <SolidColorBrush x:Key="UnselectedColor"
+                     Color="#E5E5E5" />
+    <SolidColorBrush x:Key="UserBackgroundColor"
+                     Color="#4E4E4E" />
+    <SolidColorBrush x:Key="LogoBackgroundColor"
+                     Color="#222222" />
+    <SolidColorBrush x:Key="TitleBackground"
+                     Color="#0884C2" />
+</ResourceDictionary>

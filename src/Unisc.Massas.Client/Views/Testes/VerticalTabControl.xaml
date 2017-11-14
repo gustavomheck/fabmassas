@@ -1,0 +1,253 @@
+﻿<Window x:Class="Unisc.Massas.Client.Views.VerticalTabControl"
+        xml:lang="pt-BR"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:m="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="VerticalTabControl"
+        Height="500"
+        Width="800"
+        WindowState="Maximized">
+
+    <Window.Resources>
+        <s:Double x:Key="TabControlWidth">202</s:Double>
+
+        <Style x:Key="StandardTabItem"
+               BasedOn="{StaticResource MetroTabItem}"
+               TargetType="{x:Type TabItem}">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource BorderBrushNormal}" />
+            <Setter Property="Controls:ControlsHelper.HeaderFontSize"
+                    Value="28" />
+            <Setter Property="FontFamily"
+                    Value="{StaticResource FontAwesome}" />
+            <Setter Property="Foreground"
+                    Value="{StaticResource UnselectedColor}" />
+            <Setter Property="Padding"
+                    Value="13,10,10,10" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TabItem}">
+                        <Border x:Name="Border"
+                                HorizontalAlignment="Stretch"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <StackPanel x:Name="PART_Content"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Orientation="Horizontal">
+                                <Controls:ContentControlEx x:Name="ContentSite"
+                                                           Padding="{TemplateBinding Padding}"
+                                                           Content="{TemplateBinding Header}"
+                                                           ContentCharacterCasing="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(Controls:ControlsHelper.ContentCharacterCasing)}"
+                                                           ContentStringFormat="{TemplateBinding HeaderStringFormat}"
+                                                           ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                                           ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}"
+                                                           DockPanel.Dock="Top"
+                                                           FontFamily="{TemplateBinding FontFamily}"
+                                                           FontSize="{TemplateBinding Controls:ControlsHelper.HeaderFontSize}"
+                                                           FontStretch="{TemplateBinding Controls:ControlsHelper.HeaderFontStretch}"
+                                                           FontStyle="{TemplateBinding FontStyle}"
+                                                           FontWeight="{TemplateBinding Controls:ControlsHelper.HeaderFontWeight}"
+                                                           Foreground="{TemplateBinding Foreground}"
+                                                           RecognizesAccessKey="True"
+                                                           SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            </StackPanel>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter TargetName="ContentSite"
+                                        Property="TextElement.Foreground"
+                                        Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsSelected"
+                                     Value="True">
+                                <Setter TargetName="ContentSite"
+                                        Property="TextElement.Foreground"
+                                        Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RadioButtonTabControlStyle"
+               TargetType="{x:Type RadioButton}"
+               BasedOn="{StaticResource {x:Type RadioButton}}">
+            <Setter Property="Foreground"
+                    Value="{StaticResource UnselectedColor}" />
+            <Setter Property="FontFamily"
+                    Value="{DynamicResource MaterialDesignFont}" />
+            <Setter Property="FontSize"
+                    Value="16" />
+            <Setter Property="FontWeight"
+                    Value="Medium" />
+            <Setter Property="Padding"
+                    Value="15,15,15,0" />
+            <Setter Property="SnapsToDevicePixels"
+                    Value="True" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Grid.Column="1"
+                                          Focusable="False"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          Margin="{TemplateBinding Padding}"
+                                          RecognizesAccessKey="True"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver"
+                                     Value="True">
+                                <Setter TargetName="contentPresenter"
+                                        Property="TextElement.Foreground"
+                                        Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsChecked"
+                                     Value="True">
+                                <Setter TargetName="contentPresenter"
+                                        Property="TextElement.Foreground"
+                                        Value="White" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Background="{StaticResource LogoBackgroundColor}"
+                    Orientation="Horizontal">
+            <TextBlock Text="Martin Massas"
+                       TextOptions.TextFormattingMode="Ideal"
+                       Foreground="White"
+                       FontFamily="Courgette"
+                       FontWeight="Bold"
+                       Style="{StaticResource TextBlockAppTitle}">
+                <TextBlock.Effect>
+                    <BlurEffect Radius="0.1"
+                                KernelType="Box" />
+                </TextBlock.Effect>
+            </TextBlock>
+            <Image RenderOptions.BitmapScalingMode="Fant"
+                   Margin="5,0"
+                   Width="40"
+                   Source="/Resources/icone.png" />
+        </StackPanel>
+
+        <Grid Grid.Column="1"
+              Background="{StaticResource UserBackgroundColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Margin="30,10"
+                       FontFamily="{DynamicResource MaterialDesignFont}"
+                       FontSize="16"
+                       TextAlignment="Center">
+                <Run Foreground="White"
+                     FontWeight="Bold"
+                     Text="{Binding Source={x:Static s:DateTime.Now}, StringFormat='{}{0:dd/MM}', Mode=OneWay}" />
+                <LineBreak />
+                <Run Foreground="Silver"
+                     Typography.Capitals="AllSmallCaps"
+                     Text="{Binding Source={x:Static s:DateTime.Now}, StringFormat='{}{0:dddd}', Mode=OneWay}" />
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              Background="{StaticResource TabControlHeaderColor}">
+            <TabControl TabStripPlacement="Left"
+                        BorderThickness="0"
+                        Padding="0"
+                        Background="{StaticResource TabControlHeaderColor}"
+                        HorizontalAlignment="Left">
+                <TabItem Header="{StaticResource FaHome}"
+                         Style="{StaticResource StandardTabItem}">
+                    <StackPanel Background="{StaticResource TabControlContentColor}"
+                                Width="{StaticResource TabControlWidth}">
+                        <RadioButton Content="INÍCIO"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="{StaticResource FaWpforms}"
+                         Style="{StaticResource StandardTabItem}">
+                    <StackPanel Background="{StaticResource TabControlContentColor}"
+                                Width="{StaticResource TabControlWidth}">
+                        <TextBlock Text="CADASTROS"
+                                   Style="{StaticResource TextBlockTabControlStyle}" />
+                        <Border Style="{StaticResource BorderTabControlStyle}" />
+                        <RadioButton Content="ENCOMENDA"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                        <RadioButton Content="CLIENTE"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                        <RadioButton Content="PRODUTO"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                        <RadioButton Content="TIPO DE MASSA"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="{StaticResource FaSearch}"
+                         Style="{StaticResource StandardTabItem}">
+                    <StackPanel Background="{StaticResource TabControlContentColor}"
+                                Width="{StaticResource TabControlWidth}">
+                        <TextBlock Text="CONSULTAS"
+                                   Style="{StaticResource TextBlockTabControlStyle}" />
+                        <Border Style="{StaticResource BorderTabControlStyle}" />
+                        <RadioButton Content="ENCOMENDAS"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                        <RadioButton Content="CLIENTES"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                        <RadioButton Content="ESTOQUE"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                        <RadioButton Content="TIPOS DE MASSA"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="{StaticResource FaCubes}"
+                         Padding="10"
+                         Style="{StaticResource StandardTabItem}">
+                    <StackPanel Background="{StaticResource TabControlContentColor}"
+                                Width="{StaticResource TabControlWidth}">
+                        <TextBlock Text="ESTOQUE"
+                                   Style="{StaticResource TextBlockTabControlStyle}" />
+                        <Border Style="{StaticResource BorderTabControlStyle}" />
+                        <RadioButton Content="ENTRADA DE ESTOQUE"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                        <RadioButton Content="SAÍDA DE ESTOQUE"
+                                     Style="{StaticResource RadioButtonTabControlStyle}" />
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+        <ContentPresenter x:Name="content"
+                          Grid.Column="1"
+                          Grid.Row="1" />
+    </Grid>
+</Window>

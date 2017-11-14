@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Unisc.Massas.Client.Views.CamposEmpresaUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
+             mc:Ignorable="d">
+    <StackPanel i:EnterKeyTraversal.IsEnabled="True"
+                HorizontalAlignment="Stretch"
+                Margin="10,5,10,10">
+        <TextBox md:HintAssist.Hint="CNPJ"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 MaxLength="14"
+                 Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource RegularWidth}" />
+        <TextBox md:HintAssist.Hint="CEP"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 MaxLength="8"
+                 Text="{Binding EntidadeSelecionada.Cep, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource SmallWidth}" />
+        <TextBox md:HintAssist.Hint="Razão Social"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 MaxLength="60"
+                 Text="{Binding EntidadeSelecionada.RazaoSocial, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource XXLargeWidth}" />
+        <TextBox md:HintAssist.Hint="Apelido"
+                 MaxLength="60"
+                 Text="{Binding EntidadeSelecionada.Apelido}"
+                 Width="{StaticResource XLargeWidth}" />
+        <TextBox md:HintAssist.Hint="Logradouro"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 MaxLength="60"
+                 Text="{Binding EntidadeSelecionada.Logradouro, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource XXLargeWidth}" />
+        <TextBox md:HintAssist.Hint="Bairro"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 Text="{Binding EntidadeSelecionada.Bairro, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource XLargeWidth}" />
+        <TextBox md:HintAssist.Hint="Número"
+                 Text="{Binding EntidadeSelecionada.Numero}"
+                 Width="{StaticResource SmallWidth}" />
+        <TextBox md:HintAssist.Hint="Inscrição Estadual"
+                 Text="{Binding EntidadeSelecionada.InscEstadual}"
+                 Width="{StaticResource RegularWidth}" />
+        <TextBox md:HintAssist.Hint="Inscrição Municipal"
+                 Text="{Binding EntidadeSelecionada.InscMunicipal}"
+                 Width="{StaticResource RegularWidth}" />
+    </StackPanel>
+</UserControl>

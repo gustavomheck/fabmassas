@@ -1,0 +1,43 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <FontFamily x:Key="FontAwesome">pack://appliction;,,,/Fonts/#FontAwesome</FontFamily>
+
+    <system:Double x:Key="TextBoxSmall">120</system:Double>
+    <system:Double x:Key="TextBoxRegular">186</system:Double>
+    <system:Double x:Key="TextBoxLarge">300</system:Double>
+    <system:Double x:Key="TextBoxXLarge">400</system:Double>
+    <system:Double x:Key="TextBoxXXLarge">600</system:Double>
+
+    <system:Double x:Key="SmallWidth">120</system:Double>
+    <system:Double x:Key="RegularWidth">186</system:Double>
+    <system:Double x:Key="LargeWidth">300</system:Double>
+    <system:Double x:Key="XLargeWidth">400</system:Double>
+    <system:Double x:Key="XXLargeWidth">600</system:Double>
+
+    <system:Double x:Key="FontSizeSmaller">10</system:Double>
+    <system:Double x:Key="FontSizeSmall">12</system:Double>
+    <system:Double x:Key="FontSizeRegular">14</system:Double>
+    <system:Double x:Key="FontSizeLarge">20</system:Double>
+    <system:Double x:Key="FontSizeXLarge">24</system:Double>
+    <system:Double x:Key="FontSizeXXLarge">30</system:Double>
+
+    <system:String x:Key="FaSearch">&#xf002;</system:String>
+    <system:String x:Key="FaHome">&#xf015;</system:String>
+    <system:String x:Key="FaWpforms">&#xf298;</system:String>
+    <system:String x:Key="FaUsers">&#xf0c0;</system:String>
+    <system:String x:Key="FaBuilding">&#xf1ad;</system:String>
+    <system:String x:Key="FaPrint">&#xf02f;</system:String>
+    <system:String x:Key="FaFolder">&#xf07b;</system:String>
+    <system:String x:Key="FaFolderOpen">&#xf07c;</system:String>
+    <system:String x:Key="FaCog">&#xf013;</system:String>
+    <system:String x:Key="FaIndustry">&#xf275;</system:String>
+    <system:String x:Key="FaMoney">&#xf0d6;</system:String>
+    <system:String x:Key="FaDesktop">&#xf108;</system:String>
+    <system:String x:Key="FaTerminal">&#xf120;</system:String>
+    <system:String x:Key="FaSignOut">&#xf08b;</system:String>
+    <system:String x:Key="FaListOl">&#xf0cb;</system:String>
+    <system:String x:Key="FaQuestionCircle">&#xf059;</system:String>
+    <system:String x:Key="FaExternalLink">&#xf08e;</system:String>
+</ResourceDictionary>
