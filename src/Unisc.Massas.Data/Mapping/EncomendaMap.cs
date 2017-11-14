@@ -24,14 +24,14 @@ namespace Unisc.Massas.Data.Mapping
             Property(t => t.Status).HasColumnName("status");
 
             // Relationships
-            HasMany(t => t.TiposMassas)
-                .WithMany(t => t.Encomendas)
-                .Map(m =>
-                    {
-                        m.ToTable("encomenda_has_tipo_massa", "massas");
-                        m.MapLeftKey("EncomendaId");
-                        m.MapRightKey("TipoMassaId");
-                    });
+            //HasMany(t => t.TiposMassas)
+            //    .WithMany(t => t.Encomendas)
+            //    .Map(m =>
+            //        {
+            //            m.ToTable("encomenda_has_tipo_massa", "massas");
+            //            m.MapLeftKey("EncomendaId");
+            //            m.MapRightKey("TipoMassaId");
+            //        });
 
             HasRequired(t => t.Cliente)
                 .WithMany(t => t.Encomendas)

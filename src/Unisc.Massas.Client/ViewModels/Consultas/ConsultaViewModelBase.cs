@@ -5,12 +5,11 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Threading;
 using Unisc.Massas.Client.Views;
+using Unisc.Massas.Core;
 using Unisc.Massas.Core.Comandos;
 using Unisc.Massas.Data.Interfaces;
 using Unisc.Massas.Domain.Models;
@@ -122,7 +121,7 @@ namespace Unisc.Massas.Client.ViewModels
         /// </summary>
         protected void Carregar()
         {
-            Application.Current.Dispatcher.BeginInvoke(new Action(
+            ApplicationHelper.ExecuteAction(new Action(
                 async () =>
                 {
                     ColunasFiltro = _entidadeAux.GetColunasFiltro();
@@ -133,7 +132,7 @@ namespace Unisc.Massas.Client.ViewModels
                     };
 
                     CollectionView = cvs.View;
-                }), DispatcherPriority.Background);
+                }));
         }
 
         /// <summary>

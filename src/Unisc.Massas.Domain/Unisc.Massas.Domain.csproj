@@ -54,6 +54,7 @@
     <Compile Include="Models\FuncaoUsuario.cs" />
     <Compile Include="Models\Local.cs" />
     <Compile Include="Models\Maquina.cs" />
+    <Compile Include="Models\Pacote.cs" />
     <Compile Include="Models\Pais.cs" />
     <Compile Include="Models\Permissao.cs" />
     <Compile Include="Models\PermissaoFuncao.cs" />

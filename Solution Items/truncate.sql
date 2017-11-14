@@ -1,8 +1,8 @@
 DELETE FROM cidade; 
 DELETE FROM cliente; 
 DELETE FROM empresa; 
+DELETE FROM produto; 
 DELETE FROM encomenda; 
-DELETE FROM encomenda_has_tipo_massa; 
 DELETE FROM estado; 
 DELETE FROM estoque; 
 DELETE FROM funcao; 

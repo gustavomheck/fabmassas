@@ -84,6 +84,7 @@
     <Compile Include="Mapping\FuncaoUsuarioMap.cs" />
     <Compile Include="Mapping\LocalMap.cs" />
     <Compile Include="Mapping\MaquinaMap.cs" />
+    <Compile Include="Mapping\PacoteMap.cs" />
     <Compile Include="Mapping\PaisMap.cs" />
     <Compile Include="Mapping\PermissaoFuncaoMap.cs" />
     <Compile Include="Mapping\PermissaoMap.cs" />

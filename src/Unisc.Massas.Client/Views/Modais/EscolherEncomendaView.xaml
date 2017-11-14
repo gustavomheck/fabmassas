@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf"
+             xmlns:mm="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              Height="Auto"
@@ -28,23 +30,21 @@
 
         <TextBlock Grid.ColumnSpan="2"
                    Margin="0,20,0,0"
-                   Text="Escolha de Encomenda"
+                   Text="Acresentar Massa"
                    Style="{StaticResource TextBlockTitle}" />
 
         <StackPanel Grid.Row="1"
                     Grid.ColumnSpan="2"
                     Margin="0,20">
             <ComboBox md:HintAssist.Hint="Tipo de Massa"
+                      ItemsSource="{Binding TiposMassas}"
+                      SelectedItem="{Binding TipoMassaSelecionado}"
                       Width="300">
-                <ComboBoxItem>Massa 1</ComboBoxItem>
-                <ComboBoxItem>Massa 2</ComboBoxItem>
-                <ComboBoxItem>Massa 3</ComboBoxItem>
-                <ComboBoxItem>Massa 4</ComboBoxItem>
             </ComboBox>
 
             <TextBox md:HintAssist.Hint="Quantidade"
                      HorizontalAlignment="Center"
-                     Text="{Binding EntidadeSelecionada.Numero}"
+                     Text="{Binding Quantidade}"
                      Width="300" />
         </StackPanel>
 
@@ -54,6 +54,7 @@
                 Height="53">
             <Button Content="Confirmar"
                     Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                    IsEnabled="{Binding IsValid}"
                     FontWeight="Bold"
                     Height="Auto"
                     Width="Auto"

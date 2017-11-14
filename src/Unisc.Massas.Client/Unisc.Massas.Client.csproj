@@ -115,6 +115,7 @@
     <Compile Include="ViewModels\Estoque\EntradaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Estoque\EstoqueViewModelBase.cs" />
     <Compile Include="ViewModels\Estoque\SaidaEstoqueViewModel.cs" />
+    <Compile Include="ViewModels\Modais\EscolherEncomendaViewModel.cs" />
     <Compile Include="Views\Cadastros\CadastroClienteView.xaml.cs">
       <DependentUpon>CadastroClienteView.xaml</DependentUpon>
     </Compile>
@@ -515,9 +516,7 @@
       <Name>Unisc.Massas.Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Modais\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\icone.ico" />
   </ItemGroup>

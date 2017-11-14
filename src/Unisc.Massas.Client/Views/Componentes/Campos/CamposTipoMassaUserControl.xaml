@@ -5,14 +5,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
-             xmlns:models="clr-namespace:Unisc.Massas.Domain.Models;assembly=Unisc.Massas.Domain"
              mc:Ignorable="d">
-
-    <UserControl.Resources>
-        <ObjectDataProvider x:Key="data"
-                            ObjectType="{x:Type models:Produto}"
-                            MethodName="GetProdutos" />
-    </UserControl.Resources>
     
     <StackPanel i:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"

@@ -5,10 +5,34 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d">
+    
     <StackPanel i:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"
                 Margin="10,5,10,10">
+        <ComboBox md:HintAssist.Hint="Cliente"
+                  HorizontalAlignment="Left"
+                  Width="700">
+            <ComboBoxItem>Cliente 1</ComboBoxItem>
+            <ComboBoxItem>Cliente 2</ComboBoxItem>
+            <ComboBoxItem>Cliente 3</ComboBoxItem>
+            <ComboBoxItem>Cliente 4</ComboBoxItem>
+        </ComboBox>
 
+        <DatePicker md:HintAssist.Hint="Data de Entrega"
+                    DisplayDateStart="{x:Static s:DateTime.Today}"
+                    Width="{StaticResource LargeWidth}" />
+        <md:TimePicker md:HintAssist.Hint="Horário máximo para entrega"
+                       Width="{StaticResource LargeWidth}" />
+
+        <ComboBox md:HintAssist.Hint="Status"
+                  HorizontalAlignment="Left"
+                  Width="{StaticResource RegularWidth}">
+            <ComboBoxItem>Status 1</ComboBoxItem>
+            <ComboBoxItem>Status 2</ComboBoxItem>
+            <ComboBoxItem>Status 3</ComboBoxItem>
+            <ComboBoxItem>Status 4</ComboBoxItem>
+        </ComboBox>
     </StackPanel>
 </UserControl>

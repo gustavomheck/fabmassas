@@ -10,8 +10,10 @@
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              xmlns:s="clr-namespace:System;assembly=mscorlib"
+             xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
              mc:Ignorable="d"
              d:DesignHeight="500"
+             MaxWidth="1920"
              Background="{DynamicResource MaterialDesignPaper}">
 
     <md:DialogHost>
@@ -37,53 +39,7 @@
                 </Grid>
             </Border>
 
-            <StackPanel Grid.Row="1"
-                        x:Name="stackpanel"
-                        interface:EnterKeyTraversal.IsEnabled="True"
-                        HorizontalAlignment="Center"
-                        Margin="0,20,0,0">
-                <ComboBox md:HintAssist.Hint="Cliente"
-                          HorizontalAlignment="Stretch"
-                          Width="700">
-                    <ComboBoxItem>Cliente 1</ComboBoxItem>
-                    <ComboBoxItem>Cliente 2</ComboBoxItem>
-                    <ComboBoxItem>Cliente 3</ComboBoxItem>
-                    <ComboBoxItem>Cliente 4</ComboBoxItem>
-                </ComboBox>
-
-                <DatePicker md:HintAssist.Hint="Data de Entrega"
-                            Width="{StaticResource LargeWidth}" />
-                <md:TimePicker md:HintAssist.Hint="Horário máximo para entrega"
-                               Width="{StaticResource LargeWidth}" />
-
-                <DockPanel>
-                    <ComboBox md:HintAssist.Hint="Status"
-                              HorizontalAlignment="Left"
-                              Width="{StaticResource RegularWidth}">
-                        <ComboBoxItem>Status 1</ComboBoxItem>
-                        <ComboBoxItem>Status 2</ComboBoxItem>
-                        <ComboBoxItem>Status 3</ComboBoxItem>
-                        <ComboBoxItem>Status 4</ComboBoxItem>
-                    </ComboBox>
-
-                    <Button DockPanel.Dock="Right"
-                            Command="{Binding CadastrarCommand}"
-                            Margin="0,0,10,0"
-                            BorderThickness="0"
-                            HorizontalAlignment="Right"
-                            Width="140"
-                            Style="{StaticResource ButtonSuccess}">
-                        <DockPanel>
-                            <TextBlock DockPanel.Dock="Left"
-                                       Text="{StaticResource FaPlus}"
-                                       Style="{StaticResource TextBlockIconStyle}" />
-                            <TextBlock DockPanel.Dock="Right"
-                                       Text="Adicionar Massa"
-                                       Style="{StaticResource TextBlockContentStyle}" />
-                        </DockPanel>
-                    </Button>
-                </DockPanel>
-            </StackPanel>
+            <local:CamposEncomendaUserControl Grid.Row="1" />
 
             <DataGrid Grid.Row="2"
                       AutoGenerateColumns="False"
@@ -91,13 +47,13 @@
                       CanUserDeleteRows="False"
                       BorderBrush="{StaticResource BorderColor}"
                       BorderThickness="0"
-                      Margin="8,20"
+                      Margin="16,4,16,16"
                       IsReadOnly="True"
                       ItemsSource="{Binding CollectionView}"
                       SelectedIndex="{Binding IndiceSelecionado}"
                       SelectedItem="{Binding EntidadeSelecionada}"
                       SelectionMode="Single"
-                      Width="{StaticResource XXLargeWidth}">
+                      Width="{Binding ElementName=Wrapper, Path=ActualWidth}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">
                         <i:InvokeCommandAction Command="{Binding EditarCommand}" />
@@ -113,41 +69,34 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-            <Border Grid.Row="3"
-                    BorderThickness="0,1,0,0">
-                <StackPanel Orientation="Horizontal"
-                            Margin="15">
-                    <Button Margin="0,0,15,0"
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <local:SalvarVoltarUserControl />
+
+                <Border BorderThickness="0,1,0,0"
+                        BorderBrush="{StaticResource BorderColor}">
+                    <Button DockPanel.Dock="Right"
+                            Command="{Binding AdicionarTipoMassaCommand}"
+                            Margin="0,0,10,0"
                             BorderThickness="0"
-                            Style="{StaticResource ButtonPrimary}">
-                        <Button.CommandParameter>
-                            <s:Boolean>True</s:Boolean>
-                        </Button.CommandParameter>
+                            HorizontalAlignment="Right"
+                            Width="140"
+                            Style="{StaticResource ButtonSuccess}">
                         <DockPanel>
                             <TextBlock DockPanel.Dock="Left"
-                                       Text="{StaticResource FaSave}"
+                                       Text="{StaticResource FaPlus}"
                                        Style="{StaticResource TextBlockIconStyle}" />
                             <TextBlock DockPanel.Dock="Right"
-                                       Text="Salvar"
+                                       Text="Adicionar Massa"
                                        Style="{StaticResource TextBlockContentStyle}" />
                         </DockPanel>
                     </Button>
-
-                    <Button Command="{Binding CancelarCommand}"
-                            Margin="0"
-                            BorderThickness="0"
-                            Style="{StaticResource ButtonDefault}">
-                        <DockPanel>
-                            <TextBlock DockPanel.Dock="Left"
-                                       Text="{StaticResource FaBan}"
-                                       Style="{StaticResource TextBlockIconDarkStyle}" />
-                            <TextBlock DockPanel.Dock="Right"
-                                       Text="Cancelar"
-                                       Style="{StaticResource TextBlockContentDarkStyle}" />
-                        </DockPanel>
-                    </Button>
-                </StackPanel>
-            </Border>
+                </Border>
+            </Grid>
         </Grid>
     </md:DialogHost>
 </UserControl>

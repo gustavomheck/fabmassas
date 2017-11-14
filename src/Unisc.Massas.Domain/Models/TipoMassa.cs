@@ -12,8 +12,9 @@ namespace Unisc.Massas.Domain.Models
     {
         public TipoMassa()
         {
-            Encomendas = new ObservableCollection<Encomenda>();
+            //Encomendas = new ObservableCollection<Encomenda>();
             Ingredientes = new ObservableCollection<Produto>();
+            Pacotes = new ObservableCollection<Pacote>();
         }
         
         public int FormaId { get; set; }
@@ -33,7 +34,10 @@ namespace Unisc.Massas.Domain.Models
 
         [Required(ErrorMessage = "Selecione a Máquina")]
         public virtual Maquina Maquina { get; set; }
-        public virtual ICollection<Encomenda> Encomendas { get; set; }
+        //public virtual ICollection<Encomenda> Encomendas { get; set; }
+
+        public virtual ICollection<Pacote> Pacotes { get; set; }
+
         public virtual ICollection<Produto> Ingredientes { get; set; }
 
         public override IDictionary<string, string> GetColunasFiltro()
@@ -73,7 +77,7 @@ namespace Unisc.Massas.Domain.Models
         public override bool PodeExcluir(out string motivo)
         {
             motivo = "Esta massa não pode ser excluída porque possui encomendas";
-            return !Encomendas.Any();
+            return !Pacotes.Any();
         }
     }
 }
