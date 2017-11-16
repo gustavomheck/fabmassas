@@ -49,10 +49,8 @@
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       CanUserDeleteRows="False"
-                      IsReadOnly="True"
-                      
+                      IsReadOnly="True"                      
                       Width="{Binding ElementName=Wrapper, Path=ActualWidth}"
-                      ItemsSource="{Binding Source={StaticResource data}}"
                       SelectionMode="Single">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Ingrediente"

@@ -25,6 +25,7 @@ namespace Unisc.Massas.Client.ViewModels
         private KeyValuePair<string, string> _colunaSelecionada;
         private IDictionary<string, string> _colunasFiltro;
         private string _filtro;
+        private int _tabIndex;
 
         public ConsultaViewModelBase(string viewName)
         {
@@ -41,6 +42,7 @@ namespace Unisc.Massas.Client.ViewModels
             CarregarCommand = new DelegateCommand(Carregar);
             EditarCommand = new DelegateCommand(Editar);
             ExcluirCommand = new DelegateCommand(ExcluirAsync).ObservesCanExecute((p) => EntidadeSelecionadaHasValue);
+            VoltarCommand = new DelegateCommand(Voltar);
         }
 
         /// <summary>
@@ -109,12 +111,22 @@ namespace Unisc.Massas.Client.ViewModels
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public int TabIndex
+        {
+            get => _tabIndex;
+            set => SetValue(ref _tabIndex, value);
+        }
+
+        /// <summary>
         /// Obtém ou define o índice selecionado no DataGrid.
         /// </summary>
         public int IndiceSelecionado { get; set; }
         
         public ICommand EditarCommand { get; set; }
         public ICommand ExcluirCommand { get; set; }
+        public ICommand VoltarCommand { get; set; }
 
         /// <summary>
         /// Carrega as entidades do banco.
@@ -148,6 +160,8 @@ namespace Unisc.Massas.Client.ViewModels
         /// </summary>
         public virtual async void EditarAsync(UserControl view)
         {
+            TabIndex = 1;
+            return;
             object result = await DialogHost.Show(view, "RootDialog");
             TEntity entidade = ((EdicaoViewModelBase<TEntity>)view.DataContext).EntidadeSelecionada;
 
@@ -224,6 +238,11 @@ namespace Unisc.Massas.Client.ViewModels
             }
 
             return false;
+        }
+
+        private void Voltar()
+        {
+            TabIndex = 0;
         }
     }
 }

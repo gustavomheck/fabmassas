@@ -11,11 +11,11 @@
              Background="{DynamicResource MaterialDesignPaper}"
              SnapsToDevicePixels="True">
 
-    <i:Interaction.Triggers>
+    <!--<i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding CarregarCommand}" />
         </i:EventTrigger>
-    </i:Interaction.Triggers>
+    </i:Interaction.Triggers>-->
     
     <Grid>
         <Grid.RowDefinitions>

@@ -6,47 +6,52 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
              xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance vm:ConsultaTiposMassaViewModel}"
              d:DesignHeight="600"
              d:DesignWidth="900"
-             Background="{DynamicResource MaterialDesignPaper}">
+             >
 
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding CarregarCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
 
-        <local:TituloUserControl />
+    <ma:MetroAnimatedTabControl Background="{DynamicResource MaterialDesignPaper}"
+                                SelectedIndex="{Binding TabIndex, Mode=TwoWay}">
+        <ma:MetroTabItem TabIndex="0"
+                         Visibility="Collapsed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-        <local:FiltragemUserControl Grid.Row="1" />
+                <local:TituloUserControl />
 
-        <DataGrid Grid.Row="2"
-                  AutoGenerateColumns="False"
-                  CanUserAddRows="False"
-                  CanUserDeleteRows="False"
-                  IsReadOnly="True"
-                  Margin="20"
-                  ItemsSource="{Binding CollectionView}"
-                  SelectedIndex="{Binding IndiceSelecionado}"
-                  SelectedItem="{Binding EntidadeSelecionada}"
-                  SelectionMode="Single">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding EditarCommand}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-            <!--<DataGrid.RowDetailsTemplate>
+                <local:FiltragemUserControl Grid.Row="1" />
+
+                <DataGrid Grid.Row="2"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          CanUserDeleteRows="False"
+                          IsReadOnly="True"
+                          Margin="20"
+                          ItemsSource="{Binding CollectionView}"
+                          SelectedIndex="{Binding IndiceSelecionado}"
+                          SelectedItem="{Binding EntidadeSelecionada}"
+                          SelectionMode="Single">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding EditarCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <!--<DataGrid.RowDetailsTemplate>
                     <DataTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -86,55 +91,62 @@
                         </Grid>
                     </DataTemplate>
                 </DataGrid.RowDetailsTemplate>-->
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Nome"
-                                    Binding="{Binding NomeMassa}"
-                                    Width="30*" />
-                <DataGridTextColumn Header="Forma"
-                                    Binding="{Binding Forma.Nome}"
-                                    Width="25*" />
-                <DataGridTextColumn Header="Máquina"
-                                    Binding="{Binding Maquina.Nome}"
-                                    Width="25*" />
-                <DataGridTextColumn Header="Peso"
-                                    Binding="{Binding PesoBase, StringFormat='{}{0:###,###,##0.00}'}"
-                                    Width="10*"
-                                    MinWidth="120"
-                                    CellStyle="{StaticResource RightAlignment}" />
-                <DataGridTextColumn Header="Valor"
-                                    Binding="{Binding ValorBase, StringFormat='{}{0:###,###,##0.00}'}"
-                                    Width="10*"
-                                    MinWidth="120"
-                                    CellStyle="{StaticResource RightAlignment}" />
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Button Command="{Binding Path=DataContext.EditarCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                        ToolTip="Editar"
-                                        Style="{DynamicResource ToolButton}">
-                                    <md:PackIcon Kind="Pencil"
-                                                 Foreground="#337AB7" />
-                                </Button>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Button Command="{Binding Path=DataContext.ExcluirCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
-                                        ToolTip="Excluir"
-                                        Style="{DynamicResource ToolButton}">
-                                    <md:PackIcon Kind="Close"
-                                                 Foreground="#D9534F" />
-                                </Button>
-                            </Grid>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
-    </Grid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nome"
+                                            Binding="{Binding NomeMassa}"
+                                            Width="30*" />
+                        <DataGridTextColumn Header="Forma"
+                                            Binding="{Binding Forma.Nome}"
+                                            Width="25*" />
+                        <DataGridTextColumn Header="Máquina"
+                                            Binding="{Binding Maquina.Nome}"
+                                            Width="25*" />
+                        <DataGridTextColumn Header="Peso"
+                                            Binding="{Binding PesoBase, StringFormat='{}{0:###,###,##0.00}'}"
+                                            Width="10*"
+                                            MinWidth="120"
+                                            CellStyle="{StaticResource RightAlignment}" />
+                        <DataGridTextColumn Header="Valor"
+                                            Binding="{Binding ValorBase, StringFormat='{}{0:###,###,##0.00}'}"
+                                            Width="10*"
+                                            MinWidth="120"
+                                            CellStyle="{StaticResource RightAlignment}" />
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Button Command="{Binding Path=DataContext.EditarCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                ToolTip="Editar"
+                                                Style="{DynamicResource ToolButton}">
+                                            <md:PackIcon Kind="Pencil"
+                                                         Foreground="#337AB7" />
+                                        </Button>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Button Command="{Binding Path=DataContext.ExcluirCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                ToolTip="Excluir"
+                                                Style="{DynamicResource ToolButton}">
+                                            <md:PackIcon Kind="Close"
+                                                         Foreground="#D9534F" />
+                                        </Button>
+                                    </Grid>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </ma:MetroTabItem>
+
+        <ma:MetroTabItem TabIndex="0"
+                         Visibility="Collapsed">
+            <local:CadastroTipoMassaView />
+        </ma:MetroTabItem>
+    </ma:MetroAnimatedTabControl>
 </UserControl>
