@@ -36,6 +36,10 @@
             <c:CepFormatter x:Key="CepFormatter" />
             <c:CnpjCpfFormatter x:Key="CnpjCpfFormatter" />
             <c:InscricaoEstadualFormatter x:Key="InscricaoEstadualFormatter" />
+            <c:SelectedIndexToIsEnabledConverter x:Key="SelectedIndexToIsEnabledConverter" />
+            <c:SelectedIndexToVisibilityConverter x:Key="SelectedIndexToVisibilityConverter" />
+            <c:CnpjCpfToSelectedIndexConverter x:Key="CnpjCpfToSelectedIndexConverter" />
+            <c:TipoPessoaParaCnpjCpfConverter x:Key="TipoPessoaParaCnpjCpfConverter" />
 
             <v:NotEmptyValidationRule x:Key="NotEmptyValidationRule" />
 

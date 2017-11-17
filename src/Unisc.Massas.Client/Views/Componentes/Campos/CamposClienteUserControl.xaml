@@ -4,15 +4,128 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              mc:Ignorable="d">
-    <StackPanel i:EnterKeyTraversal.IsEnabled="True"
-                HorizontalAlignment="Stretch"
-                Margin="10,5,10,10">
-        <TextBox md:HintAssist.Hint="CNPJ"
-                 md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="14"
-                 Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                 Width="{StaticResource RegularWidth}" />
-    </StackPanel>
+    <TabControl BorderThickness="0"
+                Background="Transparent">
+        <TabItem Background="Transparent"
+                 Header="Geral">
+            <StackPanel interface:EnterKeyTraversal.IsEnabled="True"
+                        HorizontalAlignment="Stretch"
+                        Margin="10,5,10,10">
+                <ComboBox md:HintAssist.Hint="Tipo Pessoa"
+                          x:Name="comboBoxTipoPessoa"
+                          HorizontalAlignment="Left"
+                          SelectedIndex="{Binding ElementName=textBoxCnpjCpf, Path=Text}"
+                          Width="{StaticResource RegularWidth}">
+                    <ComboBoxItem>Pessoa Física</ComboBoxItem>
+                    <ComboBoxItem>Pessoa Jurídica</ComboBoxItem>
+                </ComboBox>
+                <TextBox md:HintAssist.Hint="{Binding ElementName=comboBoxTipoPessoa, Path=SelectedIndex, Converter={StaticResource TipoPessoaParaCnpjCpfConverter}}"
+                         md:ValidationAssist.OnlyShowOnFocus="True"
+                         x:Name="textBoxCnpjCpf"
+                         MaxLength="14"
+                         IsEnabled="{Binding ElementName=comboBoxTipoPessoa, Path=SelectedIndex, Converter={StaticResource SelectedIndexToIsEnabledConverter}}"
+                         Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         Width="{StaticResource RegularWidth}" />
+                <TextBox md:HintAssist.Hint="Nome"
+                         MaxLength="60"
+                         Text="{Binding EntidadeSelecionada.Nome}"
+                         Width="{StaticResource XLargeWidth}" />
+                <TextBox md:HintAssist.Hint="Site"
+                         MaxLength="60"
+                         Text="{Binding EntidadeSelecionada.Site}"
+                         Width="{StaticResource XLargeWidth}" />
+                <TextBox md:HintAssist.Hint="E-mail"
+                         MaxLength="60"
+                         Text="{Binding EntidadeSelecionada.Email}"
+                         Width="{StaticResource XLargeWidth}" />
+                <TextBox md:HintAssist.Hint="Inscrição Estadual"
+                         Text="{Binding EntidadeSelecionada.Estadual}"
+                         Visibility="{Binding ElementName=comboBoxTipoPessoa, Path=SelectedIndex, Converter={StaticResource SelectedIndexToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                         Width="{StaticResource RegularWidth}" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Background="Transparent"
+                 Header="Locais">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Button DockPanel.Dock="Right"
+                        Command="{Binding AdicionarTipoMassaCommand}"
+                        Margin="0,10,20,0"
+                        BorderThickness="0"
+                        HorizontalAlignment="Right"
+                        Width="140"
+                        Style="{StaticResource ButtonSuccess}">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left"
+                                   Text="{StaticResource FaPlus}"
+                                   Style="{StaticResource TextBlockIconStyle}" />
+                        <TextBlock DockPanel.Dock="Right"
+                                   Text="Adicionar Local"
+                                   Style="{StaticResource TextBlockContentStyle}" />
+                    </DockPanel>
+                </Button>
+            </Grid>
+        </TabItem>
+        <TabItem Background="Transparent"
+                 Header="Telefones">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Button DockPanel.Dock="Right"
+                        Command="{Binding AdicionarTipoMassaCommand}"
+                        Margin="0,10,16,0"
+                        BorderThickness="0"
+                        HorizontalAlignment="Right"
+                        Width="140"
+                        Style="{StaticResource ButtonSuccess}">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left"
+                                   Text="{StaticResource FaPlus}"
+                                   Style="{StaticResource TextBlockIconStyle}" />
+                        <TextBlock DockPanel.Dock="Right"
+                                   Text="Adicionar Telefone"
+                                   Style="{StaticResource TextBlockContentStyle}" />
+                    </DockPanel>
+                </Button>
+
+                <DataGrid Grid.Row="1"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="True"
+                          CanUserDeleteRows="False"
+                          BorderBrush="{StaticResource BorderColor}"
+                          BorderThickness="0"
+                          Margin="16"
+                          IsReadOnly="True"
+                          ItemsSource="{Binding CollectionView}"
+                          SelectedIndex="{Binding IndiceSelecionado}"
+                          SelectedItem="{Binding EntidadeSelecionada}"
+                          SelectionMode="Single"
+                          Width="{Binding ElementName=Wrapper, Path=ActualWidth}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseDoubleClick">
+                            <i:InvokeCommandAction Command="{Binding EditarCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Telefone"
+                                            Binding="{Binding Numero}"
+                                            Width="100" />
+                        <DataGridTextColumn Header="Observação"
+                                            Binding="{Binding Numero}"
+                                            Width="200" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </UserControl>

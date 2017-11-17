@@ -16,8 +16,13 @@
              MaxWidth="1920"
              Background="{DynamicResource MaterialDesignPaper}">
 
-    <md:DialogHost>
-        <Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid DataContext="{Binding CadastroEncomendaViewModel}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -68,35 +73,35 @@
                                         Width="35*" />
                 </DataGrid.Columns>
             </DataGrid>
-
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-
-                <local:SalvarVoltarUserControl />
-
-                <Border BorderThickness="0,1,0,0"
-                        BorderBrush="{StaticResource BorderColor}">
-                    <Button DockPanel.Dock="Right"
-                            Command="{Binding AdicionarTipoMassaCommand}"
-                            Margin="0,0,10,0"
-                            BorderThickness="0"
-                            HorizontalAlignment="Right"
-                            Width="140"
-                            Style="{StaticResource ButtonSuccess}">
-                        <DockPanel>
-                            <TextBlock DockPanel.Dock="Left"
-                                       Text="{StaticResource FaPlus}"
-                                       Style="{StaticResource TextBlockIconStyle}" />
-                            <TextBlock DockPanel.Dock="Right"
-                                       Text="Adicionar Massa"
-                                       Style="{StaticResource TextBlockContentStyle}" />
-                        </DockPanel>
-                    </Button>
-                </Border>
-            </Grid>
         </Grid>
-    </md:DialogHost>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <local:SalvarVoltarUserControl />
+
+            <Border BorderThickness="0,1,0,0"
+                    BorderBrush="{StaticResource BorderColor}">
+                <Button DockPanel.Dock="Right"
+                        Command="{Binding AdicionarTipoMassaCommand}"
+                        Margin="0,0,10,0"
+                        BorderThickness="0"
+                        HorizontalAlignment="Right"
+                        Width="140"
+                        Style="{StaticResource ButtonSuccess}">
+                    <DockPanel>
+                        <TextBlock DockPanel.Dock="Left"
+                                   Text="{StaticResource FaPlus}"
+                                   Style="{StaticResource TextBlockIconStyle}" />
+                        <TextBlock DockPanel.Dock="Right"
+                                   Text="Adicionar Massa"
+                                   Style="{StaticResource TextBlockContentStyle}" />
+                    </DockPanel>
+                </Button>
+            </Border>
+        </Grid>
+    </Grid>
 </UserControl>

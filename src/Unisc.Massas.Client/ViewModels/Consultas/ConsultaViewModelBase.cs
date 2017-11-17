@@ -42,6 +42,7 @@ namespace Unisc.Massas.Client.ViewModels
             CarregarCommand = new DelegateCommand(Carregar);
             EditarCommand = new DelegateCommand(Editar);
             ExcluirCommand = new DelegateCommand(ExcluirAsync).ObservesCanExecute((p) => EntidadeSelecionadaHasValue);
+            SalvarCommand = new DelegateCommand(Salvar);
             VoltarCommand = new DelegateCommand(Voltar);
         }
 
@@ -126,6 +127,7 @@ namespace Unisc.Massas.Client.ViewModels
         
         public ICommand EditarCommand { get; set; }
         public ICommand ExcluirCommand { get; set; }
+        public ICommand SalvarCommand { get; set; }
         public ICommand VoltarCommand { get; set; }
 
         /// <summary>
@@ -152,16 +154,15 @@ namespace Unisc.Massas.Client.ViewModels
         /// </summary>
         protected virtual void Editar()
         {
-            // Método deve ser sobreescrito pelas classes filhas.
+            TabIndex = 1;
         }
 
         /// <summary>
         /// Editar uma entidade.
         /// </summary>
+        [Obsolete("Sobreescrever o método Editar")]
         public virtual async void EditarAsync(UserControl view)
         {
-            TabIndex = 1;
-            return;
             object result = await DialogHost.Show(view, "RootDialog");
             TEntity entidade = ((EdicaoViewModelBase<TEntity>)view.DataContext).EntidadeSelecionada;
 
@@ -238,6 +239,54 @@ namespace Unisc.Massas.Client.ViewModels
             }
 
             return false;
+        }
+
+        protected virtual void Salvar()
+        {
+            // Override
+        }
+
+        protected void Salvar(TEntity entidade)
+        {
+            string errorMsg;
+            bool result;
+
+            if (!entidade.IsValid)
+            {
+                var view = new DialogView()
+                {
+                    DataContext = new DialogViewModel("Dados incorretos", DialogResult.OK)
+                };
+
+                DialogHost.Show(view, "RootDialog");
+                return;
+            }
+
+            if (entidade.Id == 0)
+            {
+                result = repositorio.Insert(entidade, out errorMsg);
+            }
+            else
+            {
+                result = repositorio.Update(entidade, out errorMsg);
+            }
+
+            if (!result)
+            {
+                var view = new DialogView()
+                {
+                    DataContext = new DialogViewModel("O registro não pôde ser salvo", DialogResult.OK)
+                };
+
+                DialogHost.Show(view, "RootDialog");
+            }
+            else
+            {
+                int indice = IndiceSelecionado;
+                Entidades.RemoveAt(indice);
+                Entidades.Insert(indice, entidade);
+                Voltar();
+            }
         }
 
         private void Voltar()

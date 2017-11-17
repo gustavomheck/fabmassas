@@ -14,7 +14,7 @@
                     Orientation="Horizontal"
                     HorizontalAlignment="Left">
             <Button Command="{Binding SalvarCommand}"
-                    IsEnabled="{Binding EntidadeSelecionada.IsValid}"
+                    
                     Margin="0,0,15,0"
                     Style="{StaticResource ButtonPrimary}">
                 <DockPanel>

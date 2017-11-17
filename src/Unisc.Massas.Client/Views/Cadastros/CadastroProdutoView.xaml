@@ -12,20 +12,27 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
-        <local:TituloUserControl />
 
-        <ScrollViewer Grid.Row="1"
-                      Margin="20,0,0,0"
-                      HorizontalScrollBarVisibility="Auto"
-                      VerticalScrollBarVisibility="Auto">
-            <local:CamposProdutoUserControl />
-        </ScrollViewer>
-        
+        <Grid DataContext="{Binding CadastroProdutoViewModel}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <local:TituloUserControl />
+
+            <ScrollViewer Grid.Row="1"
+                          Margin="10,8,0,0"
+                          HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Auto">
+                <local:CamposProdutoUserControl />
+            </ScrollViewer>
+        </Grid>
+
         <local:SalvarVoltarUserControl Grid.Row="2" />
     </Grid>
 </UserControl>
