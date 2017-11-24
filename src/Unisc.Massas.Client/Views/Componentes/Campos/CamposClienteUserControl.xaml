@@ -6,7 +6,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             d:DesignHeight="500"
+             d:DesignWidth="1000">
     <TabControl BorderThickness="0"
                 Background="Transparent">
         <TabItem Background="Transparent"
@@ -17,7 +19,6 @@
                 <ComboBox md:HintAssist.Hint="Tipo Pessoa"
                           x:Name="comboBoxTipoPessoa"
                           HorizontalAlignment="Left"
-                          SelectedIndex="{Binding ElementName=textBoxCnpjCpf, Path=Text}"
                           Width="{StaticResource RegularWidth}">
                     <ComboBoxItem>Pessoa Física</ComboBoxItem>
                     <ComboBoxItem>Pessoa Jurídica</ComboBoxItem>
@@ -26,7 +27,6 @@
                          md:ValidationAssist.OnlyShowOnFocus="True"
                          x:Name="textBoxCnpjCpf"
                          MaxLength="14"
-                         IsEnabled="{Binding ElementName=comboBoxTipoPessoa, Path=SelectedIndex, Converter={StaticResource SelectedIndexToIsEnabledConverter}}"
                          Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                          Width="{StaticResource RegularWidth}" />
                 <TextBox md:HintAssist.Hint="Nome"
@@ -109,8 +109,7 @@
                           ItemsSource="{Binding CollectionView}"
                           SelectedIndex="{Binding IndiceSelecionado}"
                           SelectedItem="{Binding EntidadeSelecionada}"
-                          SelectionMode="Single"
-                          Width="{Binding ElementName=Wrapper, Path=ActualWidth}">
+                          SelectionMode="Single">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="MouseDoubleClick">
                             <i:InvokeCommandAction Command="{Binding EditarCommand}" />
@@ -119,10 +118,10 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Telefone"
                                             Binding="{Binding Numero}"
-                                            Width="100" />
+                                            Width="400" />
                         <DataGridTextColumn Header="Observação"
                                             Binding="{Binding Numero}"
-                                            Width="200" />
+                                            Width="*" />
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>

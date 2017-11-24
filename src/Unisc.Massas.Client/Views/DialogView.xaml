@@ -110,6 +110,45 @@
                 </Border>
             </Grid>
         </DataTemplate>
+
+        <DataTemplate x:Key="DialogResultCancelDelete">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="50*" />
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="Silver"
+                        BorderThickness="0,1,0,0"
+                        Height="53">
+                    <Button Content="Cancelar"
+                            Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                            Height="Auto"
+                            Width="Auto"
+                            Style="{StaticResource MaterialDesignFlatButton}">
+                        <Button.CommandParameter>
+                            <sys:Boolean>False</sys:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </Border>
+                <Border Grid.Column="1"
+                        BorderBrush="Silver"
+                        BorderThickness="1,1,0,0"
+                        Height="53">
+                    <Button Content="Sim"
+                            Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                            Foreground="Red"
+                            FontWeight="Bold"
+                            Height="Auto"
+                            Width="Auto"
+                            Style="{StaticResource MaterialDesignFlatButton}">
+                        <Button.CommandParameter>
+                            <sys:Boolean>True</sys:Boolean>
+                        </Button.CommandParameter>
+                    </Button>
+                </Border>
+            </Grid>
+        </DataTemplate>
     </UserControl.Resources>
 
     <Grid>

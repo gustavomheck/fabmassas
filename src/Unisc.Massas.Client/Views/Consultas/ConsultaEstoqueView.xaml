@@ -13,75 +13,75 @@
              d:DesignWidth="900"
              Background="{DynamicResource MaterialDesignPaper}">
 
-    <md:DialogHost>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-            <local:TituloUserControl />
+        <local:TituloUserControl />
 
-            <DataGrid Grid.Row="2"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="False"
-                      CanUserDeleteRows="False"
-                      IsReadOnly="True"
-                      Margin="20"
-                      ItemsSource="{Binding CollectionView}"
-                      SelectedIndex="{Binding IndiceSelecionado}"
-                      SelectedItem="{Binding EntidadeSelecionada}"
-                      SelectionMode="Single">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding EditarCommand}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Cliente"
-                                        Binding="{Binding Cliente.Nome}"
-                                        Width="12*" />
-                    <DataGridTextColumn Header="Massa"
-                                        Binding="{Binding RazaoSocial}"
-                                        Width="21*" />
-                    <DataGridTextColumn Header="Quantidade"
-                                        Binding="{Binding QuantPacotes}"
-                                        Width="9*" />
-                    <DataGridTextColumn Header="Data"
-                                        Binding="{Binding DataPedido}"
-                                        Width="20*" />
-                    <DataGridTextColumn Header="Situação"
-                                        Binding="{Binding Status}"
-                                        Width="18*" />
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Button ToolTip="Editar"
-                                            Style="{DynamicResource ToolButton}">
-                                        <md:PackIcon Kind="Pencil"
-                                                     Foreground="#337AB7" />
-                                    </Button>
-                                </Grid>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Grid FocusVisualStyle="{x:Null}">
-                                    <Button ToolTip="Excluir"
-                                            Style="{DynamicResource ToolButton}">
-                                        <md:PackIcon Kind="Close"
-                                                     Foreground="#D9534F" />
-                                    </Button>
-                                </Grid>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
-        </Grid>
-    </md:DialogHost>
+        <local:FiltragemUserControl Grid.Row="1" />
+
+        <DataGrid Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  IsReadOnly="True"
+                  Margin="20"
+                  ItemsSource="{Binding CollectionView}"
+                  SelectedIndex="{Binding IndiceSelecionado}"
+                  SelectedItem="{Binding EntidadeSelecionada}"
+                  SelectionMode="Single">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding EditarCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Cliente"
+                                    Binding="{Binding Cliente.Nome}"
+                                    Width="12*" />
+                <DataGridTextColumn Header="Massa"
+                                    Binding="{Binding RazaoSocial}"
+                                    Width="21*" />
+                <DataGridTextColumn Header="Quantidade"
+                                    Binding="{Binding QuantPacotes}"
+                                    Width="9*" />
+                <DataGridTextColumn Header="Data"
+                                    Binding="{Binding DataPedido}"
+                                    Width="20*" />
+                <DataGridTextColumn Header="Situação"
+                                    Binding="{Binding Status}"
+                                    Width="18*" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button ToolTip="Editar"
+                                        Style="{DynamicResource ToolButton}">
+                                    <md:PackIcon Kind="Pencil"
+                                                 Foreground="#337AB7" />
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid FocusVisualStyle="{x:Null}">
+                                <Button ToolTip="Excluir"
+                                        Style="{DynamicResource ToolButton}">
+                                    <md:PackIcon Kind="Close"
+                                                 Foreground="#D9534F" />
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>

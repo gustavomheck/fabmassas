@@ -6,6 +6,7 @@ namespace Unisc.Massas.Client.ViewModels
     {
         OK,
         YesNo,
+        CancelDelete
     }
 
     public enum DialogType

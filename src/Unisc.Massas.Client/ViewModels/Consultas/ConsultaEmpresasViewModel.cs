@@ -6,7 +6,7 @@ namespace Unisc.Massas.Client.ViewModels
     public class ConsultaEmpresasViewModel : ConsultaViewModelBase<Empresa>
     {
         public ConsultaEmpresasViewModel(IEmpresaRepositorio empresaRepositorio) 
-            : base(empresaRepositorio, "Consulta de Empresas")
+            : base(empresaRepositorio, "Consulta de Empresas", "Cadastro de Empresa")
         {
             Carregar();
         }

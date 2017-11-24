@@ -58,6 +58,7 @@
                       SelectedIndex="{Binding IndiceSelecionado}"
                       SelectedItem="{Binding EntidadeSelecionada}"
                       SelectionMode="Single"
+                      HorizontalAlignment="Center"
                       Width="{Binding ElementName=Wrapper, Path=ActualWidth}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseDoubleClick">

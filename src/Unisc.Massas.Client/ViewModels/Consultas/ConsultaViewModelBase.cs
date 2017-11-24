@@ -19,86 +19,40 @@ namespace Unisc.Massas.Client.ViewModels
     public class ConsultaViewModelBase<TEntity> : ViewModelBase where TEntity : EntityBase
     {
         private readonly IRepositorio<TEntity> repositorio;
-        private ICollectionView _collectionView;
         private TEntity _entidadeAux;
-        private TEntity _entidadeSelecionada;
-        private KeyValuePair<string, string> _colunaSelecionada;
-        private IDictionary<string, string> _colunasFiltro;
         private string _filtro;
-        private int _tabIndex;
+        private string _viewNameConsulta;
+        private string _viewNameCadastro;
 
         public ConsultaViewModelBase(string viewName)
         {
             ViewName = viewName;
         }
 
-        public ConsultaViewModelBase(IRepositorio<TEntity> repositorio, string viewName)
+        public ConsultaViewModelBase(IRepositorio<TEntity> repositorio, string viewNameConsulta, string viewNameCadastro)
         {
             this.repositorio = repositorio;
-            ViewName = viewName;
+            ViewName = _viewNameConsulta = viewNameConsulta;
+            _viewNameCadastro = viewNameCadastro;
 
             _entidadeAux = Activator.CreateInstance<TEntity>();
 
             CarregarCommand = new DelegateCommand(Carregar);
             EditarCommand = new DelegateCommand(Editar);
-            ExcluirCommand = new DelegateCommand(ExcluirAsync).ObservesCanExecute((p) => EntidadeSelecionadaHasValue);
+            ExcluirCommand = new DelegateCommand(ExcluirAsync);
             SalvarCommand = new DelegateCommand(Salvar);
             VoltarCommand = new DelegateCommand(Voltar);
         }
-
-        /// <summary>
-        /// Obtém ou define todas as entidades do banco.
-        /// </summary>
+        
         public ObservableCollection<TEntity> Entidades { get; set; }
+        public ICollectionView CollectionView { get; set; }
+        public TEntity EntidadeSelecionada { get; set; }        
+        public bool EntidadeSelecionadaHasValue => EntidadeSelecionada != null;
+        public KeyValuePair<string, string> ColunaSelecionada { get; set; }
+        public IDictionary<string, string> ColunasFiltro { get; set; }
+        public int TabIndex { get; set; }
+        public int IndiceSelecionado { get; set; }
 
-        public ICollectionView CollectionView
-        {
-            get => _collectionView;
-            set => SetValue(ref _collectionView, value);
-        }
-
-        /// <summary>
-        /// Obtém ou define a entidade selecionada.
-        /// </summary>
-        public TEntity EntidadeSelecionada
-        {
-            get => _entidadeSelecionada;
-            set
-            {
-                SetValue(ref _entidadeSelecionada, value);
-                OnPropertyChanged(nameof(EntidadeSelecionadaHasValue));
-            }
-        }
-
-        /// <summary>
-        /// Obtém se a entidade selecionada possui valor.
-        /// </summary>
-        public bool EntidadeSelecionadaHasValue
-        {
-            get => EntidadeSelecionada != null;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public KeyValuePair<string, string> ColunaSelecionada
-        {
-            get => _colunaSelecionada;
-            set => SetValue(ref _colunaSelecionada, value);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public IDictionary<string, string> ColunasFiltro
-        {
-            get => _colunasFiltro;
-            set => SetValue(ref _colunasFiltro, value);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
         public string Filtro
         {
             get => _filtro;
@@ -111,20 +65,6 @@ namespace Unisc.Massas.Client.ViewModels
             }
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public int TabIndex
-        {
-            get => _tabIndex;
-            set => SetValue(ref _tabIndex, value);
-        }
-
-        /// <summary>
-        /// Obtém ou define o índice selecionado no DataGrid.
-        /// </summary>
-        public int IndiceSelecionado { get; set; }
-        
         public ICommand EditarCommand { get; set; }
         public ICommand ExcluirCommand { get; set; }
         public ICommand SalvarCommand { get; set; }
@@ -155,6 +95,7 @@ namespace Unisc.Massas.Client.ViewModels
         protected virtual void Editar()
         {
             TabIndex = 1;
+            ViewName = _viewNameCadastro;
         }
 
         /// <summary>
@@ -214,7 +155,7 @@ namespace Unisc.Massas.Client.ViewModels
             {
                 var view = new DialogView()
                 {
-                    DataContext = new DialogViewModel("Deseja remover o registro selecionado?", DialogResult.YesNo)
+                    DataContext = new DialogViewModel("Tem certeza que deseja excluir este registro?", "Excluir registro", DialogResult.CancelDelete)
                 };
                 var result = (bool?)(await DialogHost.Show(view, "RootDialog"));
 
@@ -292,6 +233,7 @@ namespace Unisc.Massas.Client.ViewModels
         private void Voltar()
         {
             TabIndex = 0;
+            ViewName = _viewNameConsulta;
         }
     }
 }

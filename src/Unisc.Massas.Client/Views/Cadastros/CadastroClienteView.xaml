@@ -8,7 +8,8 @@
              Width="Auto"
              Height="Auto"
              Background="{DynamicResource MaterialDesignPaper}"
-             SnapsToDevicePixels="True">
+             SnapsToDevicePixels="True"
+             MaxWidth="1920">
 
     <Grid>
         <Grid.RowDefinitions>

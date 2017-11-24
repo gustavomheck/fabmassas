@@ -1,9 +1,7 @@
-﻿using PropertyChanged;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class Pacote : EntityBase
     {
         public Pacote()

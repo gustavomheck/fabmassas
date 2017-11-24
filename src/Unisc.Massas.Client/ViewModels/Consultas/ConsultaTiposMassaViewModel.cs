@@ -9,7 +9,8 @@ namespace Unisc.Massas.Client.ViewModels
     {
         private readonly ITipoMassaRepositorio tipoMassaRepositorio;
 
-        public ConsultaTiposMassaViewModel(ITipoMassaRepositorio tipoMassaRepositorio) : base(tipoMassaRepositorio, "Consulta de Tipos de Massa")
+        public ConsultaTiposMassaViewModel(ITipoMassaRepositorio tipoMassaRepositorio) 
+            : base(tipoMassaRepositorio, "Consulta de Tipos de Massa", "Cadastro de Tipo de Massa")
         {
             this.tipoMassaRepositorio = tipoMassaRepositorio;            
         }

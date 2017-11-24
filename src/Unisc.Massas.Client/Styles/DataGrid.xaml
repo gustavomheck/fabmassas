@@ -124,6 +124,15 @@
         </Style.Setters>
     </Style>
 
+    <Style x:Key="HeaderRightAlignment"
+           TargetType="DataGridColumnHeader"
+           BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
+        <Style.Setters>
+            <Setter Property="TextBlock.TextAlignment"
+                    Value="Right" />
+        </Style.Setters>
+    </Style>
+
     <Style TargetType="{x:Type DataGrid}">
         <Setter Property="AutoGenerateColumns"
                 Value="False" />

@@ -73,7 +73,7 @@
         </Setter>
     </Style>-->
 
-    <Style x:Key="TextBoxPesquisaStyle"
+    <!--<Style x:Key="TextBoxPesquisaStyle"
            TargetType="{x:Type c:WatermarkTextBox}">
         <Setter Property="BorderThickness"
                 Value="0" />
@@ -127,6 +127,68 @@
                                            Style="{StaticResource ImageButtonNoText}" />
                         </Grid>
                     </md:Card>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
+    <Style x:Key="TextBoxPesquisaStyle"
+           TargetType="{x:Type c:WatermarkTextBox}">
+        <Setter Property="Background"
+                Value="#DEDEDE" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="FocusVisualStyle"
+                Value="{x:Null}" />
+        <Setter Property="FontFamily"
+                Value="{DynamicResource MaterialDesignFont}" />
+        <Setter Property="FontSize"
+                Value="11pt" />
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="5,7,5,0" />
+        <Setter Property="SnapsToDevicePixels"
+                Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type c:WatermarkTextBox}">
+                    <Grid Background="{TemplateBinding Background}"
+                          Margin="{TemplateBinding Margin}"
+                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                            <md:PackIcon Kind="Magnify"
+                                         Opacity=".56" />
+                        </Button>
+
+                        <TextBlock x:Name="PART_Placeholder"
+                                   Grid.Column="1"
+                                   Margin="8,2,10,0"
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   Text="{TemplateBinding Placeholder}"
+                                   VerticalAlignment="Center"
+                                   Foreground="#767676"
+                                   Visibility="{TemplateBinding PlaceholderVisibility}" />
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      Grid.Column="1"
+                                      Margin="1,2,10,0"
+                                      Height="Auto"
+                                      Focusable="false"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      VerticalScrollBarVisibility="Hidden" />
+                        <c:ImageButton Grid.Column="2"
+                                       x:Name="ClearButton"
+                                       Content="{DynamicResource VectorClose}"
+                                       Margin="0,0,4,0"
+                                       Visibility="{TemplateBinding ClearButtonVisibility}"
+                                       Style="{StaticResource ImageButtonNoText}" />
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

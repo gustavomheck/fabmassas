@@ -23,6 +23,10 @@ namespace Unisc.Massas.Client
                 {
                     return (DataTemplate)dialog.FindResource("DialogResultYesNo");
                 }
+                else if (dialogResult == DialogResult.CancelDelete)
+                {
+                    return (DataTemplate)dialog.FindResource("DialogResultCancelDelete");
+                }
             }
             else if (item is DialogType)
             {

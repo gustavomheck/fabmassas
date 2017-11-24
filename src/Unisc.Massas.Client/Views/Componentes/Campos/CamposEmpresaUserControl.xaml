@@ -46,5 +46,11 @@
         <TextBox md:HintAssist.Hint="Inscrição Municipal"
                  Text="{Binding EntidadeSelecionada.InscMunicipal}"
                  Width="{StaticResource RegularWidth}" />
+        <TextBox md:HintAssist.Hint="E-mail"
+                 Text="{Binding EntidadeSelecionada.Email}"
+                 Width="{StaticResource LargeWidth}" />
+        <TextBox md:HintAssist.Hint="Site"
+                 Text="{Binding EntidadeSelecionada.Site}"
+                 Width="{StaticResource LargeWidth}" />
     </StackPanel>
 </UserControl>
