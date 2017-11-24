@@ -248,7 +248,7 @@
                         </StackPanel>
                     </TabItem>
 
-                    <TabItem Header="{StaticResource FaWpforms}"
+                    <TabItem Header="{StaticResource FaList}"
                              Style="{StaticResource StandardTabItem}">
                         <StackPanel Background="{StaticResource TabControlContentColor}"
                                     Width="{StaticResource TabControlWidth}">
@@ -256,6 +256,17 @@
                                        Style="{StaticResource TextBlockTabControlStyle}" />
                             <Border Style="{StaticResource BorderTabControlStyle}" />
 
+                            <RadioButton x:Name="CadastroEmpresa"
+                                         Content="EMPRESA"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=CadastroEmpresa, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+                            
                             <RadioButton x:Name="CadastroEncomenda"
                                          Content="ENCOMENDA"
                                          Style="{StaticResource RadioButtonTabControlStyle}">

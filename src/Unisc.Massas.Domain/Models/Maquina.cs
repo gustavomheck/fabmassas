@@ -1,10 +1,8 @@
-﻿using PropertyChanged;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class Maquina : EntityBase
     {
         public Maquina()

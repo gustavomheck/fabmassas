@@ -1,8 +1,5 @@
-using PropertyChanged;
-
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class PermissaoFuncao : EntityBase
     {
         public int FuncaoId { get; set; }

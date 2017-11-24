@@ -19,33 +19,5 @@ namespace Unisc.Massas.Client.Views
             Loaded += (s, e) => Inicio.IsChecked = true;
             sair.Click += (s, e) => Close();
         }
-
-        private void EmpresasOnClick(object sender, RoutedEventArgs e)
-        {
-            ShowWindow(new ConsultaView()
-            {
-                DataContext = new ConsultaViewModel<Empresa>(DependencyFactory.Resolve<IEmpresaRepositorio>())
-                {
-                    ViewName = "Empresas"
-                }
-            });
-        }
-
-        private void ShowWindow(Window wnd)
-        {
-            wnd.Closing += delegate
-            {
-                var main = new MainWindow();
-                main.Show();
-            };
-
-            Close();
-            wnd.ShowDialog();
-        }
-
-        private void EncomendasOnClick(object sender, RoutedEventArgs e)
-        {
-            //ShowWindow(new CadastroEncomendaView());
-        }
     }
 }

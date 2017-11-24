@@ -2,7 +2,6 @@ using PropertyChanged;
 
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class Telefone : EntityBase
     {
         public int? EmpresaId { get; set; }

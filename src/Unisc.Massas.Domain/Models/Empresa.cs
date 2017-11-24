@@ -1,11 +1,9 @@
-using PropertyChanged;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class Empresa : EntityBase
     {
         public Empresa()

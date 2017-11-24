@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Unisc.Massas.Data.Interfaces;
+using Unisc.Massas.Domain.Models;
 
-namespace Unisc.Massas.Client.ViewModels.Cadastros
+namespace Unisc.Massas.Client.ViewModels
 {
-    public class CadastroProdutoViewModel : CadastroViewModel
+    public class CadastroProdutoViewModel : CadastroViewModelBase<Produto>
     {
-        public CadastroProdutoViewModel() : base("Cadastro de Produto")
+        private readonly IProdutoRepositorio produtoRepositorio;
+
+        public CadastroProdutoViewModel(IProdutoRepositorio produtoRepositorio) : base(produtoRepositorio, "Cadastro de Produto")
         {
-            
+            this.produtoRepositorio = produtoRepositorio;
         }
     }
 }

@@ -108,6 +108,7 @@
     <Compile Include="DialogTemplateSelector.cs" />
     <Compile Include="Validation\NotEmptyValidationRule.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroClienteViewModel.cs" />
+    <Compile Include="ViewModels\Cadastros\CadastroEmpresaViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroEncomendaViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroLocalViewModel.cs" />
@@ -118,6 +119,8 @@
     <Compile Include="ViewModels\Consultas\ConsultaEmpresasViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaEncomendasViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaEstoqueViewModel.cs" />
+    <Compile Include="ViewModels\Consultas\ConsultaLocaisViewModel.cs" />
+    <Compile Include="ViewModels\Consultas\ConsultaProdutosViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaTiposMassaViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaViewModelBase.cs" />
     <Compile Include="ViewModels\Estoque\EntradaEstoqueViewModel.cs" />

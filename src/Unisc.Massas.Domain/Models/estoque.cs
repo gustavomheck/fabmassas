@@ -1,12 +1,9 @@
-using PropertyChanged;
 using System;
 
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class Estoque : EntityBase
     {
-        public int Id { get; set; }
         public int ProdutoId { get; set; }
         public DateTime DataEntrada { get; set; }
         public DateTime? DataVencimento { get; set; }

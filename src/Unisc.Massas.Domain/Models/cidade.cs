@@ -1,8 +1,5 @@
-using PropertyChanged;
-
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class Cidade : EntityBase
     {
         public int EstadoId { get; set; }

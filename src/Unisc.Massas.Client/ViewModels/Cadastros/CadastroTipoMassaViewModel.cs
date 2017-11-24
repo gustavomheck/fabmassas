@@ -1,12 +1,10 @@
-﻿using PropertyChanged;
-using System;
+﻿using System;
 using Unisc.Massas.Core;
 using Unisc.Massas.Data.Interfaces;
 using Unisc.Massas.Domain.Models;
 
 namespace Unisc.Massas.Client.ViewModels
 {
-    [AddINotifyPropertyChangedInterface]
     public class CadastroTipoMassaViewModel : CadastroViewModelBase<TipoMassa>
     {
         private readonly IFormaRepositorio formaRepositorio;

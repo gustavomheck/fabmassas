@@ -1,8 +1,5 @@
-using PropertyChanged;
-
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class Local : EntityBase
     {
         public int ClienteId { get; set; }

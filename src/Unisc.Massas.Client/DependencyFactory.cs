@@ -32,9 +32,7 @@ namespace Unisc.Massas.Client
         static DependencyFactory()
         {
             var container = new UnityContainer();
-
-            container.RegisterType(typeof(CadastroViewModel<>));
-            container.RegisterType(typeof(ConsultaViewModel<>));
+            
             container.RegisterType<MainWindowViewModel>();
             container.RegisterType<IDialogService, DialogService>();
             container.RegisterType<IClienteRepositorio, ClienteRepositorio>();
@@ -70,10 +68,10 @@ namespace Unisc.Massas.Client
         /// <summary>
         /// Resolves the type parameter T to an instance of the appropriate type.
         /// </summary>
-        public static object Resolve<T1, T2>() where T1 : CadastroViewModel
-                                               where T2 : class, IEntity
-        {
-            return Container.Resolve(typeof(CadastroViewModel<>).MakeGenericType(typeof(T2)));
-        }
+        //public static object Resolve<T1, T2>() where T1 : CadastroViewModel
+        //                                       where T2 : class, IEntity
+        //{
+        //    return Container.Resolve(typeof(CadastroViewModel<>).MakeGenericType(typeof(T2)));
+        //}
     }
 }

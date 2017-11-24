@@ -1,10 +1,15 @@
-﻿namespace Unisc.Massas.Client.ViewModels.Cadastros
+﻿using Unisc.Massas.Data.Interfaces;
+using Unisc.Massas.Domain.Models;
+
+namespace Unisc.Massas.Client.ViewModels
 {
-    public class CadastroClienteViewModel : CadastroViewModel
+    public class CadastroClienteViewModel : CadastroViewModelBase<Cliente>
     {
-        public CadastroClienteViewModel() : base("Cadastro de Cliente")
+        private readonly IClienteRepositorio clienteRepositorio;
+
+        public CadastroClienteViewModel(IClienteRepositorio clienteRepositorio) : base(clienteRepositorio, "Cadastro de Cliente")
         {
-                
+            this.clienteRepositorio = clienteRepositorio;
         }
     }
 }

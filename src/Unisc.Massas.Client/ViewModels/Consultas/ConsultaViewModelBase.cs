@@ -105,7 +105,7 @@ namespace Unisc.Massas.Client.ViewModels
         public virtual async void EditarAsync(UserControl view)
         {
             object result = await DialogHost.Show(view, "RootDialog");
-            TEntity entidade = ((EdicaoViewModelBase<TEntity>)view.DataContext).EntidadeSelecionada;
+            TEntity entidade = default(TEntity);
 
             if (result is bool?)
             {

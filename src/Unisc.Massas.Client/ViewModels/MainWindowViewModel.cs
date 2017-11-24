@@ -36,6 +36,12 @@ namespace Unisc.Massas.Client.ViewModels
         {
             switch (op)
             {
+                case "CadastroEmpresa":
+                    Content = new CadastroEmpresaView()
+                    {
+                        DataContext = DependencyFactory.Resolve<CadastroEmpresaViewModel>()
+                    };
+                    break;
                 case "CadastroEncomenda":
                     Content = new CadastroEncomendaView()
                     {

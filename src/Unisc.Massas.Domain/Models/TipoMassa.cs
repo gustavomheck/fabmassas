@@ -1,4 +1,3 @@
-using PropertyChanged;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -7,7 +6,6 @@ using System.Linq;
 
 namespace Unisc.Massas.Domain.Models
 {
-    [AddINotifyPropertyChangedInterface]
     public class TipoMassa : EntityBase
     {
         public TipoMassa()
