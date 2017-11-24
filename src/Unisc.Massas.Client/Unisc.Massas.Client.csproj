@@ -120,8 +120,6 @@
     <Compile Include="ViewModels\Consultas\ConsultaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaTiposMassaViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaViewModelBase.cs" />
-    <Compile Include="ViewModels\Edições\EdicaoTipoMassaViewModel.cs" />
-    <Compile Include="ViewModels\Edições\EdicaoViewModelBase.cs" />
     <Compile Include="ViewModels\Estoque\EntradaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Estoque\EstoqueViewModelBase.cs" />
     <Compile Include="ViewModels\Estoque\SaidaEstoqueViewModel.cs" />
@@ -183,9 +181,6 @@
     <Compile Include="Views\Componentes\TituloUserControl.xaml.cs">
       <DependentUpon>TituloUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Testes\ConsultaClienteView.xaml.cs">
-      <DependentUpon>ConsultaClienteView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Consultas\ConsultaClientesView.xaml.cs">
       <DependentUpon>ConsultaClientesView.xaml</DependentUpon>
     </Compile>
@@ -201,23 +196,8 @@
     <Compile Include="Views\Consultas\ConsultaTiposMassaView.xaml.cs">
       <DependentUpon>ConsultaTiposMassaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DialogView.xaml.cs">
+    <Compile Include="Views\Modais\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Edições\EdicaoClienteView.xaml.cs">
-      <DependentUpon>EdicaoClienteView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Edições\EdicaoEmpresaView.xaml.cs">
-      <DependentUpon>EdicaoEmpresaView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Edições\EdicaoLocalView.xaml.cs">
-      <DependentUpon>EdicaoLocalView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Edições\EdicaoProdutoView.xaml.cs">
-      <DependentUpon>EdicaoProdutoView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Edições\EdicaoTipoMassaView.xaml.cs">
-      <DependentUpon>EdicaoTipoMassaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Estoque\EntradaEstoqueView.xaml.cs">
       <DependentUpon>EntradaEstoqueView.xaml</DependentUpon>
@@ -230,15 +210,6 @@
     </Compile>
     <Compile Include="Views\Modais\EscolherEncomendaView.xaml.cs">
       <DependentUpon>EscolherEncomendaView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Testes\Clientes.xaml.cs">
-      <DependentUpon>Clientes.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Testes\Controles.xaml.cs">
-      <DependentUpon>Controles.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Testes\VerticalTabControl.xaml.cs">
-      <DependentUpon>VerticalTabControl.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\FontAwesome.xaml">
       <SubType>Designer</SubType>
@@ -376,10 +347,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Testes\ConsultaClienteView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Consultas\ConsultaClientesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -400,31 +367,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Testes\ConsultaView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\DialogView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Edições\EdicaoClienteView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Edições\EdicaoEmpresaView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Edições\EdicaoLocalView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Edições\EdicaoProdutoView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Edições\EdicaoTipoMassaView.xaml">
+    <Page Include="Views\Modais\DialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -445,16 +388,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DependencyFactory.cs" />
-    <Compile Include="ViewModels\CadastroViewModel.cs" />
-    <Compile Include="ViewModels\ConsultaViewModel.cs" />
-    <Compile Include="ViewModels\DialogViewModel.cs" />
+    <Compile Include="ViewModels\Modais\DialogViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\Cadastros\CadastroEmpresaView.xaml.cs">
       <DependentUpon>CadastroEmpresaView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Testes\ConsultaView.xaml.cs">
-      <DependentUpon>ConsultaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -465,18 +403,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Modais\EscolherEncomendaView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Testes\Clientes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Testes\Controles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Testes\VerticalTabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
