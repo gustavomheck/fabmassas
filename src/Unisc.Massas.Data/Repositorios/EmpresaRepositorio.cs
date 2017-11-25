@@ -10,6 +10,7 @@ namespace Unisc.Massas.Data.Repositorios
     {
         public override Task<ObservableCollection<Empresa>> GetAllAsNoTrackingAsync()
         {
+            return base.GetAllAsNoTrackingAsync();
             return Task.Run(() => 
             {
                 return new ObservableCollection<Empresa>()

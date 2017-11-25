@@ -289,6 +289,28 @@
                                 </i:Interaction.Triggers>
                             </RadioButton>
 
+                            <RadioButton x:Name="CadastroForma"
+                                         Content="FORMA"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=CadastroForma, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+                            
+                            <RadioButton x:Name="CadastroMaquina"
+                                         Content="MÁQUINA"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=CadastroMaquina, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+
                             <RadioButton x:Name="CadastroProduto"
                                          Content="PRODUTO"
                                          Style="{StaticResource RadioButtonTabControlStyle}">
@@ -300,13 +322,24 @@
                                 </i:Interaction.Triggers>
                             </RadioButton>
 
-                            <RadioButton x:Name="CadastroTipoDeMassa"
+                            <RadioButton x:Name="CadastroTipoMassa"
                                          Content="TIPO DE MASSA"
                                          Style="{StaticResource RadioButtonTabControlStyle}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Checked">
                                         <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
-                                                               CommandParameter="{Binding ElementName=CadastroTipoDeMassa, Path=Name}" />
+                                                               CommandParameter="{Binding ElementName=CadastroTipoMassa, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+
+                            <RadioButton x:Name="CadastroUnidadeMedida"
+                                         Content="UNIDADE DE MEDIDA"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=CadastroUnidadeMedida, Path=Name}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </RadioButton>
@@ -365,13 +398,46 @@
                                 </i:Interaction.Triggers>
                             </RadioButton>
 
-                            <RadioButton x:Name="ConsultaTiposDeMassa"
+                            <RadioButton x:Name="ConsultaFormas"
+                                         Content="FORMAS"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=ConsultaFormas, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+
+                            <RadioButton x:Name="ConsultaMaquinas"
+                                         Content="MÁQUINAS"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=ConsultaMaquinas, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+
+                            <RadioButton x:Name="ConsultaTiposMassa"
                                          Content="TIPOS DE MASSA"
                                          Style="{StaticResource RadioButtonTabControlStyle}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Checked">
                                         <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
-                                                               CommandParameter="{Binding ElementName=ConsultaTiposDeMassa, Path=Name}" />
+                                                               CommandParameter="{Binding ElementName=ConsultaTiposMassa, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+
+                            <RadioButton x:Name="ConsultaUnidadesMedida"
+                                         Content="UNIDADES DE MEDIDA"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=ConsultaUnidadesMedida, Path=Name}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </RadioButton>

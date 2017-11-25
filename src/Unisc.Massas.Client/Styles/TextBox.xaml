@@ -162,7 +162,8 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Button Style="{DynamicResource MaterialDesignToolButton}">
+                        <Button Margin="18,0,0,0"
+                                Style="{DynamicResource MaterialDesignToolButton}">
                             <md:PackIcon Kind="Magnify"
                                          Opacity=".56" />
                         </Button>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Unity;
+using System;
 using Unisc.Massas.Client.ViewModels;
 using Unisc.Massas.Core.Servicos;
 using Unisc.Massas.Data.Interfaces;
@@ -59,12 +60,22 @@ namespace Unisc.Massas.Client
         /// <summary>
         /// Resolves the type parameter T to an instance of the appropriate type.
         /// </summary>
-        /// <typeparam name="T">Type of object to return</typeparam>
+        /// <typeparam name="T">Type of object to return.</typeparam>
         public static T Resolve<T>()
         {
             return Container.Resolve<T>();
         }
-        
+
+        /// <summary>
+        /// Resolves the type parameter T to an instance of the appropriate type.
+        /// </summary>
+        /// <param name="type">The type to be resolved.</param>
+        /// <returns>The resolved type as an object.</returns>
+        public static object Resolve(Type type)
+        {
+            return Container.Resolve(type);
+        }
+
         /// <summary>
         /// Resolves the type parameter T to an instance of the appropriate type.
         /// </summary>

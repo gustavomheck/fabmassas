@@ -16,7 +16,7 @@ namespace Unisc.Massas.Data.Mapping
                 .HasMaxLength(14);
 
             Property(t => t.InscEstadual)
-                .HasMaxLength(12);
+                .HasMaxLength(14);
 
             Property(t => t.InscMunicipal)
                 .HasMaxLength(12);
