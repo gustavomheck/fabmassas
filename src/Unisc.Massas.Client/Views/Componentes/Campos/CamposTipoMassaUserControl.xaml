@@ -15,22 +15,49 @@
                  MaxLength="45"
                  Text="{Binding EntidadeSelecionada.NomeMassa, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource XLargeWidth}" />
-        <ComboBox md:HintAssist.Hint="Forma"
-                  HorizontalAlignment="Left"
-                  DisplayMemberPath="Nome"
-                  ItemsSource="{Binding Formas}"
-                  SelectedItem="{Binding EntidadeSelecionada.Forma, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedValue="{Binding EntidadeSelecionada.FormaId}"
-                  SelectedValuePath="Id"
-                  Width="{StaticResource XLargeWidth}" />
-        <ComboBox md:HintAssist.Hint="Máquina"
-                  HorizontalAlignment="Left"
-                  DisplayMemberPath="Nome"
-                  ItemsSource="{Binding Maquinas}"
-                  SelectedItem="{Binding EntidadeSelecionada.Maquina, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedValue="{Binding EntidadeSelecionada.MaquinaId}"
-                  SelectedValuePath="Id"
-                  Width="{StaticResource XLargeWidth}" />
+        
+        <DockPanel>
+            <ComboBox md:HintAssist.Hint="Forma"
+                      HorizontalAlignment="Left"
+                      DisplayMemberPath="Nome"
+                      ItemsSource="{Binding Formas}"
+                      SelectedItem="{Binding EntidadeSelecionada.Forma, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedValue="{Binding EntidadeSelecionada.FormaId}"
+                      SelectedValuePath="Id"
+                      Width="{StaticResource XLargeWidth}" />
+            <Button Command="{Binding CadastrarFormaCommand}"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    ToolTip="Cadastrar Forma"
+                    Style="{DynamicResource ToolButton}">
+                <md:PackIcon Height="20"
+                             Width="20"
+                             Kind="Plus"
+                             Foreground="Green" />
+            </Button>
+        </DockPanel>
+        
+        <DockPanel>
+            <ComboBox md:HintAssist.Hint="Máquina"
+                      HorizontalAlignment="Left"
+                      DisplayMemberPath="Nome"
+                      ItemsSource="{Binding Maquinas}"
+                      SelectedItem="{Binding EntidadeSelecionada.Maquina, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedValue="{Binding EntidadeSelecionada.MaquinaId}"
+                      SelectedValuePath="Id"
+                      Width="{StaticResource XLargeWidth}" />
+            <Button Command="{Binding CadastrarMaquinaCommand}"
+                    HorizontalAlignment="Left"
+                    Margin="10,0,0,0"
+                    ToolTip="Cadastrar Máquina"
+                    Style="{DynamicResource ToolButton}">
+                <md:PackIcon Height="20"
+                             Width="20"
+                             Kind="Plus"
+                             Foreground="Green" />
+            </Button>
+        </DockPanel>
+        
         <TextBox md:HintAssist.Hint="Peso no pacote (kg)"
                  md:ValidationAssist.OnlyShowOnFocus="True"
                  MaxLength="45"

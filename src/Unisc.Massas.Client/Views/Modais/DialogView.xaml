@@ -26,7 +26,8 @@
         <c:DialogTemplateSelector x:Key="DialogTemplateSelector" />
 
         <DataTemplate x:Key="DialogTypeCaption">
-            <TextBlock Text="{Binding Path=DataContext.Titulo, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+            <TextBlock Margin="10,0"
+                       Text="{Binding Path=DataContext.Titulo, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                        TextAlignment="Center"
                        TextWrapping="Wrap"
                        HorizontalAlignment="Center"
@@ -135,10 +136,9 @@
                         BorderBrush="Silver"
                         BorderThickness="1,1,0,0"
                         Height="53">
-                    <Button Content="Sim"
+                    <Button Content="Excluir"
                             Command="{x:Static md:DialogHost.CloseDialogCommand}"
                             Foreground="Red"
-                            FontWeight="Bold"
                             Height="Auto"
                             Width="Auto"
                             Style="{StaticResource MaterialDesignFlatButton}">

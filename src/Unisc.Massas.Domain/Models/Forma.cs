@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Unisc.Massas.Domain.Models
 {
@@ -33,6 +35,20 @@ namespace Unisc.Massas.Domain.Models
                     return forma.Nome.ToUpper().Contains(value.ToUpper());
                 default:
                     return true;
+            }
+        }
+
+        public override bool PodeExcluir(out string motivo)
+        {
+            if (TiposMassas.Any())
+            {
+                motivo = "A Forma não pode ser excluída porque existem massas que a usam.";
+                return false;
+            }
+            else
+            {
+                motivo = String.Empty;
+                return true;
             }
         }
     }

@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Unisc.Massas.Domain.Models
 {
@@ -41,5 +43,21 @@ namespace Unisc.Massas.Domain.Models
                     return true;
             }
         }
+
+        public override bool PodeExcluir(out string motivo)
+        {
+            if (Produtos.Any())
+            {
+                motivo = "A Unidade de Medida não pode ser excluída porque existem produtos com esta unidade.";
+                return false;
+            }
+            else
+            {
+                motivo = String.Empty;
+                return true;
+            }
+        }
+
+        public override string ToString() => Nome + " - " + Sigla;
     }
 }

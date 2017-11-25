@@ -16,7 +16,7 @@ namespace Unisc.Massas.Domain.Models
         public string Nome { get; set; }
         public decimal ValorBase { get; set; }
         public double QtdeMinimaEstoque { get; set; }
-        public string IsIngrediente { get; set; }
+        public bool IsIngrediente { get; set; }
         public virtual UnidadeMedida UnidadeMedida { get; set; }
         public virtual ICollection<Estoque> Estoques { get; set; }
         public virtual ICollection<TipoMassa> TiposMassas { get; set; }

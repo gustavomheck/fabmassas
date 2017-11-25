@@ -6,10 +6,8 @@
              xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-             xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
              xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance vm:ConsultaEstoqueViewModel}"
              d:DesignHeight="600"
              d:DesignWidth="900"
              Background="{DynamicResource MaterialDesignPaper}">
@@ -88,7 +86,8 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid>
-                                            <Button ToolTip="Editar"
+                                            <Button Command="{Binding Path=DataContext.EditarCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                    ToolTip="Editar"
                                                     Style="{DynamicResource ToolButton}">
                                                 <md:PackIcon Kind="Pencil"
                                                              Foreground="#337AB7" />
@@ -100,7 +99,7 @@
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid FocusVisualStyle="{x:Null}">
+                                        <Grid>
                                             <Button Command="{Binding Path=DataContext.ExcluirCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
                                                     ToolTip="Excluir"
                                                     Style="{DynamicResource ToolButton}">
@@ -130,7 +129,7 @@
                         <local:CamposEmpresaUserControl DataContext="{Binding CadastroEmpresaViewModel}" />
                     </ScrollViewer>
 
-                    <local:SalvarVoltarUserControl Grid.Row="1" />
+                    <local:SalvarExcluirVoltarUserControl Grid.Row="1" />
                 </Grid>
             </ma:MetroTabItem>
         </ma:MetroAnimatedTabControl>

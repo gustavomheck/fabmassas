@@ -10,7 +10,7 @@
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Início"
+        Title="Martin Massas"
         Icon="/Resources/icone16px.ico"
         Height="500"
         Width="800"
@@ -256,6 +256,17 @@
                                        Style="{StaticResource TextBlockTabControlStyle}" />
                             <Border Style="{StaticResource BorderTabControlStyle}" />
 
+                            <RadioButton x:Name="CadastroCliente"
+                                         Content="CLIENTE"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=CadastroCliente, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+                            
                             <RadioButton x:Name="CadastroEmpresa"
                                          Content="EMPRESA"
                                          Style="{StaticResource RadioButtonTabControlStyle}">
@@ -274,17 +285,6 @@
                                     <i:EventTrigger EventName="Checked">
                                         <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
                                                                CommandParameter="{Binding ElementName=CadastroEncomenda, Path=Name}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </RadioButton>
-
-                            <RadioButton x:Name="CadastroCliente"
-                                         Content="CLIENTE"
-                                         Style="{StaticResource RadioButtonTabControlStyle}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
-                                                               CommandParameter="{Binding ElementName=CadastroCliente, Path=Name}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </RadioButton>
@@ -354,6 +354,17 @@
                                        Style="{StaticResource TextBlockTabControlStyle}" />
                             <Border Style="{StaticResource BorderTabControlStyle}" />
 
+                            <RadioButton x:Name="ConsultaClientes"
+                                         Content="CLIENTES"
+                                         Style="{StaticResource RadioButtonTabControlStyle}">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Checked">
+                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
+                                                               CommandParameter="{Binding ElementName=ConsultaClientes, Path=Name}" />
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </RadioButton>
+                            
                             <RadioButton x:Name="ConsultaEmpresas"
                                          Content="EMPRESAS"
                                          Style="{StaticResource RadioButtonTabControlStyle}">
@@ -372,17 +383,6 @@
                                     <i:EventTrigger EventName="Checked">
                                         <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
                                                                CommandParameter="{Binding ElementName=ConsultaEncomendas, Path=Name}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </RadioButton>
-
-                            <RadioButton x:Name="ConsultaClientes"
-                                         Content="CLIENTES"
-                                         Style="{StaticResource RadioButtonTabControlStyle}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
-                                                               CommandParameter="{Binding ElementName=ConsultaClientes, Path=Name}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </RadioButton>

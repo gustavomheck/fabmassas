@@ -166,6 +166,7 @@ namespace Unisc.Massas.Client.ViewModels
                     if (repositorio.Delete(EntidadeSelecionada, out var errorMessage))
                     {
                         Entidades.RemoveAt(indice);
+                        TabIndex = 0;
                         return true;
                     }
                 }

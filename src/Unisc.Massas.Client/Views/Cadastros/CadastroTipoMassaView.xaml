@@ -11,19 +11,13 @@
              Background="{DynamicResource MaterialDesignPaper}"
              SnapsToDevicePixels="True">
 
-    <!--<i:Interaction.Triggers>
-        <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding CarregarCommand}" />
-        </i:EventTrigger>
-    </i:Interaction.Triggers>-->
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid DataContext="{Binding CadastroTipoMassaViewModel}">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
@@ -40,6 +34,6 @@
             </ScrollViewer>
         </Grid>
 
-        <local:SalvarVoltarUserControl Grid.Row="1" />
+        <local:SalvarUserControl Grid.Row="1" />
     </Grid>    
 </UserControl>

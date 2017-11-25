@@ -18,10 +18,7 @@ namespace Unisc.Massas.Data.Mapping
             Property(t => t.Nome)
                 .IsRequired()
                 .HasMaxLength(45);
-
-            Property(t => t.IsIngrediente)
-                .HasMaxLength(45);
-
+            
             // Table & Column Mappings
             ToTable("produto", "massas");
             Property(t => t.Id).HasColumnName("Id");

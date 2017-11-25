@@ -12,5 +12,22 @@ namespace Unisc.Massas.Client.ViewModels
         {
             this.formaRepositorio = formaRepositorio;
         }
+
+        public CadastroFormaViewModel CadastroFormaViewModel { get; set; }
+
+        protected override void Editar()
+        {
+            if (CadastroFormaViewModel == null)
+                CadastroFormaViewModel = DependencyFactory.Resolve<CadastroFormaViewModel>();
+
+            CadastroFormaViewModel.EntidadeSelecionada = formaRepositorio.GetById(EntidadeSelecionada.Id);
+            base.Editar();
+        }
+
+        protected override void Salvar()
+        {
+            base.Salvar();
+            Salvar(CadastroFormaViewModel.EntidadeSelecionada);
+        }
     }
 }

@@ -26,6 +26,6 @@
             <local:CamposMaquinaUserControl />
         </ScrollViewer>
 
-        <local:SalvarVoltarUserControl Grid.Row="2" />
+        <local:SalvarUserControl Grid.Row="2" />
     </Grid>
 </UserControl>

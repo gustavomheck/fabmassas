@@ -8,9 +8,7 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:ma="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
-             xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
              mc:Ignorable="d"
-             d:DataContext="{d:DesignInstance vm:ConsultaTiposMassaViewModel}"
              d:DesignHeight="600"
              d:DesignWidth="900">
 
@@ -163,7 +161,7 @@
                         <local:CamposTipoMassaUserControl DataContext="{Binding CadastroTipoMassaViewModel}" />
                     </ScrollViewer>
 
-                    <local:SalvarVoltarUserControl Grid.Row="1" />
+                    <local:SalvarExcluirVoltarUserControl Grid.Row="1" />
                 </Grid>
             </ma:MetroTabItem>
         </ma:MetroAnimatedTabControl>

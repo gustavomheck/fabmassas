@@ -11,35 +11,48 @@
                 Margin="10,5,10,10">
         <TextBox md:HintAssist.Hint="Nome"
                  md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="14"
-                 Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 MaxLength="45"
+                 Text="{Binding EntidadeSelecionada.Nome, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource XXLargeWidth}" />
         <TextBox md:HintAssist.Hint="Código"
                  md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="14"
-                 Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 MaxLength="60"
+                 Text="{Binding EntidadeSelecionada.Codigo, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource XLargeWidth}" />
         <TextBox md:HintAssist.Hint="Preço base"
                  md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="14"
-                 Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding EntidadeSelecionada.ValorBase, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource LargeWidth}" />
         <TextBox md:HintAssist.Hint="Quantidade mínima em estoque"
                  md:ValidationAssist.OnlyShowOnFocus="True"
                  MaxLength="14"
-                 Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding EntidadeSelecionada.QtdeMinimaEstoque, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource LargeWidth}" />
-        <ComboBox md:HintAssist.Hint="Unidade de Medida"
-                  HorizontalAlignment="Left"
-                  Margin="8,16,8,8"
-                  Width="{StaticResource XLargeWidth}">
-            <ComboBoxItem>Massa 1</ComboBoxItem>
-            <ComboBoxItem>Massa 2</ComboBoxItem>
-            <ComboBoxItem>Massa 3</ComboBoxItem>
-            <ComboBoxItem>Massa 4</ComboBoxItem>
-        </ComboBox>
+        <DockPanel>
+            <ComboBox md:HintAssist.Hint="Unidade de Medida"
+                      HorizontalAlignment="Left"
+                      Margin="8,16,8,8"
+                      ItemsSource="{Binding UnidadesMedida}"
+                      SelectedItem="{Binding EntidadeSelecionada.UnidadeMedida}"
+                      SelectedValue="{Binding EntidadeSelecionada.Id}"
+                      SelectedValuePath="Id"
+                      Width="{StaticResource XLargeWidth}" />
+            
+            <Button Command="{Binding CadastrarUnidadeMedidaCommand}"     
+                    HorizontalAlignment="Left"
+                    Margin="10,10,0,0"
+                    ToolTip="Cadastrar Unidade de Medida"
+                    Style="{DynamicResource ToolButton}">
+                <md:PackIcon Height="20"
+                             Width="20"
+                             Kind="Plus"
+                             Foreground="Green" />
+            </Button>
+
+        </DockPanel>
 
         <CheckBox Content="Ingrediente"
+                  IsChecked="{Binding EntidadeSelecionada.IsIngrediente}"
                   Margin="8,16,8,8" />
     </StackPanel>
 </UserControl>

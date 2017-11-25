@@ -82,7 +82,7 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <local:SalvarVoltarUserControl />
+            <local:SalvarUserControl />
 
             <Border BorderThickness="0,1,0,0"
                     BorderBrush="{StaticResource BorderColor}">

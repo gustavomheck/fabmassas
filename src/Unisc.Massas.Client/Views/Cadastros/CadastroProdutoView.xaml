@@ -16,7 +16,7 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <Grid DataContext="{Binding CadastroProdutoViewModel}">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
@@ -33,6 +33,6 @@
             </ScrollViewer>
         </Grid>
 
-        <local:SalvarVoltarUserControl Grid.Row="2" />
+        <local:SalvarUserControl Grid.Row="2" />
     </Grid>
 </UserControl>

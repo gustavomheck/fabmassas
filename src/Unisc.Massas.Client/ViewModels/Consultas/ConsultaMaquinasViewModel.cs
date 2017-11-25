@@ -12,5 +12,22 @@ namespace Unisc.Massas.Client.ViewModels
         {
             this.maquinaRepositorio = maquinaRepositorio;
         }
+
+        public CadastroMaquinaViewModel CadastroMaquinaViewModel { get; set; }
+
+        protected override void Editar()
+        {
+            if (CadastroMaquinaViewModel == null)
+                CadastroMaquinaViewModel = DependencyFactory.Resolve<CadastroMaquinaViewModel>();
+
+            CadastroMaquinaViewModel.EntidadeSelecionada = maquinaRepositorio.GetById(EntidadeSelecionada.Id);
+            base.Editar();
+        }
+
+        protected override void Salvar()
+        {
+            base.Salvar();
+            Salvar(CadastroMaquinaViewModel.EntidadeSelecionada);
+        }
     }
 }

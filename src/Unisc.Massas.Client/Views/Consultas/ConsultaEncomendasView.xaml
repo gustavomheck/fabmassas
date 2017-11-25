@@ -7,9 +7,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
-             xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
              mc:Ignorable="d" 
-             d:DataContext="{d:DesignInstance vm:ConsultaEncomendasViewModel}"
              d:DesignHeight="600" 
              d:DesignWidth="900"
              Background="{DynamicResource MaterialDesignPaper}">
@@ -76,7 +74,8 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Grid>
-                                            <Button ToolTip="Editar"
+                                            <Button Command="{Binding Path=DataContext.EditarCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                    ToolTip="Editar"
                                                     Style="{DynamicResource ToolButton}">
                                                 <md:PackIcon Kind="Pencil"
                                                              Foreground="#337AB7" />
@@ -88,7 +87,7 @@
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Grid FocusVisualStyle="{x:Null}">
+                                        <Grid>
                                             <Button ToolTip="Excluir"
                                                     Style="{DynamicResource ToolButton}">
                                                 <md:PackIcon Kind="Close"
@@ -117,7 +116,7 @@
                         <local:CamposEncomendaUserControl DataContext="{Binding CadastroEncomendaViewModel}" />
                     </ScrollViewer>
 
-                    <local:SalvarVoltarUserControl Grid.Row="1" />
+                    <local:SalvarExcluirVoltarUserControl Grid.Row="1" />
                 </Grid>
             </ma:MetroTabItem>
         </ma:MetroAnimatedTabControl>        

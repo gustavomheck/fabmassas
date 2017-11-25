@@ -133,6 +133,7 @@
     <Compile Include="ViewModels\Estoque\EstoqueViewModelBase.cs" />
     <Compile Include="ViewModels\Estoque\SaidaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Modais\EscolherEncomendaViewModel.cs" />
+    <Compile Include="ViewModels\Modais\ModalViewModelBase.cs" />
     <Compile Include="Views\Cadastros\CadastroClienteView.xaml.cs">
       <DependentUpon>CadastroClienteView.xaml</DependentUpon>
     </Compile>
@@ -196,11 +197,20 @@
     <Compile Include="Views\Componentes\CancelarExcluirSalvarUserControl.xaml.cs">
       <DependentUpon>CancelarExcluirSalvarUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Componentes\CancelarSalvarUserControl.xaml.cs">
+      <DependentUpon>CancelarSalvarUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Componentes\FiltragemUserControl.xaml.cs">
       <DependentUpon>FiltragemUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Componentes\SalvarExcluirLimparUserControl.xaml.cs">
       <DependentUpon>SalvarExcluirLimparUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Componentes\SalvarExcluirVoltarUserControl.xaml.cs">
+      <DependentUpon>SalvarExcluirVoltarUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Componentes\SalvarUserControl.xaml.cs">
+      <DependentUpon>SalvarUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Componentes\SalvarVoltarUserControl.xaml.cs">
       <DependentUpon>SalvarVoltarUserControl.xaml</DependentUpon>
@@ -226,11 +236,23 @@
     <Compile Include="Views\Consultas\ConsultaMaquinasView.xaml.cs">
       <DependentUpon>ConsultaMaquinasView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Consultas\ConsultaProdutosView.xaml.cs">
+      <DependentUpon>ConsultaProdutosView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Consultas\ConsultaTiposMassaView.xaml.cs">
       <DependentUpon>ConsultaTiposMassaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Consultas\ConsultaUnidadesMedidaView.xaml.cs">
       <DependentUpon>ConsultaUnidadesMedidaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modais\AdicionarFormaView.xaml.cs">
+      <DependentUpon>AdicionarFormaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modais\AdicionarMaquinaView.xaml.cs">
+      <DependentUpon>AdicionarMaquinaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modais\AdicionarUnidadeMedidaView.xaml.cs">
+      <DependentUpon>AdicionarUnidadeMedidaView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Modais\DialogView.xaml.cs">
       <DependentUpon>DialogView.xaml</DependentUpon>
@@ -391,11 +413,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Componentes\CancelarSalvarUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Componentes\FiltragemUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Componentes\SalvarExcluirLimparUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Componentes\SalvarExcluirVoltarUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Componentes\SalvarUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -431,11 +465,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Consultas\ConsultaProdutosView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Consultas\ConsultaTiposMassaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Consultas\ConsultaUnidadesMedidaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Modais\AdicionarFormaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Modais\AdicionarMaquinaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Modais\AdicionarUnidadeMedidaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
