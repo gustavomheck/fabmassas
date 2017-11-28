@@ -8,6 +8,7 @@
         xmlns:m="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
         xmlns:s="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Martin Massas"
@@ -223,14 +224,14 @@
                             <TextBlock Text="INÍCIO"
                                        Style="{StaticResource TextBlockTabControlStyle}" />
                             <Border Style="{StaticResource BorderTabControlStyle}" />
-                            
-                            <RadioButton x:Name="Inicio"
+
+                            <RadioButton x:Name="Dashboard"
                                          Content="PAINEL DE CONTROLE"
                                          Style="{StaticResource RadioButtonTabControlStyle}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Checked">
                                         <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
-                                                               CommandParameter="{Binding ElementName=Inicio, Path=Name}" />
+                                                               CommandParameter="{Binding ElementName=Dashboard, Path=Name}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </RadioButton>
@@ -477,11 +478,12 @@
                     </TabItem>
                 </TabControl>
             </Grid>
-
+    
             <ContentPresenter x:Name="content"
                               Grid.Column="1"
                               Grid.Row="1"
                               Content="{Binding Content}" />
+            
         </Grid>
     </md:DialogHost>
 </Window>

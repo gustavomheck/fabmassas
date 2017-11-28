@@ -17,7 +17,7 @@
         <Setter Property="FontSize"
                 Value="17pt" />
         <Setter Property="FontFamily"
-                Value="Helvetica Neue, Helvetica, Arial, sans-serif" />
+                Value="Helvetica Neue" />
         <Setter Property="Margin"
                 Value="22,16,0,16" />
         <Style.Triggers>
@@ -64,6 +64,21 @@
                 Value="Center" />
         <Setter Property="VerticalAlignment"
                 Value="Center" />
+    </Style>
+
+    <Style x:Key="TextBlockDashboard"
+           TargetType="{x:Type TextBlock}"
+           BasedOn="{StaticResource TextBlockTitle}">
+        <Setter Property="FontSize"
+                Value="15" />
+        <Setter Property="FontWeight"
+                Value="Normal" />
+        <Setter Property="Padding"
+                Value="8,4,0,6" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Typography.Capitals"
+                Value="AllSmallCaps" />
     </Style>
 
     <Style x:Key="TextBlockContent"

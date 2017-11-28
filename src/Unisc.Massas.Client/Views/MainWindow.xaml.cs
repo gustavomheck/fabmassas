@@ -1,7 +1,5 @@
 ﻿using System.Windows;
 using Unisc.Massas.Client.ViewModels;
-using Unisc.Massas.Data.Interfaces;
-using Unisc.Massas.Domain.Models;
 
 namespace Unisc.Massas.Client.Views
 {
@@ -16,8 +14,13 @@ namespace Unisc.Massas.Client.Views
 
             DataContext = DependencyFactory.Resolve<MainWindowViewModel>();
 
-            Loaded += (s, e) => Inicio.IsChecked = true;
+            Loaded += (s, e) => Dashboard.IsChecked = true;
             sair.Click += (s, e) => Close();
+
+            //content.Content = new DashboardView()
+            //{
+            //    DataContext = DependencyFactory.Resolve<DashboardViewModel>()
+            //};
         }
     }
 }

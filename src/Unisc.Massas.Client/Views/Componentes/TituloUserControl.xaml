@@ -6,7 +6,7 @@
              mc:Ignorable="d">
     
     <Border Background="{StaticResource TitleBackground}"
-            BorderThickness="0,0,0,1">
+            BorderThickness="0,0,0,0">
         <Grid Margin="20,10,20,10">
             <Label Grid.RowSpan="2"
                    Content="{Binding ViewName, FallbackValue='ViewName', TargetNullValue='ViewName'}"

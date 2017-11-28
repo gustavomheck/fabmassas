@@ -1,13 +1,15 @@
+using System;
 using System.Data.Entity;
+using System.Linq;
 using Unisc.Massas.Data.Mapping;
 using Unisc.Massas.Domain.Models;
 
 namespace Unisc.Massas.Data.Context
 {
-    public class MassasContext : DbContext
+    public sealed class MassasContext : DbContext
     {
         private static volatile MassasContext _instance;
-        private static readonly object _syncLock = new object();
+        private static readonly object syncLock = new Object();
 
         static MassasContext()
         {
@@ -27,21 +29,44 @@ namespace Unisc.Massas.Data.Context
         {
             get
             {
-                if (_instance != null) return _instance;
-
-                lock (_syncLock)
+                if (_instance == null)
                 {
-                    if (_instance == null)
+                    lock (syncLock)
                     {
-                        _instance = new MassasContext();
+                        if (_instance != null)
+                        {
+                            if (_instance.GetValidationErrors().Any())
+                            {
+                                _instance = new MassasContext();
+                            }
+                        }
+                        else
+                        {
+                            _instance = new MassasContext();
+                        }
                     }
                 }
 
                 return _instance;
-            }
-            set
-            {
-                _instance = value;
+
+                //if (_instance != null)
+                //{
+                //    if (_instance.GetValidationErrors().Any())
+                //    {
+                //        return (_instance = new MassasContext());
+                //    }
+                    
+                //}
+
+                //lock (syncLock)
+                //{
+                //    if (_instance == null)
+                //    {
+                //        _instance = new MassasContext();
+                //    }
+                //}
+
+                //return _instance;
             }
         }
 
