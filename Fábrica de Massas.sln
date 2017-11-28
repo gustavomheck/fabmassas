@@ -26,6 +26,76 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{0DF3B7D7-240
 		Solution Items\lib\System.Windows.Interactivity.dll = Solution Items\lib\System.Windows.Interactivity.dll
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Instalador", "Instalador", "{CEA7CCAB-0B76-4F91-96F4-7F2B594D2602}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Instalador\Setup.iss = Solution Items\Instalador\Setup.iss
+		Solution Items\Instalador\SetupModern11.bmp = Solution Items\Instalador\SetupModern11.bmp
+		Solution Items\Instalador\SetupModernSmall11.bmp = Solution Items\Instalador\SetupModernSmall11.bmp
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{5D3EC118-C4CE-467D-8C87-D8A3E9BD7A83}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Instalador\scripts\products.iss = Solution Items\Instalador\scripts\products.iss
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "isxdl", "isxdl", "{8BAF8239-AF31-491F-850B-9F3AAE1A28A9}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Instalador\scripts\isxdl\czech.ini = Solution Items\Instalador\scripts\isxdl\czech.ini
+		Solution Items\Instalador\scripts\isxdl\english.ini = Solution Items\Instalador\scripts\isxdl\english.ini
+		Solution Items\Instalador\scripts\isxdl\french.ini = Solution Items\Instalador\scripts\isxdl\french.ini
+		Solution Items\Instalador\scripts\isxdl\french2.ini = Solution Items\Instalador\scripts\isxdl\french2.ini
+		Solution Items\Instalador\scripts\isxdl\french3.ini = Solution Items\Instalador\scripts\isxdl\french3.ini
+		Solution Items\Instalador\scripts\isxdl\german.ini = Solution Items\Instalador\scripts\isxdl\german.ini
+		Solution Items\Instalador\scripts\isxdl\german2.ini = Solution Items\Instalador\scripts\isxdl\german2.ini
+		Solution Items\Instalador\scripts\isxdl\german3.ini = Solution Items\Instalador\scripts\isxdl\german3.ini
+		Solution Items\Instalador\scripts\isxdl\isxdl.dll = Solution Items\Instalador\scripts\isxdl\isxdl.dll
+		Solution Items\Instalador\scripts\isxdl\isxdl.iss = Solution Items\Instalador\scripts\isxdl\isxdl.iss
+		Solution Items\Instalador\scripts\isxdl\norwegian.ini = Solution Items\Instalador\scripts\isxdl\norwegian.ini
+		Solution Items\Instalador\scripts\isxdl\polish.ini = Solution Items\Instalador\scripts\isxdl\polish.ini
+		Solution Items\Instalador\scripts\isxdl\portugues.ini = Solution Items\Instalador\scripts\isxdl\portugues.ini
+		Solution Items\Instalador\scripts\isxdl\portuguese.ini = Solution Items\Instalador\scripts\isxdl\portuguese.ini
+		Solution Items\Instalador\scripts\isxdl\russian.ini = Solution Items\Instalador\scripts\isxdl\russian.ini
+		Solution Items\Instalador\scripts\isxdl\spanish.ini = Solution Items\Instalador\scripts\isxdl\spanish.ini
+		Solution Items\Instalador\scripts\isxdl\swedish.ini = Solution Items\Instalador\scripts\isxdl\swedish.ini
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "products", "products", "{06EB8C7C-D1FF-4AE0-B5CE-8436E9BB0255}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Instalador\scripts\products\crystalreports.iss = Solution Items\Instalador\scripts\products\crystalreports.iss
+		Solution Items\Instalador\scripts\products\dotnetfx11.iss = Solution Items\Instalador\scripts\products\dotnetfx11.iss
+		Solution Items\Instalador\scripts\products\dotnetfx11lp.iss = Solution Items\Instalador\scripts\products\dotnetfx11lp.iss
+		Solution Items\Instalador\scripts\products\dotnetfx11sp1.iss = Solution Items\Instalador\scripts\products\dotnetfx11sp1.iss
+		Solution Items\Instalador\scripts\products\dotnetfx20.iss = Solution Items\Instalador\scripts\products\dotnetfx20.iss
+		Solution Items\Instalador\scripts\products\dotnetfx20lp.iss = Solution Items\Instalador\scripts\products\dotnetfx20lp.iss
+		Solution Items\Instalador\scripts\products\dotnetfx20sp1.iss = Solution Items\Instalador\scripts\products\dotnetfx20sp1.iss
+		Solution Items\Instalador\scripts\products\dotnetfx20sp1lp.iss = Solution Items\Instalador\scripts\products\dotnetfx20sp1lp.iss
+		Solution Items\Instalador\scripts\products\dotnetfx20sp2.iss = Solution Items\Instalador\scripts\products\dotnetfx20sp2.iss
+		Solution Items\Instalador\scripts\products\dotnetfx20sp2lp.iss = Solution Items\Instalador\scripts\products\dotnetfx20sp2lp.iss
+		Solution Items\Instalador\scripts\products\dotnetfx35.iss = Solution Items\Instalador\scripts\products\dotnetfx35.iss
+		Solution Items\Instalador\scripts\products\dotnetfx35lp.iss = Solution Items\Instalador\scripts\products\dotnetfx35lp.iss
+		Solution Items\Instalador\scripts\products\dotnetfx35sp1.iss = Solution Items\Instalador\scripts\products\dotnetfx35sp1.iss
+		Solution Items\Instalador\scripts\products\dotnetfx35sp1lp.iss = Solution Items\Instalador\scripts\products\dotnetfx35sp1lp.iss
+		Solution Items\Instalador\scripts\products\dotnetfx40client.iss = Solution Items\Instalador\scripts\products\dotnetfx40client.iss
+		Solution Items\Instalador\scripts\products\dotnetfx40full.iss = Solution Items\Instalador\scripts\products\dotnetfx40full.iss
+		Solution Items\Instalador\scripts\products\dotnetfxversion.iss = Solution Items\Instalador\scripts\products\dotnetfxversion.iss
+		Solution Items\Instalador\scripts\products\fileversion.iss = Solution Items\Instalador\scripts\products\fileversion.iss
+		Solution Items\Instalador\scripts\products\ie6.iss = Solution Items\Instalador\scripts\products\ie6.iss
+		Solution Items\Instalador\scripts\products\iis.iss = Solution Items\Instalador\scripts\products\iis.iss
+		Solution Items\Instalador\scripts\products\jet4sp8.iss = Solution Items\Instalador\scripts\products\jet4sp8.iss
+		Solution Items\Instalador\scripts\products\kb835732.iss = Solution Items\Instalador\scripts\products\kb835732.iss
+		Solution Items\Instalador\scripts\products\mdac28.iss = Solution Items\Instalador\scripts\products\mdac28.iss
+		Solution Items\Instalador\scripts\products\msi20.iss = Solution Items\Instalador\scripts\products\msi20.iss
+		Solution Items\Instalador\scripts\products\msi31.iss = Solution Items\Instalador\scripts\products\msi31.iss
+		Solution Items\Instalador\scripts\products\msi45.iss = Solution Items\Instalador\scripts\products\msi45.iss
+		Solution Items\Instalador\scripts\products\sql2005express.iss = Solution Items\Instalador\scripts\products\sql2005express.iss
+		Solution Items\Instalador\scripts\products\sql2008express.iss = Solution Items\Instalador\scripts\products\sql2008express.iss
+		Solution Items\Instalador\scripts\products\sqlcompact35sp2.iss = Solution Items\Instalador\scripts\products\sqlcompact35sp2.iss
+		Solution Items\Instalador\scripts\products\stringversion.iss = Solution Items\Instalador\scripts\products\stringversion.iss
+		Solution Items\Instalador\scripts\products\vcredist2010.iss = Solution Items\Instalador\scripts\products\vcredist2010.iss
+		Solution Items\Instalador\scripts\products\wic.iss = Solution Items\Instalador\scripts\products\wic.iss
+		Solution Items\Instalador\scripts\products\winversion.iss = Solution Items\Instalador\scripts\products\winversion.iss
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +128,10 @@ Global
 		{1178771D-2D3E-4D38-9808-3FAF69385940} = {85BB7640-B24B-4EF8-8057-D41699B608A8}
 		{FBBE645D-5C08-4433-B598-B08453A89751} = {85BB7640-B24B-4EF8-8057-D41699B608A8}
 		{0DF3B7D7-2404-406E-8FDA-3A3E75028E06} = {67DF91C3-671B-40A7-85CD-F062F07CCD6E}
+		{CEA7CCAB-0B76-4F91-96F4-7F2B594D2602} = {67DF91C3-671B-40A7-85CD-F062F07CCD6E}
+		{5D3EC118-C4CE-467D-8C87-D8A3E9BD7A83} = {CEA7CCAB-0B76-4F91-96F4-7F2B594D2602}
+		{8BAF8239-AF31-491F-850B-9F3AAE1A28A9} = {5D3EC118-C4CE-467D-8C87-D8A3E9BD7A83}
+		{06EB8C7C-D1FF-4AE0-B5CE-8436E9BB0255} = {5D3EC118-C4CE-467D-8C87-D8A3E9BD7A83}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {042E4563-D229-4678-A87D-D71210D8AD75}

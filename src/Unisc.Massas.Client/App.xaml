@@ -4,6 +4,7 @@
              xmlns:c="clr-namespace:Unisc.Massas.Client.Conversores"
              xmlns:v="clr-namespace:Unisc.Massas.Client.Validation"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:w="System.Windows"
              Startup="OnStartup">
     <Application.Resources>
         <ResourceDictionary>
@@ -40,8 +41,9 @@
             <c:SelectedIndexToVisibilityConverter x:Key="SelectedIndexToVisibilityConverter" />
             <c:CnpjCpfToSelectedIndexConverter x:Key="CnpjCpfToSelectedIndexConverter" />
             <c:TipoPessoaParaCnpjCpfConverter x:Key="TipoPessoaParaCnpjCpfConverter" />
-
             <v:NotEmptyValidationRule x:Key="NotEmptyValidationRule" />
+
+            <Thickness x:Key="MarginCadastro" Left="20" Top="0" Right="0" Bottom="0" />
 
             <SolidColorBrush x:Key="HighlightBrush"
                              Color="{DynamicResource Primary700}" />
@@ -119,7 +121,7 @@
                 <Setter Property="FontSize"
                         Value="11pt" />
                 <Setter Property="Margin"
-                        Value="8" />
+                        Value="8,16,8,8" />
             </Style>
 
             <Style TargetType="{x:Type DatePicker}"

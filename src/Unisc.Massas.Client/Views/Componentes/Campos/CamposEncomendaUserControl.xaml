@@ -10,7 +10,7 @@
     
     <StackPanel i:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"
-                Margin="10,5,10,10">
+                Margin="10,10,10,10">
         <ComboBox md:HintAssist.Hint="Cliente"
                   HorizontalAlignment="Left"
                   Width="700">

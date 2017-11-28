@@ -21,7 +21,7 @@
                  Width="{StaticResource XLargeWidth}" />
         <TextBox md:HintAssist.Hint="Preço base"
                  md:ValidationAssist.OnlyShowOnFocus="True"
-                 Text="{Binding EntidadeSelecionada.ValorBase, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding EntidadeSelecionada.ValorBase, StringFormat='{}{0:###,###,##0.00}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource LargeWidth}" />
         <TextBox md:HintAssist.Hint="Quantidade mínima em estoque"
                  md:ValidationAssist.OnlyShowOnFocus="True"
@@ -46,7 +46,8 @@
                 <md:PackIcon Height="20"
                              Width="20"
                              Kind="Plus"
-                             Foreground="Green" />
+                             Foreground="Green"
+                             Opacity="0.8" />
             </Button>
 
         </DockPanel>

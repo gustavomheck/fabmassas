@@ -14,8 +14,7 @@
         <TabItem Background="Transparent"
                  Header="Geral">
             <StackPanel interface:EnterKeyTraversal.IsEnabled="True"
-                        HorizontalAlignment="Stretch"
-                        Margin="10,5,10,10">
+                        HorizontalAlignment="Stretch">
                 <ComboBox md:HintAssist.Hint="Tipo Pessoa"
                           x:Name="comboBoxTipoPessoa"
                           HorizontalAlignment="Left"

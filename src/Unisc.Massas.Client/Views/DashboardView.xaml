@@ -31,13 +31,13 @@
                     <RowDefinition Height="50*" />
                 </Grid.RowDefinitions>
 
-                <Border Grid.Column="0"
+                <Border Grid.ColumnSpan="2"
                         Grid.Row="0"
                         Background="White"
                         BorderBrush="{StaticResource BorderColor}"
                         BorderThickness="1"
                         CornerRadius="0"
-                        Margin="20,20,10,10">
+                        Margin="20,20,20,10">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -59,24 +59,6 @@
                                           Labels="{Binding Labels}" />
                             </lvc:CartesianChart.AxisX>
                         </lvc:CartesianChart>
-                    </Grid>
-                </Border>
-
-                <Border Grid.Column="1"
-                        Grid.Row="0"
-                        Background="White"
-                        BorderBrush="{StaticResource BorderColor}"
-                        BorderThickness="1"
-                        CornerRadius="0"
-                        Margin="10,20,20,10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Text="Melhores clientes"
-                                   Style="{StaticResource TextBlockDashboard}" />
                     </Grid>
                 </Border>
 

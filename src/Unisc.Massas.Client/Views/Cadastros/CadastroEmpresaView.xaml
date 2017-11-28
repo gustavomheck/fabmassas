@@ -20,7 +20,7 @@
         <local:TituloUserControl />
 
         <ScrollViewer Grid.Row="1"
-                      Margin="20,0,0,0"
+                      Margin="{StaticResource MarginCadastro}"
                       HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
             <local:CamposEmpresaUserControl />

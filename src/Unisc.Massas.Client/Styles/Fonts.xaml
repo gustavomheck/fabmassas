@@ -3,6 +3,7 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <FontFamily x:Key="FontAwesome">pack://appliction;,,,/Fonts/#FontAwesome</FontFamily>
+    <FontFamily x:Key="Courgette">pack://appliction;,,,/Fonts/#Courgette</FontFamily>
 
     <system:Double x:Key="TextBoxSmall">120</system:Double>
     <system:Double x:Key="TextBoxRegular">186</system:Double>

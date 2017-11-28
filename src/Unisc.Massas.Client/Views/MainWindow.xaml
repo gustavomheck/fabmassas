@@ -145,7 +145,7 @@
                 <TextBlock Text="Martin Massas"
                            TextOptions.TextFormattingMode="Ideal"
                            Foreground="White"
-                           FontFamily="Courgette"
+                           FontFamily="{StaticResource Courgette}"
                            FontWeight="Bold"
                            Style="{StaticResource TextBlockAppTitle}">
                     <TextBlock.Effect>
@@ -453,24 +453,24 @@
                             <TextBlock Text="ESTOQUE"
                                        Style="{StaticResource TextBlockTabControlStyle}" />
                             <Border Style="{StaticResource BorderTabControlStyle}" />
-                            <RadioButton x:Name="EntradaDeEstoque"
+                            <RadioButton x:Name="EntradaEstoque"
                                          Content="ENTRADA DE ESTOQUE"
                                          Style="{StaticResource RadioButtonTabControlStyle}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Checked">
                                         <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
-                                                               CommandParameter="{Binding ElementName=EntradaDeEstoque, Path=Name}" />
+                                                               CommandParameter="{Binding ElementName=EntradaEstoque, Path=Name}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </RadioButton>
 
-                            <RadioButton x:Name="SaidaDeEstoque"
+                            <RadioButton x:Name="SaidaEstoque"
                                          Content="SAÍDA DE ESTOQUE"
                                          Style="{StaticResource RadioButtonTabControlStyle}">
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Checked">
                                         <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
-                                                               CommandParameter="{Binding ElementName=SaidaDeEstoque, Path=Name}" />
+                                                               CommandParameter="{Binding ElementName=SaidaEstoque, Path=Name}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </RadioButton>

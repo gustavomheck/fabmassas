@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
 using System.Windows.Input;
-using Unisc.Massas.Client.Views;
 using Unisc.Massas.Core.Comandos;
 
 namespace Unisc.Massas.Client.ViewModels

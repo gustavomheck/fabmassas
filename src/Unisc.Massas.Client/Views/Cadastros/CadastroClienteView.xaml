@@ -21,7 +21,7 @@
         <local:TituloUserControl />
 
         <ScrollViewer Grid.Row="1"
-                      Margin="10,8,0,0"
+                      Margin="20,8,0,0"
                       HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
             <local:CamposClienteUserControl />

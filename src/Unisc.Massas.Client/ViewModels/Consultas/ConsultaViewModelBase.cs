@@ -76,13 +76,13 @@ namespace Unisc.Massas.Client.ViewModels
         protected void Carregar()
         {
             ApplicationHelper.ExecuteAction(new Action(
-                async () =>
+                () =>
                 {
                     ColunasFiltro = _entidadeAux.GetColunasFiltro();
                     ColunaSelecionada = ColunasFiltro.FirstOrDefault();
                     var cvs = new CollectionViewSource()
                     {
-                        Source = Entidades = await repositorio.GetAllAsNoTrackingAsync()
+                        Source = Entidades = repositorio.GetAllAsNoTracking()
                     };
 
                     CollectionView = cvs.View;
