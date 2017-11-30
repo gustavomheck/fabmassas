@@ -10,6 +10,10 @@ namespace Unisc.Massas.Client.ViewModels
         {
         }
 
+        public AdicionarTelefoneViewModel(Telefone obj) : base(obj)
+        {
+        }
+
         [MinLength(8, ErrorMessage = "Informe o número do telefone")]
         public string Telefone
         {

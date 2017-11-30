@@ -107,12 +107,13 @@
     <Compile Include="Conversores\CnpjCpfFormatter.cs" />
     <Compile Include="Conversores\CnpjCpfToSelectedIndexConverter.cs" />
     <Compile Include="Conversores\InscricaoEstadualFormatter.cs" />
+    <Compile Include="Conversores\IntParaStringConverter.cs" />
     <Compile Include="Conversores\SelectedIndexToIsEnabledConverter.cs" />
     <Compile Include="Conversores\SelectedIndexToVisibilityConverter.cs" />
     <Compile Include="Conversores\TelefoneFormatter.cs" />
     <Compile Include="Conversores\TipoPessoaParaCnpjCpfConverter.cs" />
-    <Compile Include="DialogService.cs" />
     <Compile Include="DialogTemplateSelector.cs" />
+    <Compile Include="ModalTemplateSelector.cs" />
     <Compile Include="Validation\NotEmptyValidationRule.cs" />
     <Compile Include="ViewModels\AjudaViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroClienteViewModel.cs" />

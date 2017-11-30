@@ -30,10 +30,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solution Items\lib\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Solution Items\lib\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -42,6 +50,7 @@
     <Compile Include="Comandos\DelegateCommandBase.cs" />
     <Compile Include="Comandos\IActiveAware.cs" />
     <Compile Include="Comandos\PropertySupport.cs" />
+    <Compile Include="Comportamentos\TextBoxInputMaskBehavior.cs" />
     <Compile Include="Controles\Card.cs" />
     <Compile Include="Controles\ImageButton.cs" />
     <Compile Include="Controles\ModalWindow.cs" />
@@ -52,7 +61,7 @@
     <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Interface\EnterKeyTraversal.cs" />
-    <Compile Include="Logging\LogWriter.cs" />
+    <Compile Include="Logging\Logger.cs" />
     <Compile Include="Serviços\DialogCloseRequestedEventArgs.cs" />
     <Compile Include="Serviços\IDialog.cs" />
     <Compile Include="Serviços\IDialogRequestClose.cs" />

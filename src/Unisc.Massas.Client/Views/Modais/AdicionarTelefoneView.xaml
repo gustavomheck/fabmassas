@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:c="clr-namespace:Unisc.Massas.Client"
              xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
@@ -15,6 +16,10 @@
         <KeyBinding Command="{x:Static md:DialogHost.CloseDialogCommand}"
                     Key="Esc" />
     </UserControl.InputBindings>
+
+    <UserControl.Resources>
+        <c:ModalTemplateSelector x:Key="ModalTemplateSelector" />
+    </UserControl.Resources>
 
     <StackPanel>
         <TextBlock Margin="10,20,0,0"
@@ -42,6 +47,8 @@
                      Width="300" />
         </StackPanel>
 
-        <local:CancelarAdicionarUserControl />
+        <ContentControl Grid.Row="1"
+                        Content="{Binding IsEditing}"
+                        ContentTemplateSelector="{StaticResource ModalTemplateSelector}" />
     </StackPanel>
 </UserControl>

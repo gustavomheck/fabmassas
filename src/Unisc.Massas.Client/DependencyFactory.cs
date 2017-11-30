@@ -35,7 +35,6 @@ namespace Unisc.Massas.Client
             var container = new UnityContainer();
             
             container.RegisterType<MainWindowViewModel>();
-            container.RegisterType<IDialogService, DialogService>();
             container.RegisterType<IClienteRepositorio, ClienteRepositorio>();
             container.RegisterType<IEncomendaRepositorio, EncomendaRepositorio>();
             container.RegisterType<IEstadoRepositorio, EstadoRepositorio>();

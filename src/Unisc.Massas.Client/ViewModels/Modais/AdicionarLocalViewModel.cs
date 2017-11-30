@@ -6,7 +6,10 @@ namespace Unisc.Massas.Client.ViewModels
     {
         public AdicionarLocalViewModel()
         {
-
+        }
+        
+        public AdicionarLocalViewModel(Local local) : base(local)
+        {
         }
     }
 }

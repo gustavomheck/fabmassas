@@ -4,18 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:b="clr-namespace:Unisc.Massas.Core.Comportamentos;assembly=Unisc.Massas.Core"
+             xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              mc:Ignorable="d"
              Background="{DynamicResource MaterialDesignPaper}">
 
-    <StackPanel i:EnterKeyTraversal.IsEnabled="True"
+    <StackPanel interface:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"
                 Margin="10,5,10,10">
         <TextBox md:HintAssist.Hint="CEP"
                  md:ValidationAssist.OnlyShowOnFocus="True"
                  MaxLength="8"
-                 Text="{Binding EntidadeSelecionada.Cep, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                 Width="{StaticResource SmallWidth}" />
+                 Text="{Binding EntidadeSelecionada.Cep, Converter={StaticResource IntParaStringConverter}, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource SmallWidth}">
+            <i:Interaction.Behaviors>
+                <b:TextBoxInputMaskBehavior InputMask="00000-000"
+                                                    PromptChar="_" />
+            </i:Interaction.Behaviors>
+        </TextBox>
+        
         <TextBox md:HintAssist.Hint="Logradouro"
                  md:ValidationAssist.OnlyShowOnFocus="True"
                  MaxLength="60"

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Unisc.Massas.Core.Logging
 {
-    public static class LogWriter
+    public static class Logger
     {
         /// <summary>
         /// Grava o Erro em um arquivo txt.
@@ -150,7 +150,7 @@ namespace Unisc.Massas.Core.Logging
             }
             catch (Exception ex)
             {
-                LogWriter.Log(ex, "Erro ao gravar mensagem.");
+                Logger.Log(ex, "Erro ao gravar mensagem.");
             }
         }
 

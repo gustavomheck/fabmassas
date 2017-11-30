@@ -5,11 +5,25 @@ namespace Unisc.Massas.Client.ViewModels
 {
     public class ModalViewModelBase<TEntity> : ViewModelBase where TEntity : EntityBase
     {
-        public ModalViewModelBase()
+        public ModalViewModelBase() : this(null)
         {
-            EntidadeSelecionada = Activator.CreateInstance<TEntity>();
+        }
+
+        public ModalViewModelBase(TEntity obj)
+        {
+            if (obj == null)
+            {
+                EntidadeSelecionada = Activator.CreateInstance<TEntity>();
+                IsEditing = false;
+            }
+            else
+            {
+                EntidadeSelecionada = obj;
+                IsEditing = true;
+            }
         }
 
         public TEntity EntidadeSelecionada { get; set; }
+        public bool IsEditing { get; set; }
     }
 }

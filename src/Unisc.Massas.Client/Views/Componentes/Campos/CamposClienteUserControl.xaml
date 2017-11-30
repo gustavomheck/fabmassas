@@ -7,7 +7,9 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
+             xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
              mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance vm:CadastroClienteViewModel}"
              d:DesignHeight="600"
              d:DesignWidth="900"
              Background="{DynamicResource MaterialDesignPaper}">
@@ -84,25 +86,23 @@
                               CanUserDeleteRows="False"
                               BorderBrush="{StaticResource BorderColor}"
                               BorderThickness="0"
-                              Margin="8,20,20,20"
+                              Margin="8,16,20,20"
                               IsReadOnly="True"
-                              ItemsSource="{Binding CollectionView}"
-                              SelectedIndex="{Binding IndiceSelecionado}"
-                              SelectedItem="{Binding EntidadeSelecionada}"
-                              SelectionMode="Single"
-                              Width="{Binding ElementName=gridWrapper, Path=ActualWidth}">
+                              ItemsSource="{Binding EntidadeSelecionada.Locais}"
+                              SelectedItem="{Binding LocalSelecionado}"
+                              SelectionMode="Single">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseDoubleClick">
-                                <i:InvokeCommandAction Command="{Binding EditarCommand}" />
+                                <i:InvokeCommandAction Command="{Binding EditarLocalCommand}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="CEP"
-                                                Binding="{Binding Cep}"
-                                                Width="15*" />
+                                                Binding="{Binding Cep, Converter={StaticResource CepFormatter}}"
+                                                Width="12*" />
                             <DataGridTextColumn Header="Logradouro"
                                                 Binding="{Binding Logradouro}"
-                                                Width="25*" />
+                                                Width="28*" />
                             <DataGridTextColumn Header="Número"
                                                 Binding="{Binding Numero}"
                                                 Width="15*" />
@@ -112,6 +112,34 @@
                             <DataGridTextColumn Header="Complemento"
                                                 Binding="{Binding Complemento}"
                                                 Width="20*" />
+                            <DataGridTemplateColumn Width="40">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Button Command="{Binding Path=DataContext.EditarLocalCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                    ToolTip="Editar"
+                                                    Style="{DynamicResource ToolButton}">
+                                                <md:PackIcon Kind="Pencil"
+                                                             Foreground="#337AB7" />
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="40">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Button Command="{Binding Path=DataContext.RemoverLocalCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                    ToolTip="Excluir"
+                                                    Style="{DynamicResource ToolButton}">
+                                                <md:PackIcon Kind="Close"
+                                                             Foreground="#D9534F" />
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -142,20 +170,20 @@
                     </Button>
 
                     <DataGrid Grid.Row="1"
+                              x:Name="dataGridTelefones"
                               AutoGenerateColumns="False"
                               CanUserAddRows="True"
                               CanUserDeleteRows="False"
                               BorderBrush="{StaticResource BorderColor}"
                               BorderThickness="0"
-                              Margin="8,20,20,20"
+                              Margin="8,16,20,20"
                               IsReadOnly="True"
                               ItemsSource="{Binding EntidadeSelecionada.Telefones}"
-                              SelectedIndex="{Binding IndiceSelecionado}"
-                              SelectedItem="{Binding EntidadeSelecionada}"
+                              SelectedItem="{Binding TelefoneSelecionado}"
                               SelectionMode="Single">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseDoubleClick">
-                                <i:InvokeCommandAction Command="{Binding EditarCommand}" />
+                                <i:InvokeCommandAction Command="{Binding EditarTelefoneCommand}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <DataGrid.Columns>
@@ -165,6 +193,34 @@
                             <DataGridTextColumn Header="Observação"
                                                 Binding="{Binding Observacao}"
                                                 Width="*" />
+                            <DataGridTemplateColumn Width="40">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Button Command="{Binding Path=DataContext.EditarTelefoneCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                    ToolTip="Editar"
+                                                    Style="{DynamicResource ToolButton}">
+                                                <md:PackIcon Kind="Pencil"
+                                                             Foreground="#337AB7" />
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Width="40">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Button Command="{Binding Path=DataContext.RemoverTelefoneCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                                    ToolTip="Excluir"
+                                                    Style="{DynamicResource ToolButton}">
+                                                <md:PackIcon Kind="Close"
+                                                             Foreground="#D9534F" />
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

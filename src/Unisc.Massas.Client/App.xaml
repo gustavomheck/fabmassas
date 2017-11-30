@@ -4,6 +4,7 @@
              xmlns:c="clr-namespace:Unisc.Massas.Client.Conversores"
              xmlns:v="clr-namespace:Unisc.Massas.Client.Validation"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:views="clr-namespace:Unisc.Massas.Client.Views"
              xmlns:w="System.Windows"
              Startup="OnStartup">
     <Application.Resources>
@@ -37,6 +38,7 @@
             <c:CepFormatter x:Key="CepFormatter" />
             <c:CnpjCpfFormatter x:Key="CnpjCpfFormatter" />
             <c:InscricaoEstadualFormatter x:Key="InscricaoEstadualFormatter" />
+            <c:IntParaStringConverter x:Key="IntParaStringConverter" />
             <c:SelectedIndexToIsEnabledConverter x:Key="SelectedIndexToIsEnabledConverter" />
             <c:SelectedIndexToVisibilityConverter x:Key="SelectedIndexToVisibilityConverter" />
             <c:CnpjCpfToSelectedIndexConverter x:Key="CnpjCpfToSelectedIndexConverter" />
@@ -163,6 +165,14 @@
                             Value="Right" />
                 </Style.Setters>
             </Style>
+
+            <DataTemplate x:Key="TemplateCancelarAdicionar">
+                <views:CancelarAdicionarUserControl />
+            </DataTemplate>
+
+            <DataTemplate x:Key="TemplateCancelarSalvar">
+                <views:CancelarSalvarUserControl />
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

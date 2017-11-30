@@ -44,7 +44,7 @@ namespace Unisc.Massas.Data.Repositorios
             }
             catch (Exception ex)
             {
-                LogWriter.Log(ex, "Erro ao deletar " + typeof(TEntity));
+                Logger.Log(ex, "Erro ao deletar " + typeof(TEntity));
 
                 errorMessage = ex.Message;
                 return false;
@@ -68,7 +68,7 @@ namespace Unisc.Massas.Data.Repositorios
             }
             catch (Exception ex)
             {
-                LogWriter.Log(ex, "Erro ao deletar " + typeof(TEntity));
+                Logger.Log(ex, "Erro ao deletar " + typeof(TEntity));
 
                 errorMessage = ex.Message;
                 return false;
@@ -155,7 +155,7 @@ namespace Unisc.Massas.Data.Repositorios
             }
             catch (Exception ex)
             {
-                LogWriter.Log(ex, "Erro ao adicionar " + typeof(TEntity));
+                Logger.Log(ex, "Erro ao adicionar " + typeof(TEntity));
 
                 errorMessage = ex.Message;
                 return false;
@@ -233,7 +233,7 @@ namespace Unisc.Massas.Data.Repositorios
             }
             catch (Exception ex)
             {
-                LogWriter.Log(ex, "Erro ao atualizar " + typeof(TEntity));
+                Logger.Log(ex, "Erro ao atualizar " + typeof(TEntity));
 
                 if (ex.InnerException != null && ex.InnerException.InnerException != null)
                     errorMessage = ex.InnerException.InnerException.Message;
