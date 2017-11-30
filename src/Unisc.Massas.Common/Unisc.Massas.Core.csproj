@@ -49,6 +49,7 @@
     <Compile Include="Controles\SideMenuItem.cs" />
     <Compile Include="Controles\WatermarkTextBox.cs" />
     <Compile Include="DataAnnotations\DateTimeNowAttribute.cs" />
+    <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Interface\EnterKeyTraversal.cs" />
     <Compile Include="Logging\LogWriter.cs" />

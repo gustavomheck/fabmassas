@@ -34,7 +34,7 @@
                       Margin="8,16,8,8"
                       ItemsSource="{Binding UnidadesMedida}"
                       SelectedItem="{Binding EntidadeSelecionada.UnidadeMedida}"
-                      SelectedValue="{Binding EntidadeSelecionada.Id}"
+                      SelectedValue="{Binding EntidadeSelecionada.UnidadeMedidaId}"
                       SelectedValuePath="Id"
                       Width="{StaticResource XLargeWidth}" />
             

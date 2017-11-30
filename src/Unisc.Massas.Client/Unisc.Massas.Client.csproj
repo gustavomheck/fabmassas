@@ -109,6 +109,7 @@
     <Compile Include="Conversores\InscricaoEstadualFormatter.cs" />
     <Compile Include="Conversores\SelectedIndexToIsEnabledConverter.cs" />
     <Compile Include="Conversores\SelectedIndexToVisibilityConverter.cs" />
+    <Compile Include="Conversores\TelefoneFormatter.cs" />
     <Compile Include="Conversores\TipoPessoaParaCnpjCpfConverter.cs" />
     <Compile Include="DialogService.cs" />
     <Compile Include="DialogTemplateSelector.cs" />
@@ -140,6 +141,8 @@
     <Compile Include="ViewModels\Estoque\EntradaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Estoque\EstoqueViewModelBase.cs" />
     <Compile Include="ViewModels\Estoque\SaidaEstoqueViewModel.cs" />
+    <Compile Include="ViewModels\Modais\AdicionarLocalViewModel.cs" />
+    <Compile Include="ViewModels\Modais\AdicionarTelefoneViewModel.cs" />
     <Compile Include="ViewModels\Modais\EscolherEncomendaViewModel.cs" />
     <Compile Include="ViewModels\Modais\ModalViewModelBase.cs" />
     <Compile Include="Views\AjudaView.xaml.cs">
@@ -156,9 +159,6 @@
     </Compile>
     <Compile Include="Views\Cadastros\CadastroFormaView.xaml.cs">
       <DependentUpon>CadastroFormaView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Cadastros\CadastroLocalView.xaml.cs">
-      <DependentUpon>CadastroLocalView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Cadastros\CadastroMaquinaView.xaml.cs">
       <DependentUpon>CadastroMaquinaView.xaml</DependentUpon>
@@ -204,6 +204,9 @@
     </Compile>
     <Compile Include="Views\Componentes\Campos\CamposUnidadeMedidaUserControl.xaml.cs">
       <DependentUpon>CamposUnidadeMedidaUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Componentes\CancelarAdicionarUserControl.xaml.cs">
+      <DependentUpon>CancelarAdicionarUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Componentes\CancelarExcluirSalvarUserControl.xaml.cs">
       <DependentUpon>CancelarExcluirSalvarUserControl.xaml</DependentUpon>
@@ -261,6 +264,9 @@
     </Compile>
     <Compile Include="Views\Modais\AdicionarFormaView.xaml.cs">
       <DependentUpon>AdicionarFormaView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Modais\AdicionarLocalView.xaml.cs">
+      <DependentUpon>AdicionarLocalView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Modais\AdicionarMaquinaView.xaml.cs">
       <DependentUpon>AdicionarMaquinaView.xaml</DependentUpon>
@@ -363,10 +369,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Cadastros\CadastroLocalView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\Cadastros\CadastroMaquinaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -424,6 +426,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Componentes\Campos\CamposUnidadeMedidaUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Componentes\CancelarAdicionarUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -500,6 +506,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Modais\AdicionarFormaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Modais\AdicionarLocalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

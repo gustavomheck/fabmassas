@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Unisc.Massas.Core.Texto
 {
@@ -39,6 +41,67 @@ namespace Unisc.Massas.Core.Texto
                 return $"{cnpjCpf.Substring(0, 3)}.{cnpjCpf.Substring(3, 3)}.{cnpjCpf.Substring(6, 3)}-{cnpjCpf.Substring(9, 2)}";
 
             return cnpjCpf;
+        }
+
+        /// <summary>
+        /// Formata um número de telefone.
+        /// </summary>
+        /// <param name="telefone">O número de telefone a formatar.</param>
+        /// <returns>O telefone formatado.</returns>
+        public static string Telefone(int telefone)
+        {
+            if (telefone == 0) return "";
+
+            string tel = telefone.ToString();
+
+            if (tel.Length == 8)
+                return String.Format("{0}-{1}", tel.Substring(0, 4), tel.Substring(4));
+
+            if (tel.Length == 9)
+                return String.Format("{0}-{1}", tel.Substring(0, 5), tel.Substring(4));
+
+            return "";
+        }
+
+        public static void MascaraTelefoneKeyUp(TextBox tb, ref KeyEventArgs e)
+        {
+            if ((e.Key != Key.Back || e.Key != Key.Enter || e.Key != Key.Tab) && tb.Text.Length == 11)
+            {
+                e.Handled = true;
+            }
+            else if (e.Key == Key.Back && tb.Text.Length == 5)
+            {
+                tb.Text = tb.Text.Substring(0, 4);
+                tb.SelectionStart = 4;
+            }
+            else if (tb.Text.Length == 4)
+            {
+                tb.Text += "-";
+                tb.SelectionStart = 5;
+            }
+            else if (tb.Text.Length == 9)
+            {
+                string aux = tb.Text.Replace("-", "");
+                tb.Text = aux.Substring(0, 4) + "-" + aux.Substring(4);
+                tb.SelectionStart = 9;
+            }
+            else if (tb.Text.Length == 10)
+            {
+                string aux = tb.Text.Replace("-", "");
+                tb.Text = aux.Substring(0, 5) + "-" + aux.Substring(5);
+                tb.SelectionStart = 10;
+            }
+        }
+
+        public static void MascaraTelefoneTextChanged(TextBox tb)
+        {
+            if (!tb.Text.Contains("-"))
+            {
+                if (tb.Text.Length == 8)
+                    tb.Text = tb.Text.Insert(4, "-");
+                else if (tb.Text.Length == 9)
+                    tb.Text = tb.Text.Insert(5, "-");
+            }
         }
     }
 }

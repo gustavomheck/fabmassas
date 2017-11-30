@@ -5,10 +5,33 @@
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             Background="{DynamicResource MaterialDesignPaper}">
+
     <StackPanel i:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"
                 Margin="10,5,10,10">
-
+        <TextBox md:HintAssist.Hint="CEP"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 MaxLength="8"
+                 Text="{Binding EntidadeSelecionada.Cep, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource SmallWidth}" />
+        <TextBox md:HintAssist.Hint="Logradouro"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 MaxLength="60"
+                 Text="{Binding EntidadeSelecionada.Logradouro, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource XXLargeWidth}" />
+        <TextBox md:HintAssist.Hint="Bairro"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 Text="{Binding EntidadeSelecionada.Bairro, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource XLargeWidth}" />
+        <TextBox md:HintAssist.Hint="Número"
+                 Text="{Binding EntidadeSelecionada.Numero, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource SmallWidth}" />
+        <TextBox md:HintAssist.Hint="Complemento"
+                 md:ValidationAssist.OnlyShowOnFocus="True"
+                 MaxLength="14"
+                 Text="{Binding EntidadeSelecionada.Complemento}"
+                 Width="{StaticResource XLargeWidth}" />
     </StackPanel>
 </UserControl>

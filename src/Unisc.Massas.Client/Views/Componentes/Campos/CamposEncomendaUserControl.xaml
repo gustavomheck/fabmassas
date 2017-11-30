@@ -6,7 +6,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              xmlns:s="clr-namespace:System;assembly=mscorlib"
-             mc:Ignorable="d">
+             mc:Ignorable="d"
+             Background="{DynamicResource MaterialDesignPaper}">
     
     <StackPanel i:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"
@@ -25,7 +26,6 @@
                     Width="{StaticResource LargeWidth}" />
         <md:TimePicker md:HintAssist.Hint="Horário máximo para entrega"
                        Width="{StaticResource LargeWidth}" />
-
         <ComboBox md:HintAssist.Hint="Status"
                   HorizontalAlignment="Left"
                   Width="{StaticResource RegularWidth}">

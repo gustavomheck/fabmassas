@@ -39,7 +39,7 @@ namespace Unisc.Massas.Client.ViewModels
 
             if (result.HasValue && result.Value && formaRepositorio.Insert(viewModel.EntidadeSelecionada, out string msgErro))
             {
-                Formas = await formaRepositorio.GetAllAsArrayAsync();
+                Formas = formaRepositorio.GetAllAsArray();
                 EntidadeSelecionada.Forma = viewModel.EntidadeSelecionada;
             }
         }
@@ -55,7 +55,7 @@ namespace Unisc.Massas.Client.ViewModels
 
             if (result.HasValue && result.Value && maquinaRepositorio.Insert(viewModel.EntidadeSelecionada, out string msgErro))
             {
-                Maquinas = await maquinaRepositorio.GetAllAsArrayAsync();
+                Maquinas = maquinaRepositorio.GetAllAsArray();
                 EntidadeSelecionada.Maquina = viewModel.EntidadeSelecionada;
             }
         }
@@ -70,10 +70,10 @@ namespace Unisc.Massas.Client.ViewModels
             base.Carregar();
 
             ApplicationHelper.ExecuteAction(new Action(
-                async () =>
+                () =>
                 {
-                    Formas = await formaRepositorio.GetAllAsArrayAsync();
-                    Maquinas = await maquinaRepositorio.GetAllAsArrayAsync();
+                    Formas = formaRepositorio.GetAllAsArray();
+                    Maquinas = maquinaRepositorio.GetAllAsArray();
                 }));
         }
     }

@@ -1,5 +1,3 @@
-using PropertyChanged;
-
 namespace Unisc.Massas.Domain.Models
 {
     public class Telefone : EntityBase

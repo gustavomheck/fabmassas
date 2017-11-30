@@ -47,26 +47,7 @@ namespace Unisc.Massas.Data.Context
                     }
                 }
 
-                return _instance;
-
-                //if (_instance != null)
-                //{
-                //    if (_instance.GetValidationErrors().Any())
-                //    {
-                //        return (_instance = new MassasContext());
-                //    }
-                    
-                //}
-
-                //lock (syncLock)
-                //{
-                //    if (_instance == null)
-                //    {
-                //        _instance = new MassasContext();
-                //    }
-                //}
-
-                //return _instance;
+                return _instance;                
             }
         }
 

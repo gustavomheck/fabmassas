@@ -32,9 +32,9 @@ namespace Unisc.Massas.Client.ViewModels
             base.Carregar();
 
             ApplicationHelper.ExecuteAction(new Action(
-                async () =>
+                () =>
                 {
-                    UnidadesMedida = await unidadeMedidaRepositorio.GetAllAsArrayAsync();
+                    UnidadesMedida = unidadeMedidaRepositorio.GetAllAsArray();
                 }));
         }
 
@@ -49,7 +49,7 @@ namespace Unisc.Massas.Client.ViewModels
 
             if (result.HasValue && result.Value && unidadeMedidaRepositorio.Insert(viewModel.EntidadeSelecionada, out string msgErro))
             {
-                UnidadesMedida = await unidadeMedidaRepositorio.GetAllAsArrayAsync();
+                UnidadesMedida = unidadeMedidaRepositorio.GetAllAsArray();
                 EntidadeSelecionada.UnidadeMedida = viewModel.EntidadeSelecionada;
             }
         }
