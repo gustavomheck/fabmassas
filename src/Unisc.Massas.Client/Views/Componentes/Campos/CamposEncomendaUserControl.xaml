@@ -4,35 +4,72 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              xmlns:s="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              Background="{DynamicResource MaterialDesignPaper}">
-    
-    <StackPanel i:EnterKeyTraversal.IsEnabled="True"
-                HorizontalAlignment="Stretch"
-                Margin="10,10,10,10">
-        <ComboBox md:HintAssist.Hint="Cliente"
-                  HorizontalAlignment="Left"
-                  Width="700">
-            <ComboBoxItem>Cliente 1</ComboBoxItem>
-            <ComboBoxItem>Cliente 2</ComboBoxItem>
-            <ComboBoxItem>Cliente 3</ComboBoxItem>
-            <ComboBoxItem>Cliente 4</ComboBoxItem>
-        </ComboBox>
 
-        <DatePicker md:HintAssist.Hint="Data de Entrega"
-                    DisplayDateStart="{x:Static s:DateTime.Today}"
-                    Width="{StaticResource LargeWidth}" />
-        <md:TimePicker md:HintAssist.Hint="Horário máximo para entrega"
-                       Width="{StaticResource LargeWidth}" />
-        <ComboBox md:HintAssist.Hint="Status"
-                  HorizontalAlignment="Left"
-                  Width="{StaticResource RegularWidth}">
-            <ComboBoxItem>Status 1</ComboBoxItem>
-            <ComboBoxItem>Status 2</ComboBoxItem>
-            <ComboBoxItem>Status 3</ComboBoxItem>
-            <ComboBoxItem>Status 4</ComboBoxItem>
-        </ComboBox>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel interface:EnterKeyTraversal.IsEnabled="True"
+                    HorizontalAlignment="Stretch"
+                    Margin="10,10,10,10">
+            <ComboBox md:HintAssist.Hint="Cliente"
+                      ItemsSource="{Binding Clientes}"
+                      SelectedItem="{Binding ClienteSelecionado}"
+                      HorizontalAlignment="Left"
+                      Width="700" />
+            <ComboBox md:HintAssist.Hint="Local de Entrega"
+                      ItemsSource="{Binding Locais}"
+                      SelectedItem="{Binding LocalSelecionado}"
+                      HorizontalAlignment="Left"
+                      Width="700" />
+            <DatePicker md:HintAssist.Hint="Data de Entrega"
+                        DisplayDateStart="{x:Static s:DateTime.Today}"
+                        Width="{StaticResource LargeWidth}" />
+            <md:TimePicker md:HintAssist.Hint="Horário máximo para entrega"
+                           Width="{StaticResource LargeWidth}" />
+            <ComboBox md:HintAssist.Hint="Status"
+                      HorizontalAlignment="Left"
+                      Width="{StaticResource RegularWidth}">
+                <ComboBoxItem>Status 1</ComboBoxItem>
+                <ComboBoxItem>Status 2</ComboBoxItem>
+                <ComboBoxItem>Status 3</ComboBoxItem>
+                <ComboBoxItem>Status 4</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="True"
+                  CanUserDeleteRows="False"
+                  BorderBrush="{StaticResource BorderColor}"
+                  BorderThickness="0"
+                  Margin="16,4,36,16"
+                  IsReadOnly="True"
+                  ItemsSource="{Binding CollectionView}"
+                  SelectedIndex="{Binding IndiceSelecionado}"
+                  SelectedItem="{Binding EntidadeSelecionada}"
+                  SelectionMode="Single">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="MouseDoubleClick">
+                    <i:InvokeCommandAction Command="{Binding EditarCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Tipo de Massa"
+                                    Binding="{Binding Numero}"
+                                    Width="65*" />
+                <DataGridTextColumn Header="Quantidade"
+                                    Binding="{Binding Numero}"
+                                    Width="35*" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
 </UserControl>

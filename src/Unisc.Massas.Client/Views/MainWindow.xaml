@@ -13,9 +13,10 @@
         mc:Ignorable="d"
         Title="Martin Massas"
         Icon="/Resources/icone16px.ico"
-        Height="500"
-        Width="800"
-        WindowState="Maximized">
+        Height="768"
+        Width="1336"
+        WindowState="Normal"
+        WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <s:Double x:Key="TabControlWidth">202</s:Double>
@@ -212,7 +213,8 @@
 
             <Grid Grid.Row="1"
                   Background="{StaticResource TabControlHeaderColor}">
-                <TabControl TabStripPlacement="Left"
+                <TabControl x:Name="tabControl"
+                            TabStripPlacement="Left"
                             BorderThickness="0"
                             Padding="0"
                             Background="{StaticResource TabControlHeaderColor}"

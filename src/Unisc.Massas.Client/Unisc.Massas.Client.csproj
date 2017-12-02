@@ -114,6 +114,7 @@
     <Compile Include="Conversores\TipoPessoaParaCnpjCpfConverter.cs" />
     <Compile Include="DialogTemplateSelector.cs" />
     <Compile Include="ModalTemplateSelector.cs" />
+    <Compile Include="Models\ViaCep.cs" />
     <Compile Include="Validation\NotEmptyValidationRule.cs" />
     <Compile Include="ViewModels\AjudaViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroClienteViewModel.cs" />
@@ -617,6 +618,7 @@
   <ItemGroup>
     <Resource Include="Resources\icone16px.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Fody.2.0.0\build\dotnet\Fody.targets" Condition="Exists('..\..\packages\Fody.2.0.0\build\dotnet\Fody.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -6,6 +6,8 @@ namespace Unisc.Massas.Core.Extensions
     {
         public static bool IsNumber(this KeyEventArgs e)
         {
+            if (e.Key == Key.Tab || e.Key == Key.Enter) return false;
+
             return e.Key == Key.NumPad0
                 || e.Key == Key.NumPad1
                 || e.Key == Key.NumPad2

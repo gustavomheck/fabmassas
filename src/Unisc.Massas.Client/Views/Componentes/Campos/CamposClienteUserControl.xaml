@@ -188,7 +188,7 @@
                         </i:Interaction.Triggers>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Telefone"
-                                                Binding="{Binding Numero}"
+                                                Binding="{Binding Numero, Converter={StaticResource TelefoneFormatter}}"
                                                 Width="400" />
                             <DataGridTextColumn Header="Observação"
                                                 Binding="{Binding Observacao}"

@@ -13,32 +13,54 @@
     <StackPanel interface:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"
                 Margin="10,5,10,10">
-        <TextBox md:HintAssist.Hint="CEP"
+        <DockPanel>
+            <TextBox md:HintAssist.Hint="CEP"
+                     md:ValidationAssist.OnlyShowOnFocus="True"
+                     MaxLength="8"
+                     Text="{Binding EntidadeSelecionada.Cep, Converter={StaticResource IntParaStringConverter}}"
+                     Width="{StaticResource SmallWidth}">
+                <i:Interaction.Behaviors>
+                    <b:TextBoxInputMaskBehavior InputMask="00000-000"
+                                                PromptChar="_" />
+                </i:Interaction.Behaviors>
+            </TextBox>
+
+            <Button Command="{Binding BuscarCepCommand}"
+                    HorizontalAlignment="Left"
+                    Margin="10,10,0,0"
+                    ToolTip="Buscar CEP"
+                    Style="{DynamicResource ToolButton}">
+                <md:PackIcon Height="20"
+                             Width="20"
+                             Kind="ArrowRight"
+                             Foreground="#337AB7" />
+            </Button>
+        </DockPanel>
+
+        <TextBox md:HintAssist.Hint="Cidade"
                  md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="8"
-                 Text="{Binding EntidadeSelecionada.Cep, Converter={StaticResource IntParaStringConverter}, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                 Width="{StaticResource SmallWidth}">
-            <i:Interaction.Behaviors>
-                <b:TextBoxInputMaskBehavior InputMask="00000-000"
-                                                    PromptChar="_" />
-            </i:Interaction.Behaviors>
-        </TextBox>
-        
+                 IsReadOnly="True"
+                 MaxLength="60"
+                 Text="{Binding EntidadeSelecionada.Cidade, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Width="{StaticResource XLargeWidth}" />
         <TextBox md:HintAssist.Hint="Logradouro"
                  md:ValidationAssist.OnlyShowOnFocus="True"
+                 IsReadOnly="True"
                  MaxLength="60"
-                 Text="{Binding EntidadeSelecionada.Logradouro, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 Text="{Binding EntidadeSelecionada.Logradouro}"
                  Width="{StaticResource XXLargeWidth}" />
         <TextBox md:HintAssist.Hint="Bairro"
                  md:ValidationAssist.OnlyShowOnFocus="True"
-                 Text="{Binding EntidadeSelecionada.Bairro, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                 IsReadOnly="True"
+                 Text="{Binding EntidadeSelecionada.Bairro}"
                  Width="{StaticResource XLargeWidth}" />
         <TextBox md:HintAssist.Hint="Número"
+                 MaxLength="20"
                  Text="{Binding EntidadeSelecionada.Numero, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource SmallWidth}" />
         <TextBox md:HintAssist.Hint="Complemento"
                  md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="14"
+                 MaxLength="60"
                  Text="{Binding EntidadeSelecionada.Complemento}"
                  Width="{StaticResource XLargeWidth}" />
     </StackPanel>

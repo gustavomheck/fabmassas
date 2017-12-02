@@ -42,6 +42,7 @@
             <c:SelectedIndexToIsEnabledConverter x:Key="SelectedIndexToIsEnabledConverter" />
             <c:SelectedIndexToVisibilityConverter x:Key="SelectedIndexToVisibilityConverter" />
             <c:CnpjCpfToSelectedIndexConverter x:Key="CnpjCpfToSelectedIndexConverter" />
+            <c:TelefoneFormatter x:Key="TelefoneFormatter" />
             <c:TipoPessoaParaCnpjCpfConverter x:Key="TipoPessoaParaCnpjCpfConverter" />
             <v:NotEmptyValidationRule x:Key="NotEmptyValidationRule" />
 

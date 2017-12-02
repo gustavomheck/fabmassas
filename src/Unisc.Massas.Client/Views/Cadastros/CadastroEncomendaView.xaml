@@ -33,52 +33,24 @@
             </Grid.RowDefinitions>
             
             <local:CamposEncomendaUserControl Margin="{StaticResource MarginCadastro}" />
-
-            <DataGrid Grid.Row="1"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="True"
-                      CanUserDeleteRows="False"
-                      BorderBrush="{StaticResource BorderColor}"
-                      BorderThickness="0"
-                      Margin="16,4,16,16"
-                      IsReadOnly="True"
-                      ItemsSource="{Binding CollectionView}"
-                      SelectedIndex="{Binding IndiceSelecionado}"
-                      SelectedItem="{Binding EntidadeSelecionada}"
-                      SelectionMode="Single"
-                      HorizontalAlignment="Center"
-                      Width="{Binding ElementName=Wrapper, Path=ActualWidth}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <i:InvokeCommandAction Command="{Binding EditarCommand}" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Tipo de Massa"
-                                        Binding="{Binding Numero}"
-                                        Width="65*" />
-                    <DataGridTextColumn Header="Quantidade"
-                                        Binding="{Binding Numero}"
-                                        Width="35*" />
-                </DataGrid.Columns>
-            </DataGrid>
         </Grid>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
             <local:SalvarUserControl />
 
-            <Border BorderThickness="0,1,0,0"
+            <Border Grid.Column="1"
+                    BorderThickness="0,1,0,0"
                     BorderBrush="{StaticResource BorderColor}">
                 <Button DockPanel.Dock="Right"
                         Command="{Binding AdicionarTipoMassaCommand}"
                         Margin="0,0,10,0"
                         BorderThickness="0"
-                        HorizontalAlignment="Right"
+                        HorizontalAlignment="Left"
                         Width="140"
                         Style="{StaticResource ButtonSuccess}">
                     <DockPanel>

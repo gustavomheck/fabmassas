@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using Unisc.Massas.Client.ViewModels;
 using Unisc.Massas.Client.Views;
 using Unisc.Massas.Data.Context;
@@ -16,6 +15,7 @@ namespace Unisc.Massas.Client
 #if DEBUG
             DatabaseSeeder.Seed();
 #endif
+
             var mainWnd = new MainWindow()
             {
                 DataContext = DependencyFactory.Resolve<MainWindowViewModel>()

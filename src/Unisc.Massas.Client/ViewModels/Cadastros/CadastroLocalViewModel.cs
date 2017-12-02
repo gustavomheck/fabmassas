@@ -1,4 +1,8 @@
-﻿using Unisc.Massas.Data.Interfaces;
+﻿using System;
+using System.Windows.Input;
+using Unisc.Massas.Core.Comandos;
+using Unisc.Massas.Core.Web;
+using Unisc.Massas.Data.Interfaces;
 using Unisc.Massas.Domain.Models;
 
 namespace Unisc.Massas.Client.ViewModels
