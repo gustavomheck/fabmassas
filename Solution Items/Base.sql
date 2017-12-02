@@ -56,7 +56,7 @@ DROP TABLE IF EXISTS `empresa`;
 CREATE TABLE `empresa` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Cnpj` varchar(14) NOT NULL,
-  `InscEstadual` varchar(12) DEFAULT NULL,
+  `InscEstadual` varchar(15) DEFAULT NULL,
   `InscMunicipal` varchar(12) DEFAULT NULL,
   `RazaoSocial` varchar(60) NOT NULL,
   `Apelido` varchar(60) DEFAULT NULL,
@@ -68,9 +68,19 @@ CREATE TABLE `empresa` (
   `Site` varchar(255) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=699 DEFAULT CHARSET=utf8;
 
 /*Data for the table `empresa` */
+
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (690,'72247876000148','9664394039',NULL,'Mirella e João Telecom ME',NULL,NULL,94475808,'Santa Cecília','Beco do Aristides','910',NULL,NULL);
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (691,'54978694000165','157705773',NULL,'Caroline e Betina Entregas Expressas ME',NULL,NULL,66080500,'Pedreira','Vila São Judas Tadeu','624',NULL,NULL);
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (692,'46297426000150','88400712',NULL,'Nathan e Sophie Financeira Ltda',NULL,NULL,41100086,'Pernambués','Rua Lamarão','184',NULL,NULL);
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (693,'72662159000182','841969100265',NULL,'Kaique e Iago Assessoria Jurídica ME',NULL,NULL,3983170,'Parque Santa Madalena','Rua Ubim','295',NULL,NULL);
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (694,'48125496000156','421812062740',NULL,'Juan e Caio Fotografias Ltda',NULL,NULL,13256222,'Giardino D Itália','Rua Tito','476',NULL,NULL);
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (695,'19421097000134','4780563276807',NULL,'Natália e Mariana Entregas Expressas Ltda',NULL,NULL,36052260,'Grajaú','Travessa João Brun','754',NULL,NULL);
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (696,'61321906000100','280977140',NULL,'Diogo e Raul Alimentos Ltda',NULL,NULL,79042549,'Tiradentes','Travessa Moana','623',NULL,NULL);
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (697,'46146882000107','287872246',NULL,'Felipe e Débora Padaria ME',NULL,NULL,79094460,'Jardim Batistão','Rua Síria','279',NULL,NULL);
+insert  into `empresa`(`Id`,`Cnpj`,`InscEstadual`,`InscMunicipal`,`RazaoSocial`,`Apelido`,`Logomarca`,`Cep`,`Bairro`,`Logradouro`,`Numero`,`Site`,`Email`) values (698,'72495689000183','419220968',NULL,'Emily e Davi Mudanças ME',NULL,NULL,29042650,'Fradinhos','Rua Professora Maria Acciolina Pereira','738',NULL,NULL);
 
 /*Table structure for table `encomenda` */
 
@@ -94,22 +104,6 @@ CREATE TABLE `encomenda` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `encomenda` */
-
-/*Table structure for table `encomenda_has_tipo_massa` */
-
-DROP TABLE IF EXISTS `encomenda_has_tipo_massa`;
-
-CREATE TABLE `encomenda_has_tipo_massa` (
-  `EncomendaId` int(11) NOT NULL,
-  `TipoMassaId` int(11) NOT NULL,
-  PRIMARY KEY (`EncomendaId`,`TipoMassaId`),
-  KEY `fk_encomenda_has_tipo_massa_tipo_massa1_idx` (`TipoMassaId`),
-  KEY `fk_encomenda_has_tipo_massa_encomenda1_idx` (`EncomendaId`),
-  CONSTRAINT `fk_encomenda_has_tipo_massa_encomenda1` FOREIGN KEY (`EncomendaId`) REFERENCES `encomenda` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_encomenda_has_tipo_massa_tipo_massa1` FOREIGN KEY (`TipoMassaId`) REFERENCES `tipo_massa` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `encomenda_has_tipo_massa` */
 
 /*Table structure for table `estado` */
 
@@ -243,6 +237,24 @@ CREATE TABLE `metadado` (
 
 /*Data for the table `metadado` */
 
+/*Table structure for table `pacotes` */
+
+DROP TABLE IF EXISTS `pacotes`;
+
+CREATE TABLE `pacotes` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `EncomendaId` int(11) NOT NULL,
+  `TipoMassaId` int(11) NOT NULL,
+  `Quantidade` int(11) NOT NULL,
+  PRIMARY KEY (`Id`,`EncomendaId`,`TipoMassaId`),
+  KEY `fk_encomenda_has_tipo_massa_tipo_massa1_idx` (`TipoMassaId`),
+  KEY `fk_encomenda_has_tipo_massa_encomenda1_idx` (`EncomendaId`),
+  CONSTRAINT `fk_encomenda_has_tipo_massa_encomenda1` FOREIGN KEY (`EncomendaId`) REFERENCES `encomenda` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_encomenda_has_tipo_massa_tipo_massa1` FOREIGN KEY (`TipoMassaId`) REFERENCES `tipo_massa` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `pacotes` */
+
 /*Table structure for table `pais` */
 
 DROP TABLE IF EXISTS `pais`;
@@ -298,7 +310,7 @@ CREATE TABLE `produto` (
   `Nome` varchar(45) NOT NULL,
   `ValorBase` decimal(10,0) NOT NULL,
   `QtdeMinimaEstoque` double NOT NULL,
-  `IsIngrediente` varchar(45) DEFAULT NULL,
+  `IsIngrediente` tinyint(1) NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `fk_produto_unidade_medida1_idx` (`UnidadeMedidaId`),
   CONSTRAINT `fk_produto_unidade_medida1` FOREIGN KEY (`UnidadeMedidaId`) REFERENCES `unidade_medida` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -306,11 +318,10 @@ CREATE TABLE `produto` (
 
 /*Data for the table `produto` */
 
-insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (1,5,'JHIODAS89231','INGREDIENTE 1','11',150,'1');
-insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (2,7,'UISD894','INGREDIENTE 2','55',30,'1');
-insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (3,7,'UISD781','INGREDIENTE 3','1',500,'1');
-insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (4,4,'WFJAIODA9','PRODUTO 1','120',5,'0');
-insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (5,4,'WF9384F','PRODUTO 2','100',2,'0');
+insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (1,5,'JHIODAS89231','SACOLA PLÁSTICA','0',100,0);
+insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (2,7,'UISD894','OVO','1',500,1);
+insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (3,7,'UISD781','FARINHA','27',200,1);
+insert  into `produto`(`Id`,`UnidadeMedidaId`,`Codigo`,`Nome`,`ValorBase`,`QtdeMinimaEstoque`,`IsIngrediente`) values (4,4,'WFJAIODA9','CORANTE AMARELO','20',1,1);
 
 /*Table structure for table `telefone` */
 
@@ -359,12 +370,9 @@ CREATE TABLE `tipo_massa` (
   KEY `fk_tipo_massa_maquina1` (`MaquinaId`),
   CONSTRAINT `fk_tipo_massa_forma1` FOREIGN KEY (`FormaId`) REFERENCES `forma` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_tipo_massa_maquina1` FOREIGN KEY (`MaquinaId`) REFERENCES `maquina` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tipo_massa` */
-
-insert  into `tipo_massa`(`Id`,`FormaId`,`MaquinaId`,`NomeMassa`,`PesoBase`,`ValorBase`) values (2,2,2,'MASSA 2',5,'10');
-insert  into `tipo_massa`(`Id`,`FormaId`,`MaquinaId`,`NomeMassa`,`PesoBase`,`ValorBase`) values (3,2,3,'MASSA 3',20,'50');
 
 /*Table structure for table `tipo_massa_has_produto` */
 
@@ -381,10 +389,6 @@ CREATE TABLE `tipo_massa_has_produto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `tipo_massa_has_produto` */
-
-insert  into `tipo_massa_has_produto`(`TipoMassaId`,`ProdutoId`) values (2,1);
-insert  into `tipo_massa_has_produto`(`TipoMassaId`,`ProdutoId`) values (2,3);
-insert  into `tipo_massa_has_produto`(`TipoMassaId`,`ProdutoId`) values (3,3);
 
 /*Table structure for table `unidade_medida` */
 
