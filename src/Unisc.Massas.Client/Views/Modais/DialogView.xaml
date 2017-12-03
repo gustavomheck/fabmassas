@@ -124,6 +124,7 @@
                         Height="53">
                     <Button Content="Cancelar"
                             Command="{x:Static md:DialogHost.CloseDialogCommand}"
+                            Foreground="Gray"
                             Height="Auto"
                             Width="Auto"
                             Style="{StaticResource MaterialDesignFlatButton}">

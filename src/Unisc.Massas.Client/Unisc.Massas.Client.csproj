@@ -145,7 +145,7 @@
     <Compile Include="ViewModels\Estoque\SaidaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Modais\AdicionarLocalViewModel.cs" />
     <Compile Include="ViewModels\Modais\AdicionarTelefoneViewModel.cs" />
-    <Compile Include="ViewModels\Modais\EscolherEncomendaViewModel.cs" />
+    <Compile Include="ViewModels\Modais\AdicionarMassaViewModel.cs" />
     <Compile Include="ViewModels\Modais\ModalViewModelBase.cs" />
     <Compile Include="Views\AjudaView.xaml.cs">
       <DependentUpon>AjudaView.xaml</DependentUpon>
@@ -288,8 +288,8 @@
     <Compile Include="Views\Modais\AdicionarTelefoneView.xaml.cs">
       <DependentUpon>AdicionarTelefoneView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Modais\EscolherEncomendaView.xaml.cs">
-      <DependentUpon>EscolherEncomendaView.xaml</DependentUpon>
+    <Compile Include="Views\Modais\AdicionarMassaView.xaml.cs">
+      <DependentUpon>AdicionarMassaView.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\FontAwesome.xaml">
       <SubType>Designer</SubType>
@@ -558,7 +558,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Modais\EscolherEncomendaView.xaml">
+    <Page Include="Views\Modais\AdicionarMassaView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,6 +1,7 @@
 ﻿using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Unisc.Massas.Client.Views;
 using Unisc.Massas.Core;
@@ -14,22 +15,32 @@ namespace Unisc.Massas.Client.ViewModels
     {
         private readonly IEncomendaRepositorio encomendaRepositorio;
         private readonly IClienteRepositorio clienteRepositorio;
+        private readonly ITipoMassaRepositorio tipoMassaRepositorio;
 
-        public CadastroEncomendaViewModel(IEncomendaRepositorio encomendaRepositorio, IClienteRepositorio clienteRepositorio) : base(encomendaRepositorio, "Cadastro de Encomenda")
+        public CadastroEncomendaViewModel(
+            IEncomendaRepositorio encomendaRepositorio,
+            IClienteRepositorio clienteRepositorio,
+            ITipoMassaRepositorio tipoMassaRepositorio) : base(encomendaRepositorio, "Cadastro de Encomenda")
         {
             this.encomendaRepositorio = encomendaRepositorio;
             this.clienteRepositorio = clienteRepositorio;
+            this.tipoMassaRepositorio = tipoMassaRepositorio;
 
-            AdicionarTipoMassaCommand = new DelegateCommand(AdicionarTipoMassa);
+            AdicionarPacoteCommand = new DelegateCommand(AdicionarPacote);
+            RemoverPacoteCommand = new DelegateCommand(RemoverPacote);
 
-            Carregar();
+            Carregar();            
         }
+
+        public ObservableCollection<Pacote> Pacotes { get; set; }
 
         public Cliente[] Clientes { get; set; }
         public ICollection<Local> Locais => ClienteSelecionado?.Locais;
         public Cliente ClienteSelecionado { get; set; }
         public Local LocalSelecionado { get; set; }
-        public ICommand AdicionarTipoMassaCommand { get; set; }
+        public Pacote PacoteSelecionado { get; set; }
+        public ICommand AdicionarPacoteCommand { get; set; }
+        public ICommand RemoverPacoteCommand { get; set; }
 
         protected override void Carregar()
         {
@@ -42,17 +53,31 @@ namespace Unisc.Massas.Client.ViewModels
                 }));
         }
 
-        private async void AdicionarTipoMassa()
+        private async void AdicionarPacote()
         {
-            var view = new EscolherEncomendaView();
-            var viewModel = new EscolherEncomendaViewModel();
+            var view = new AdicionarMassaView();
+            var viewModel = new AdicionarMassaViewModel(tipoMassaRepositorio);
             view.DataContext = viewModel;
 
             var result = (bool?)(await DialogHost.Show(view, "RootDialog"));
 
             if (result.HasValue && result.Value)
             {
-                
+                EntidadeSelecionada.AdicionarPacote(viewModel.TipoMassaSelecionado, viewModel.Quantidade);
+            }
+        }
+
+        private async void RemoverPacote()
+        {
+            var view = new DialogView()
+            {
+                DataContext = new DialogViewModel("Tem certeza que deseja excluir o pacote?", "Excluir pacote", DialogResult.CancelDelete)
+            };
+            var result = (bool?)(await DialogHost.Show(view, "RootDialog"));
+
+            if (result.HasValue && result.Value)
+            {
+                EntidadeSelecionada.RemoverPacote(PacoteSelecionado);
             }
         }
     }

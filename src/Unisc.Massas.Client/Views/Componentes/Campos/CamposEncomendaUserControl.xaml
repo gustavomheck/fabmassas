@@ -7,12 +7,13 @@
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              xmlns:s="clr-namespace:System;assembly=mscorlib"
+             xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
              mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance vm:CadastroEncomendaViewModel}"
              Background="{DynamicResource MaterialDesignPaper}">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
@@ -45,7 +46,7 @@
             </ComboBox>
         </StackPanel>
 
-        <DataGrid Grid.Row="2"
+        <DataGrid Grid.Row="1"
                   AutoGenerateColumns="False"
                   CanUserAddRows="True"
                   CanUserDeleteRows="False"
@@ -53,22 +54,30 @@
                   BorderThickness="0"
                   Margin="16,4,36,16"
                   IsReadOnly="True"
-                  ItemsSource="{Binding CollectionView}"
-                  SelectedIndex="{Binding IndiceSelecionado}"
-                  SelectedItem="{Binding EntidadeSelecionada}"
+                  ItemsSource="{Binding EntidadeSelecionada.Pacotes}"
+                  SelectedItem="{Binding PacoteSelecionado}"
                   SelectionMode="Single">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseDoubleClick">
-                    <i:InvokeCommandAction Command="{Binding EditarCommand}" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Tipo de Massa"
-                                    Binding="{Binding Numero}"
+                                    Binding="{Binding TipoMassa.NomeMassa}"
                                     Width="65*" />
                 <DataGridTextColumn Header="Quantidade"
-                                    Binding="{Binding Numero}"
+                                    Binding="{Binding Quantidade}"
                                     Width="35*" />
+                <DataGridTemplateColumn Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button Command="{Binding Path=DataContext.RemoverPacoteCommand, RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}"
+                                        ToolTip="Remover Pacote"
+                                        Style="{DynamicResource ToolButton}">
+                                    <md:PackIcon Kind="Close"
+                                                 Foreground="#D9534F" />
+                                </Button>
+                            </Grid>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
