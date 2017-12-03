@@ -22,13 +22,18 @@
                     HorizontalAlignment="Stretch"
                     Margin="10,10,10,10">
             <ComboBox md:HintAssist.Hint="Cliente"
+                      DisplayMemberPath="Nome"
                       ItemsSource="{Binding Clientes}"
                       SelectedItem="{Binding ClienteSelecionado}"
+                      SelectedValue="{Binding ClienteSelecionado.Id}"
+                      SelectedValuePath="Id"
                       HorizontalAlignment="Left"
                       Width="700" />
             <ComboBox md:HintAssist.Hint="Local de Entrega"
                       ItemsSource="{Binding Locais}"
                       SelectedItem="{Binding LocalSelecionado}"
+                      SelectedValue="{Binding LocalSelecionado.Id}"
+                      SelectedValuePath="Id"
                       HorizontalAlignment="Left"
                       Width="700" />
             <DatePicker md:HintAssist.Hint="Data de Entrega"
@@ -38,11 +43,11 @@
                            Width="{StaticResource LargeWidth}" />
             <ComboBox md:HintAssist.Hint="Status"
                       HorizontalAlignment="Left"
+                      SelectedIndex="{Binding Status}"
                       Width="{StaticResource RegularWidth}">
-                <ComboBoxItem>Status 1</ComboBoxItem>
-                <ComboBoxItem>Status 2</ComboBoxItem>
-                <ComboBoxItem>Status 3</ComboBoxItem>
-                <ComboBoxItem>Status 4</ComboBoxItem>
+                <ComboBoxItem>Pendente</ComboBoxItem>
+                <ComboBoxItem>Em Produção</ComboBoxItem>
+                <ComboBoxItem>Entregue</ComboBoxItem>
             </ComboBox>
         </StackPanel>
 

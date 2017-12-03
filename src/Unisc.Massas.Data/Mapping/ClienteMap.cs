@@ -15,9 +15,11 @@ namespace Unisc.Massas.Data.Mapping
             Property(t => t.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(t => t.CnpjCpf)
-                .IsRequired()
+            Property(t => t.Cnpj)
                 .HasMaxLength(14);
+
+            Property(t => t.Cpf)
+                .HasMaxLength(11);
 
             Property(t => t.Nome)
                 .IsRequired()
@@ -38,7 +40,8 @@ namespace Unisc.Massas.Data.Mapping
             // Table & Column Mappings
             ToTable("cliente", "massas");
             Property(t => t.Id).HasColumnName("Id");
-            Property(t => t.CnpjCpf).HasColumnName("CnpjCpf");
+            Property(t => t.Cnpj).HasColumnName("Cnpj");
+            Property(t => t.Cpf).HasColumnName("Cpf");
             Property(t => t.Nome).HasColumnName("Nome");
             Property(t => t.InscEstadual).HasColumnName("InscEstadual");
             Property(t => t.InscMunicipal).HasColumnName("InscMunicipal");

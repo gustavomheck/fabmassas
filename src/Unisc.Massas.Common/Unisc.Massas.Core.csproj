@@ -51,6 +51,7 @@
     <Compile Include="Comandos\DelegateCommandBase.cs" />
     <Compile Include="Comandos\IActiveAware.cs" />
     <Compile Include="Comandos\PropertySupport.cs" />
+    <Compile Include="Comportamentos\EventToCommandBehavior.cs" />
     <Compile Include="Comportamentos\TextBoxInputMaskBehavior.cs" />
     <Compile Include="Controles\Card.cs" />
     <Compile Include="Controles\ImageButton.cs" />
@@ -60,7 +61,7 @@
     <Compile Include="Controles\SideMenuItem.cs" />
     <Compile Include="Controles\WatermarkTextBox.cs" />
     <Compile Include="DataAnnotations\CnpjAttribute.cs" />
-    <Compile Include="DataAnnotations\CnpjCpfAttribute.cs" />
+    <Compile Include="DataAnnotations\CpfAttribute.cs" />
     <Compile Include="DataAnnotations\DateTimeNowAttribute.cs" />
     <Compile Include="DataAnnotations\EmailAttribute.cs" />
     <Compile Include="DataAnnotations\IEAttribute.cs" />

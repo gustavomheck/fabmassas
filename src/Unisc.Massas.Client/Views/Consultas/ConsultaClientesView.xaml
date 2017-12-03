@@ -58,8 +58,14 @@
                         </i:Interaction.Triggers>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="CNPJ/CPF"
-                                                Binding="{Binding CnpjCpf, Converter={StaticResource CnpjCpfFormatter}}"
-                                                Width="16*" />
+                                                Width="16*">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding Converter="{StaticResource CnpjCpfFormatter}">
+                                        <Binding Path="Cnpj" />
+                                        <Binding Path="Cpf" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Nome"
                                                 Binding="{Binding Nome}"
                                                 Width="28*" />

@@ -32,27 +32,38 @@
                         <ComboBoxItem>Pessoa Jurídica</ComboBoxItem>
                     </ComboBox>
 
-                    <c:MaskedTextBox md:HintAssist.Hint="{Binding Hint}"
-                                     md:ValidationAssist.OnlyShowOnFocus="True"
-                                     x:Name="textBoxCnpjCpf"
-                                     InputMask="{Binding Mask}"
-                                     UnmaskedText="{Binding EntidadeSelecionada.CnpjCpf, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                                     Width="{StaticResource RegularWidth}" />
+                    <Grid>
+                        <c:MaskedTextBox md:HintAssist.Hint="{Binding Hint}"
+                                         md:ValidationAssist.OnlyShowOnFocus="True"
+                                         x:Name="textBoxCnpj"
+                                         InputMask="00.000.000/0000-00"
+                                         UnmaskedText="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         Width="{StaticResource RegularWidth}" />
+                        <c:MaskedTextBox md:HintAssist.Hint="{Binding Hint}"
+                                         md:ValidationAssist.OnlyShowOnFocus="True"
+                                         x:Name="textBoxCpf"
+                                         InputMask="000.000.000-00"
+                                         UnmaskedText="{Binding EntidadeSelecionada.Cpf, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                         Visibility="Collapsed"
+                                         Width="{StaticResource RegularWidth}" />
+                    </Grid>
+                    
                     <TextBox md:HintAssist.Hint="Nome"
                              MaxLength="60"
                              Text="{Binding EntidadeSelecionada.Nome}"
                              Width="{StaticResource XLargeWidth}" />
                     <TextBox md:HintAssist.Hint="Site"
                              MaxLength="60"
-                             Text="{Binding EntidadeSelecionada.Site}"
+                             Text="{Binding EntidadeSelecionada.Site, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                              Width="{StaticResource XLargeWidth}" />
                     <TextBox md:HintAssist.Hint="E-mail"
                              MaxLength="60"
-                             Text="{Binding EntidadeSelecionada.Email}"
+                             Text="{Binding EntidadeSelecionada.Email, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                              Width="{StaticResource XLargeWidth}" />
                     <TextBox md:HintAssist.Hint="Inscrição Estadual"
-                             Text="{Binding EntidadeSelecionada.Estadual}"
-                             Visibility="{Binding ElementName=comboBoxTipoPessoa, Path=SelectedIndex, Converter={StaticResource SelectedIndexToVisibilityConverter}, UpdateSourceTrigger=PropertyChanged}"
+                             x:Name="textBoxInscEstadual"
+                             MaxLength="15"
+                             Text="{Binding EntidadeSelecionada.InscEstadual}"
                              Width="{StaticResource RegularWidth}" />
                 </StackPanel>
             </TabItem>

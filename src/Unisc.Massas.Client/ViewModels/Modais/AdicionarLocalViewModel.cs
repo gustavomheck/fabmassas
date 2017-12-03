@@ -14,13 +14,15 @@ namespace Unisc.Massas.Client.ViewModels
         
         public AdicionarLocalViewModel(Local local) : base(local)
         {
-            BuscarCepCommand = new DelegateCommand(BuscarCep);
+            BuscarCepCommand = new DelegateCommand<KeyEventArgs>(BuscarCep);
         }
 
         public ICommand BuscarCepCommand { get; set; }
 
-        private void BuscarCep()
+        private void BuscarCep(KeyEventArgs e)
         {
+            if (e != null && e.Key != Key.Enter) return;
+
             string cep = EntidadeSelecionada.Cep.ToString().PadLeft(8, '0');
             var viaCep = WebRequest.MakeRequest<ViaCep>($"http://viacep.com.br/ws/{cep}/xml");
 

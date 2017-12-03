@@ -6,6 +6,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:b="clr-namespace:Unisc.Massas.Core.Comportamentos;assembly=Unisc.Massas.Core"
+             xmlns:c="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
              xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              mc:Ignorable="d"
              Background="{DynamicResource MaterialDesignPaper}">
@@ -14,16 +15,18 @@
                 HorizontalAlignment="Stretch"
                 Margin="10,5,10,10">
         <DockPanel>
-            <TextBox md:HintAssist.Hint="CEP"
-                     md:ValidationAssist.OnlyShowOnFocus="True"
-                     MaxLength="8"
-                     Text="{Binding EntidadeSelecionada.Cep, Converter={StaticResource IntParaStringConverter}}"
-                     Width="{StaticResource SmallWidth}">
+            <c:MaskedTextBox md:HintAssist.Hint="CEP"
+                             md:ValidationAssist.OnlyShowOnFocus="True"
+                             InputMask="00000-000"
+                             UnmaskedText="{Binding EntidadeSelecionada.Cep, Converter={StaticResource IntParaStringConverter}}"
+                             Width="{StaticResource SmallWidth}">
                 <i:Interaction.Behaviors>
-                    <b:TextBoxInputMaskBehavior InputMask="00000-000"
-                                                PromptChar="_" />
+                    <b:EventToCommandBehavior Command="{Binding BuscarCepCommand}"
+                                              Event="KeyUp"
+                                              PassArguments="True">
+                    </b:EventToCommandBehavior>
                 </i:Interaction.Behaviors>
-            </TextBox>
+            </c:MaskedTextBox>
 
             <Button Command="{Binding BuscarCepCommand}"
                     HorizontalAlignment="Left"

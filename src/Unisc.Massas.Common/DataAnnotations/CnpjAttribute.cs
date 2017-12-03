@@ -12,7 +12,7 @@ namespace Unisc.Massas.Core.DataAnnotations
 
             if (String.IsNullOrEmpty(cnpj))
             {
-                return new ValidationResult("O CNPJ informado não é válido.");
+                return ValidationResult.Success;
             }
 
             var multiplicador1 = new int[12] { 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2 };

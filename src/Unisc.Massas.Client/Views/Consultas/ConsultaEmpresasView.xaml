@@ -56,17 +56,17 @@
                         </i:Interaction.Triggers>
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="CNPJ"
-                                                Binding="{Binding Cnpj, Converter={StaticResource CnpjCpfFormatter}}"
-                                                Width="12*" />
-                            <DataGridTextColumn Header="Inscrição Estadual"
                                                 Width="12*">
                                 <DataGridTextColumn.Binding>
-                                    <MultiBinding Converter="{StaticResource InscricaoEstadualFormatter}">
-                                        <Binding Path="InscEstadual" />
-                                        <Binding Path="Cep" />
+                                    <MultiBinding Converter="{StaticResource CnpjCpfFormatter}">
+                                        <Binding Path="Cnpj" />
+                                        <Binding Path="{x:Null}" />
                                     </MultiBinding>
                                 </DataGridTextColumn.Binding>
                             </DataGridTextColumn>
+                            <DataGridTextColumn Header="Inscrição Estadual"
+                                                Binding="{Binding InscEstadual, Converter={StaticResource InscricaoEstadualFormatter}}"
+                                                Width="12*" />
                             <DataGridTextColumn Header="Razão Social"
                                                 Binding="{Binding RazaoSocial}"
                                                 Width="21*" />

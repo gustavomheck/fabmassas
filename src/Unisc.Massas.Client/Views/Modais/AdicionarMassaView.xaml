@@ -37,6 +37,7 @@
         <StackPanel Grid.Row="1"
                     Margin="0,20">
             <ComboBox md:HintAssist.Hint="Tipo de Massa"
+                      DisplayMemberPath="NomeMassa"
                       ItemsSource="{Binding TiposMassas}"
                       SelectedItem="{Binding TipoMassaSelecionado}"
                       Width="300">

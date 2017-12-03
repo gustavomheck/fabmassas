@@ -77,7 +77,7 @@ namespace Unisc.Massas.Domain.Models
 
         public override string ToString()
         {
-            string resultado = $"{Formatar.Cep(Cep)} - {Logradouro}, {Numero}";
+            string resultado = $"{Formatar.Cep(Cep)} {Logradouro}, {Numero}";
 
             if (!String.IsNullOrWhiteSpace(Complemento))
             {
