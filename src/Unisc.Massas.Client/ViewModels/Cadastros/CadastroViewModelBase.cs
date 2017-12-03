@@ -10,7 +10,7 @@ namespace Unisc.Massas.Client.ViewModels
     public class CadastroViewModelBase<TEntity> : ViewModelBase where TEntity : EntityBase
     {
         private readonly IRepositorio<TEntity> repositorio;
-        private TEntity _entidadeSelecionada;
+        protected TEntity _entidadeSelecionada;
 
         public CadastroViewModelBase(IRepositorio<TEntity> repositorio, string viewName)
         {
@@ -27,7 +27,7 @@ namespace Unisc.Massas.Client.ViewModels
         /// <summary>
         /// Obtém ou define a entidade selecionada.
         /// </summary>
-        public TEntity EntidadeSelecionada
+        public virtual TEntity EntidadeSelecionada
         {
             get => _entidadeSelecionada;
             set => SetValue(ref _entidadeSelecionada, value);

@@ -12,6 +12,7 @@ namespace Unisc.Massas.Client.ViewModels
     public class CadastroClienteViewModel : CadastroViewModelBase<Cliente>
     {
         private readonly IClienteRepositorio clienteRepositorio;
+        private int _tipoPessoa;
 
         public CadastroClienteViewModel(IClienteRepositorio clienteRepositorio) : base(clienteRepositorio, "Cadastro de Cliente")
         {
@@ -25,6 +26,40 @@ namespace Unisc.Massas.Client.ViewModels
             RemoverTelefoneCommand = new DelegateCommand(RemoverTelefone);
         }
 
+        public override Cliente EntidadeSelecionada
+        {
+            get => _entidadeSelecionada;
+            set
+            {
+                SetValue(ref _entidadeSelecionada, value);
+
+                if (value != null)
+                {
+                    if (String.IsNullOrEmpty(value.CnpjCpf))
+                    {
+                        Hint = "Selecione o Tipo de Pessoa";
+                        Mask = "0";
+                        TipoPessoa = -1;
+                    }
+                    else if (value.CnpjCpf.Length == 11)
+                    {
+                        Hint = "CPF";
+                        Mask = "000.000.000-00";
+                        TipoPessoa = 0;
+                    }
+                    else if (value.CnpjCpf.Length == 14)
+                    {
+                        Hint = "CNPJ";
+                        Mask = "00.000.000/0000-00";
+                        TipoPessoa = 1;
+                    }
+                }
+            }
+        }
+
+        public int TipoPessoa { get; set; }
+        public string Hint { get; set; }
+        public string Mask { get; set; }
         public Local LocalSelecionado { get; set; }
         public Telefone TelefoneSelecionado { get; set; }
         public ICommand AdicionarLocalCommand { get; set; }

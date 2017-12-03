@@ -54,6 +54,7 @@
     <Compile Include="Comportamentos\TextBoxInputMaskBehavior.cs" />
     <Compile Include="Controles\Card.cs" />
     <Compile Include="Controles\ImageButton.cs" />
+    <Compile Include="Controles\MaskedTextBox.cs" />
     <Compile Include="Controles\ModalWindow.cs" />
     <Compile Include="Controles\SideMenu.cs" />
     <Compile Include="Controles\SideMenuItem.cs" />

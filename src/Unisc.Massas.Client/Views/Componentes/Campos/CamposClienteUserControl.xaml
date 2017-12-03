@@ -4,9 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:b="clr-namespace:Unisc.Massas.Core.Comportamentos;assembly=Unisc.Massas.Core"
+             xmlns:c="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
-             xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
              xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance vm:CadastroClienteViewModel}"
@@ -23,18 +24,20 @@
                 <StackPanel interface:EnterKeyTraversal.IsEnabled="True"
                             HorizontalAlignment="Stretch">
                     <ComboBox md:HintAssist.Hint="Tipo Pessoa"
-                              x:Name="comboBoxTipoPessoa"
+                              x:Name="comboBoxTipoPessoa"                              
                               HorizontalAlignment="Left"
+                              SelectedIndex="{Binding TipoPessoa}"
                               Width="{StaticResource RegularWidth}">
                         <ComboBoxItem>Pessoa Física</ComboBoxItem>
                         <ComboBoxItem>Pessoa Jurídica</ComboBoxItem>
                     </ComboBox>
-                    <TextBox md:HintAssist.Hint="{Binding ElementName=comboBoxTipoPessoa, Path=SelectedIndex, Converter={StaticResource TipoPessoaParaCnpjCpfConverter}}"
-                             md:ValidationAssist.OnlyShowOnFocus="True"
-                             x:Name="textBoxCnpjCpf"
-                             MaxLength="14"
-                             Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                             Width="{StaticResource RegularWidth}" />
+
+                    <c:MaskedTextBox md:HintAssist.Hint="{Binding Hint}"
+                                     md:ValidationAssist.OnlyShowOnFocus="True"
+                                     x:Name="textBoxCnpjCpf"
+                                     InputMask="{Binding Mask}"
+                                     UnmaskedText="{Binding EntidadeSelecionada.CnpjCpf, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                                     Width="{StaticResource RegularWidth}" />
                     <TextBox md:HintAssist.Hint="Nome"
                              MaxLength="60"
                              Text="{Binding EntidadeSelecionada.Nome}"

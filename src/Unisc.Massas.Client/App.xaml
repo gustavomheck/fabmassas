@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:c="clr-namespace:Unisc.Massas.Client.Conversores"
+             xmlns:ctrl="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
              xmlns:v="clr-namespace:Unisc.Massas.Client.Validation"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:views="clr-namespace:Unisc.Massas.Client.Views"
@@ -102,6 +103,16 @@
             </Style>
 
             <Style TargetType="{x:Type TextBox}"
+                   BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                <Setter Property="FontSize"
+                        Value="11pt" />
+                <Setter Property="Margin"
+                        Value="8" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
+            </Style>
+
+            <Style TargetType="{x:Type ctrl:MaskedTextBox}"
                    BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
                 <Setter Property="FontSize"
                         Value="11pt" />
