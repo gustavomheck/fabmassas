@@ -4,134 +4,19 @@ using System.Windows.Data;
 
 namespace Unisc.Massas.Client.Conversores
 {
-    public class InscricaoEstadualFormatter : IMultiValueConverter
+    public class InscricaoEstadualFormatter : IValueConverter
     {
-        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var ie = (string)values[0] ?? "";
-            var cep = values[1] as int?;
-            
-            if (cep.HasValue)
-            {
-                var uf = GetUfByCep(cep.Value);
+            var ie = value as string;
 
-                switch (uf)
-                {
-                    case "ACRE":
-                    case "AC":
-                        if (ie.Length == 13)
-                            return String.Format("{0}.{1}.{2}/{3}-{4}", ie.Substring(0, 2), ie.Substring(2, 3), ie.Substring(5, 3), ie.Substring(8, 3), ie.Substring(11, 2));
+            if (ie != null && ie.Length == 10)
+                return String.Format("{0}/{1}", ie.Substring(0, 3), ie.Substring(3, 7));
 
-                        break;
-                    case "AMAZONAS":
-                    case "AM":
-                        if (ie.Length == 9)
-                            return String.Format("{0}.{1}.{2}-{3}", ie.Substring(0, 2), ie.Substring(2, 3), ie.Substring(5, 3), ie.Substring(8, 1));
+            return ie;
+        }        
 
-                        break;
-                    case "BAHIA":
-                    case "BA":
-                        if (ie.Length == 8)
-                            return String.Format("{0}-{1}", ie.Substring(0, 6), ie.Substring(6, 2));
-
-                        break;
-                    case "CEARA":
-                    case "PARAIBA":
-                    case "CE":
-                    case "PB":
-                        if (ie.Length == 9)
-                            return String.Format("{0}-{1}", ie.Substring(0, 8), ie.Substring(8, 1));
-
-                        break;
-                    case "DISTRITO FEDERAL":
-                    case "DF":
-                        if (ie.Length == 13)
-                            return String.Format("{0}.{1}.{2}-{3}", ie.Substring(0, 2), ie.Substring(2, 6), ie.Substring(8, 3), ie.Substring(11, 2));
-
-                        break;
-                    case "MATO GROSSO":
-                    case "MT":
-                        if (ie.Length == 11)
-                            return String.Format("{0}-{1}", ie.Substring(0, 10), ie.Substring(10, 1));
-
-                        break;
-                    case "MINAS GERAIS":
-                    case "MG":
-                        if (ie.Length == 13)
-                            return String.Format("{0}.{1}.{2}/{3}", ie.Substring(0, 3), ie.Substring(3, 3), ie.Substring(6, 3), ie.Substring(9));
-                        if (ie.Length == 11)
-                            return String.Format("{0}.{1}.{2}.{3}", ie.Substring(0, 3), ie.Substring(3, 3), ie.Substring(6, 3), ie.Substring(9, 2));
-                        break;
-                    case "PARA":
-                    case "PA":
-                        if (ie.Length == 9)
-                            return String.Format("{0}-{1}-{2}", ie.Substring(0, 2), ie.Substring(2, 6), ie.Substring(8, 1));
-
-                        break;
-                    case "PARANA":
-                    case "RORAIMA":
-                    case "SERGIPE":
-                    case "PR":
-                    case "RR":
-                    case "SE":
-                        if (ie.Length == 10)
-                            return String.Format("{0}-{1}", ie.Substring(0, 8), ie.Substring(8, 2));
-
-                        break;
-                    case "PERNAMBUCO":
-                    case "PE":
-                        if (ie.Length == 9)
-                            return String.Format("{0}-{1}", ie.Substring(0, 7), ie.Substring(7, 2));
-
-                        break;
-                    case "RIO DE JANEIRO":
-                    case "RJ":
-                        if (ie.Length == 8)
-                            return String.Format("{0}.{1}.{2}-{3}", ie.Substring(0, 2), ie.Substring(2, 3), ie.Substring(5, 2), ie.Substring(7, 1));
-
-                        break;
-                    case "RIO GRANDE DO NORTE":
-                    case "RN":
-                        if (ie.Length == 9)
-                            return String.Format("{0}.{1}.{2}-{3}", ie.Substring(0, 2), ie.Substring(2, 3), ie.Substring(5, 3), ie.Substring(8, 1));
-
-                        if (ie.Length == 10)
-                            return String.Format("{0}.{1}.{2}.{3}-{4}", ie.Substring(0, 2), ie.Substring(2, 1), ie.Substring(3, 3), ie.Substring(6, 3), ie.Substring(9, 1));
-
-                        break;
-                    case "RIO GRANDE DO SUL":
-                    case "RS":
-                        if (ie.Length == 10)
-                            return String.Format("{0}/{1}", ie.Substring(0, 3), ie.Substring(3, 7));
-
-                        break;
-                    case "RONDONIA":
-                    case "RO":
-                        if (ie.Length == 14)
-                            return String.Format("{0}-{1}", ie.Substring(0, 13), ie.Substring(13, 1));
-
-                        break;
-                    case "SANTA CATARINA":
-                    case "SC":
-                        if (ie.Length == 9)
-                            return String.Format("{0}.{1}.{2}", ie.Substring(0, 3), ie.Substring(3, 3), ie.Substring(6, 3));
-
-                        break;
-                    case "SAO PAULO":
-                    case "SP":
-                        if (ie.Length == 12)
-                            return String.Format("{0}.{1}.{2}.{3}", ie.Substring(0, 3), ie.Substring(3, 3), ie.Substring(6, 3), ie.Substring(9, 3));
-
-                        break;
-                    default:
-                        return ie;
-                }
-            }
-
-            return String.Empty;
-        }
-
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

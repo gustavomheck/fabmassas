@@ -54,18 +54,15 @@
   <ItemGroup>
     <Compile Include="Context\DatabaseSeeder.cs" />
     <Compile Include="Context\MassasContext.cs" />
-    <Compile Include="Interfaces\ICidadeRepositorio.cs" />
     <Compile Include="Interfaces\IClienteRepositorio.cs" />
     <Compile Include="Interfaces\IEmpresaRepositorio.cs" />
     <Compile Include="Interfaces\IEncomendaRepositoriocs.cs" />
-    <Compile Include="Interfaces\IEstadoRepositorio.cs" />
     <Compile Include="Interfaces\IEstoqueRepositorio.cs" />
     <Compile Include="Interfaces\IFormaRepositorio.cs" />
     <Compile Include="Interfaces\IFuncaoRepositorio.cs" />
     <Compile Include="Interfaces\IFuncaoUsuarioRepositorio.cs" />
     <Compile Include="Interfaces\ILocalRepositorio.cs" />
     <Compile Include="Interfaces\IMaquinaRepositorio.cs" />
-    <Compile Include="Interfaces\IPaisRepositorio.cs" />
     <Compile Include="Interfaces\IPermisaoFuncaoRepositorio.cs" />
     <Compile Include="Interfaces\IProdutoRepositorio.cs" />
     <Compile Include="Interfaces\IRepositorio.cs" />
@@ -73,11 +70,9 @@
     <Compile Include="Interfaces\ITipoMassaRepositorio.cs" />
     <Compile Include="Interfaces\IUnidadeMedidaRepositorio.cs" />
     <Compile Include="Interfaces\IUsuarioRepositorio.cs" />
-    <Compile Include="Mapping\CidadeMap.cs" />
     <Compile Include="Mapping\ClienteMap.cs" />
     <Compile Include="Mapping\EmpresaMap.cs" />
     <Compile Include="Mapping\EncomendaMap.cs" />
-    <Compile Include="Mapping\EstadoMap.cs" />
     <Compile Include="Mapping\EstoqueMap.cs" />
     <Compile Include="Mapping\FormaMap.cs" />
     <Compile Include="Mapping\FuncaoMap.cs" />
@@ -85,7 +80,6 @@
     <Compile Include="Mapping\LocalMap.cs" />
     <Compile Include="Mapping\MaquinaMap.cs" />
     <Compile Include="Mapping\PacoteMap.cs" />
-    <Compile Include="Mapping\PaisMap.cs" />
     <Compile Include="Mapping\PermissaoFuncaoMap.cs" />
     <Compile Include="Mapping\PermissaoMap.cs" />
     <Compile Include="Mapping\ProdutoMap.cs" />
@@ -96,15 +90,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\EmpresaRepositorio.cs" />
     <Compile Include="Repositorios\FormaRepositorio.cs" />
-    <Compile Include="Repositorios\CidadeRepositorio.cs" />
     <Compile Include="Repositorios\ClienteRepositorio.cs" />
     <Compile Include="Repositorios\EncomendaRepositoriocs.cs" />
-    <Compile Include="Repositorios\EstadoRepositorio.cs" />
     <Compile Include="Repositorios\EstoqueRepositorio.cs" />
     <Compile Include="Repositorios\FuncaoRepositorio.cs" />
     <Compile Include="Repositorios\FuncaoUsuarioRepositorio.cs" />
     <Compile Include="Repositorios\LocalRepositorio.cs" />
-    <Compile Include="Repositorios\PaisRepositorio.cs" />
     <Compile Include="Repositorios\PermisaoFuncaoRepositorio.cs" />
     <Compile Include="Repositorios\ProdutoRepositorio.cs" />
     <Compile Include="Repositorios\TelefoneRepositorio.cs" />

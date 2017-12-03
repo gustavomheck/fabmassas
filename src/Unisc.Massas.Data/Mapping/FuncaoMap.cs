@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using Unisc.Massas.Domain.Models;
 
@@ -11,14 +12,17 @@ namespace Unisc.Massas.Data.Mapping
             HasKey(t => t.Id);
 
             // Properties
-            Property(t => t.titulo)
+            Property(t => t.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            Property(t => t.Titulo)
                 .IsRequired()
                 .HasMaxLength(45);
 
             // Table & Column Mappings
             ToTable("funcao", "massas");
             Property(t => t.Id).HasColumnName("Id");
-            Property(t => t.titulo).HasColumnName("titulo");
+            Property(t => t.Titulo).HasColumnName("Titulo");
         }
     }
 }

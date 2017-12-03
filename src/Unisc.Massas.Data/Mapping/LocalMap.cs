@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using Unisc.Massas.Domain.Models;
 
@@ -11,6 +12,9 @@ namespace Unisc.Massas.Data.Mapping
             HasKey(t => t.Id);
 
             // Properties
+            Property(t => t.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
             Property(t => t.Logradouro)
                 .IsRequired()
                 .HasMaxLength(60);
@@ -39,7 +43,6 @@ namespace Unisc.Massas.Data.Mapping
             HasRequired(t => t.Cliente)
                 .WithMany(t => t.Locais)
                 .HasForeignKey(d => d.ClienteId);
-
         }
     }
 }

@@ -7,9 +7,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
+             xmlns:vm="clr-namespace:Unisc.Massas.Client.ViewModels"
              mc:Ignorable="d"
              d:DesignHeight="600"
              d:DesignWidth="900"
+             d:DataContext="{d:DesignInstance vm:ConsultaClientesViewModel}"
              Background="{DynamicResource MaterialDesignPaper}">
 
     <i:Interaction.Triggers>
@@ -55,21 +57,21 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Cliente"
-                                                Binding="{Binding Cliente.Nome}"
-                                                Width="12*" />
-                            <DataGridTextColumn Header="Massa"
-                                                Binding="{Binding RazaoSocial}"
-                                                Width="21*" />
-                            <DataGridTextColumn Header="Quantidade"
-                                                Binding="{Binding QuantPacotes}"
-                                                Width="9*" />
-                            <DataGridTextColumn Header="Data"
-                                                Binding="{Binding DataPedido}"
+                            <DataGridTextColumn Header="CNPJ/CPF"
+                                                Binding="{Binding CnpjCpf, Converter={StaticResource CnpjCpfFormatter}}"
+                                                Width="16*" />
+                            <DataGridTextColumn Header="Nome"
+                                                Binding="{Binding Nome}"
+                                                Width="28*" />
+                            <DataGridTextColumn Header="Inscrição Estadual"
+                                                Binding="{Binding InscEstadual, Converter={StaticResource InscricaoEstadualFormatter}}"
+                                                Width="16*" />
+                            <DataGridTextColumn Header="E-mail"
+                                                Binding="{Binding Email}"
                                                 Width="20*" />
-                            <DataGridTextColumn Header="Situação"
-                                                Binding="{Binding Status}"
-                                                Width="18*" />
+                            <DataGridTextColumn Header="Site"
+                                                Binding="{Binding Site}"
+                                                Width="20*" />
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -111,11 +113,8 @@
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <ScrollViewer Margin="10,8,0,0"
-                                  HorizontalScrollBarVisibility="Auto"
-                                  VerticalScrollBarVisibility="Auto">
-                        <local:CamposClienteUserControl DataContext="{Binding CadastroClienteViewModel}" />
-                    </ScrollViewer>
+                    <local:CamposClienteUserControl Margin="20,8,0,0"
+                                                    DataContext="{Binding CadastroClienteViewModel}" />
 
                     <local:SalvarExcluirVoltarUserControl Grid.Row="1" />
                 </Grid>

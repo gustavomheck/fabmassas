@@ -1,12 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using Unisc.Massas.Core.Texto;
 
 namespace Unisc.Massas.Domain.Models
 {
     public class Local : EntityBase
     {
+        public Local()
+        {
+            Encomendas = new ObservableCollection<Encomenda>();
+        }
+
         public int ClienteId { get; set; }
         public int Cep { get; set; }
 
@@ -19,6 +26,7 @@ namespace Unisc.Massas.Domain.Models
         public string Numero { get; set; }
         public string Complemento { get; set; }
         public virtual Cliente Cliente { get; set; }
+        public virtual ICollection<Encomenda> Encomendas { get; set; }
 
         public override IDictionary<string, string> GetColunasFiltro()
         {
@@ -50,6 +58,20 @@ namespace Unisc.Massas.Domain.Models
                     return local.Complemento.ToUpper().Contains(value.ToUpper());
                 default:
                     return true;
+            }
+        }
+
+        public override bool PodeExcluir(out string motivo)
+        {
+            if (Encomendas.Any())
+            {
+                motivo = "O Local não não pode ser excluído porque existem encomendas para ele.";
+                return false;
+            }
+            else
+            {
+                motivo = String.Empty;
+                return true;
             }
         }
 

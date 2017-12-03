@@ -50,19 +50,16 @@ namespace Unisc.Massas.Data.Context
                 return _instance;                
             }
         }
-
-        public DbSet<Cidade> Cidades { get; set; }
+        
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
         public DbSet<Encomenda> Encomendas { get; set; }
-        public DbSet<Estado> Estados { get; set; }
         public DbSet<Estoque> Estoques { get; set; }
         public DbSet<Forma> Formas { get; set; }
         public DbSet<Funcao> Funcoes { get; set; }
         public DbSet<FuncaoUsuario> FuncoesUsuario { get; set; }
         public DbSet<Local> Locais { get; set; }
         public DbSet<Maquina> Maquinas { get; set; }
-        public DbSet<Pais> Paises { get; set; }
         public DbSet<Permissao> Permissoes { get; set; }
         public DbSet<PermissaoFuncao> PermissoesFuncoes { get; set; }
         public DbSet<Produto> Produtos { get; set; }
@@ -73,18 +70,15 @@ namespace Unisc.Massas.Data.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new CidadeMap());
             modelBuilder.Configurations.Add(new ClienteMap());
             modelBuilder.Configurations.Add(new EmpresaMap());
             modelBuilder.Configurations.Add(new EncomendaMap());
-            modelBuilder.Configurations.Add(new EstadoMap());
             modelBuilder.Configurations.Add(new EstoqueMap());
             modelBuilder.Configurations.Add(new FormaMap());
             modelBuilder.Configurations.Add(new FuncaoMap());
             modelBuilder.Configurations.Add(new FuncaoUsuarioMap());
             modelBuilder.Configurations.Add(new LocalMap());
             modelBuilder.Configurations.Add(new MaquinaMap());
-            modelBuilder.Configurations.Add(new PaisMap());
             modelBuilder.Configurations.Add(new PermissaoMap());
             modelBuilder.Configurations.Add(new PermissaoFuncaoMap());
             modelBuilder.Configurations.Add(new ProdutoMap());

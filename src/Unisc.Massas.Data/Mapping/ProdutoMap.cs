@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using Unisc.Massas.Domain.Models;
 
@@ -11,6 +12,9 @@ namespace Unisc.Massas.Data.Mapping
             HasKey(t => t.Id);
 
             // Properties
+            Property(t => t.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
             Property(t => t.Codigo)
                 .IsRequired()
                 .HasMaxLength(60);
@@ -42,7 +46,6 @@ namespace Unisc.Massas.Data.Mapping
             HasRequired(t => t.UnidadeMedida)
                 .WithMany(t => t.Produtos)
                 .HasForeignKey(d => d.UnidadeMedidaId);
-
         }
     }
 }

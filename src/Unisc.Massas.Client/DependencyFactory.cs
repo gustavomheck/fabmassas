@@ -36,22 +36,19 @@ namespace Unisc.Massas.Client
             
             container.RegisterType<MainWindowViewModel>();
             container.RegisterType<IClienteRepositorio, ClienteRepositorio>();
+            container.RegisterType<IEmpresaRepositorio, EmpresaRepositorio>();
             container.RegisterType<IEncomendaRepositorio, EncomendaRepositorio>();
-            container.RegisterType<IEstadoRepositorio, EstadoRepositorio>();
             container.RegisterType<IEstoqueRepositorio, EstoqueRepositorio>();
             container.RegisterType<IFormaRepositorio, FormaRepositorio>();
             container.RegisterType<IFuncaoRepositorio, FuncaoRepositorio>();
             container.RegisterType<ILocalRepositorio, LocalRepositorio>();
             container.RegisterType<IMaquinaRepositorio, MaquinaRepositorio>();
-            container.RegisterType<IPaisRepositorio, PaisRepositorio>();
             container.RegisterType<IPermissaoFuncaoRepositorio, PermissaoFuncaoRepositorio>();
             container.RegisterType<IProdutoRepositorio, ProdutoRepositorio>();
             container.RegisterType<ITelefoneRepositorio, TelefoneRepositorio>();
             container.RegisterType<ITipoMassaRepositorio, TipoMassaRepositorio>();
             container.RegisterType<IUnidadeMedidaRepositorio, UnidadeMedidaRepositorio>();
             container.RegisterType<IUsuarioRepositorio, UsuarioRepositorio>();
-            container.RegisterType<ICidadeRepositorio, CidadeRepositorio>();
-            container.RegisterType<IEmpresaRepositorio, EmpresaRepositorio>();
 
             _container = container;
         }

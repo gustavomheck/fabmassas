@@ -58,7 +58,12 @@
     <Compile Include="Controles\SideMenu.cs" />
     <Compile Include="Controles\SideMenuItem.cs" />
     <Compile Include="Controles\WatermarkTextBox.cs" />
+    <Compile Include="DataAnnotations\CnpjAttribute.cs" />
+    <Compile Include="DataAnnotations\CnpjCpfAttribute.cs" />
     <Compile Include="DataAnnotations\DateTimeNowAttribute.cs" />
+    <Compile Include="DataAnnotations\EmailAttribute.cs" />
+    <Compile Include="DataAnnotations\IEAttribute.cs" />
+    <Compile Include="DataAnnotations\SiteAttribute.cs" />
     <Compile Include="Extensions\EventExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Interface\EnterKeyTraversal.cs" />

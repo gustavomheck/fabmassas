@@ -11,7 +11,7 @@ namespace Unisc.Massas.Domain.Models
             PermissoesFuncao = new ObservableCollection<PermissaoFuncao>();
         }
         
-        public string titulo { get; set; }
+        public string Titulo { get; set; }
         public virtual ICollection<FuncaoUsuario> FuncoesUsuarios { get; set; }
         public virtual ICollection<PermissaoFuncao> PermissoesFuncao { get; set; }
     }

@@ -34,7 +34,6 @@ namespace Unisc.Massas.Data.Mapping
             HasRequired(t => t.Permissao)
                 .WithMany(t => t.PermissoesFuncao)
                 .HasForeignKey(d => d.PermissaoId);
-
         }
     }
 }

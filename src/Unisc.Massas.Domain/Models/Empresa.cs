@@ -74,7 +74,7 @@ namespace Unisc.Massas.Domain.Models
 
         public override string ToString()
         {
-            return "Empresa";
+            return RazaoSocial;
         }        
     }
 }
