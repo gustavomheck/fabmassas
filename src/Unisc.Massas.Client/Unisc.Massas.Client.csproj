@@ -141,7 +141,6 @@
     <Compile Include="ViewModels\Consultas\ConsultaViewModelBase.cs" />
     <Compile Include="ViewModels\DashboardViewModel.cs" />
     <Compile Include="ViewModels\Estoque\EntradaEstoqueViewModel.cs" />
-    <Compile Include="ViewModels\Estoque\EstoqueViewModelBase.cs" />
     <Compile Include="ViewModels\Estoque\SaidaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Modais\AdicionarLocalViewModel.cs" />
     <Compile Include="ViewModels\Modais\AdicionarTelefoneViewModel.cs" />

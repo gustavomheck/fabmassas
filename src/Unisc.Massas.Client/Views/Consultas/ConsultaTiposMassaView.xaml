@@ -53,47 +53,7 @@
                             <i:EventTrigger EventName="MouseDoubleClick">
                                 <i:InvokeCommandAction Command="{Binding EditarCommand}" />
                             </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                        <!--<DataGrid.RowDetailsTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-
-                            <Label Content="Ingredientes"
-                                   Padding="10,10,0,0"
-                                   FontSize="14pt"
-                                   FontWeight="Medium"
-                                   FontFamily="{DynamicResource MaterialDesignFont}" />
-                            <Grid Grid.Row="1"
-                                  x:Name="Wrapper"
-                                  Margin="10,10,0,10">
-                            <DataGrid AutoGenerateColumns="False"
-                                      CanUserAddRows="False"
-                                      CanUserDeleteRows="False"
-                                      IsReadOnly="True"                                      
-                                      Width="{Binding ElementName=Wrapper, Path=ActualWidth}"
-                                      SelectionMode="Single">
-                                <DataGridTextColumn Header="Código"
-                                                    Binding="{Binding Codigo}"
-                                                    Width="25*" />
-                                <DataGridTextColumn Header="Ingrediente"
-                                                    Binding="{Binding Nome}"
-                                                    Width="25*" />
-                                <DataGridTextColumn Header="Unidade"
-                                                    Binding="{Binding UnidadeMedida.Nome}"
-                                                    Width="25*" />
-                                <DataGridTextColumn Header="Valor"
-                                                    Binding="{Binding ValorBase, StringFormat='{}{0:###,###,##0.00}'}"
-                                                    Width="25*"
-                                                    CellStyle="{StaticResource RightAlignment}"/>
-                            </DataGrid>
-                            </Grid>
-                        </Grid>
-                    </DataTemplate>
-                </DataGrid.RowDetailsTemplate>-->
+                        </i:Interaction.Triggers>                        
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nome"
                                                 Binding="{Binding NomeMassa}"

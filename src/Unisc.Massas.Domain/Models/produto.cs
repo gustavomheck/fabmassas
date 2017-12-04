@@ -28,5 +28,7 @@ namespace Unisc.Massas.Domain.Models
         public virtual UnidadeMedida UnidadeMedida { get; set; }
         public virtual ICollection<Estoque> Estoques { get; set; }
         public virtual ICollection<TipoMassa> TiposMassas { get; set; }
+
+        public override string ToString() => Nome + " - " + Codigo; 
     }
 }

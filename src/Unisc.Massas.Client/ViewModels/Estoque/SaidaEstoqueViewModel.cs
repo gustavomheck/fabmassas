@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Unisc.Massas.Client.ViewModels
 {
-    public class SaidaEstoqueViewModel : EstoqueViewModelBase
+    public class SaidaEstoqueViewModel
     {
-        public SaidaEstoqueViewModel() : base("Saída de Produto no Estoque")
-        {
+        //public SaidaEstoqueViewModel() : base("Saída de Produto no Estoque")
+        //{
 
-        }
+        //}
     }
 }

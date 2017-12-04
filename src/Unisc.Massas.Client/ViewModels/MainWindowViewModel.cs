@@ -42,6 +42,7 @@ namespace Unisc.Massas.Client.ViewModels
         public bool ConsultaFormasIsChecked { get; set; }
         public bool ConsultaLocaisIsChecked { get; set; }
         public bool ConsultaMaquinasIsChecked { get; set; }
+        public bool ConsultaProdutosIsChecked { get; set; }
         public bool ConsultaTiposMassaIsChecked { get; set; }
         public bool ConsultaUnidadesMedidaIsChecked { get; set; }
         public bool EntradaEstoqueIsChecked { get; set; }

@@ -5,9 +5,13 @@ namespace Unisc.Massas.Domain.Models
 {
     public class Estoque : EntityBase
     {
+        public Estoque()
+        {
+            DataEntrada = DateTime.Now;
+        }
+
         public int ProdutoId { get; set; }
 
-        [Range(0.00001, Double.MaxValue, ErrorMessage = "Informe a data de entrada")]
         public DateTime DataEntrada { get; set; }
         public DateTime? DataVencimento { get; set; }
         public decimal ValorProduto { get; set; }

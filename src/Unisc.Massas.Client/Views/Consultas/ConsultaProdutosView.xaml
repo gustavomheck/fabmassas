@@ -55,9 +55,23 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Máquina"
+                            <DataGridTextColumn Header="Código"
+                                                Binding="{Binding Codigo}"
+                                                Width="14*" />
+                            <DataGridTextColumn Header="Nome"
                                                 Binding="{Binding Nome}"
-                                                Width="*" />
+                                                Width="34*" />
+                            <DataGridTextColumn Header="Valor Base"
+                                                Binding="{Binding ValorBase, StringFormat='{}{0:###,###,##0.00}'}"
+                                                Width="18*"
+                                                CellStyle="{StaticResource RightAlignment}" />
+                            <DataGridTextColumn Header="Estoque Mínimo"
+                                                Binding="{Binding QtdeMinimaEstoque}"
+                                                Width="18*"
+                                                CellStyle="{StaticResource RightAlignment}" />
+                            <DataGridCheckBoxColumn Header="É Ingrediente?"
+                                                    Binding="{Binding IsIngrediente}"
+                                                    Width="14*" />
                             <DataGridTemplateColumn>
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
@@ -102,10 +116,10 @@
                     <ScrollViewer Margin="10,8,0,0"
                                   HorizontalScrollBarVisibility="Auto"
                                   VerticalScrollBarVisibility="Auto">
-                        <local:CamposMaquinaUserControl DataContext="{Binding CadastroProdutoViewModel}" />
+                        <local:CamposProdutoUserControl DataContext="{Binding CadastroProdutoViewModel}" />
                     </ScrollViewer>
 
-                    <local:CamposProdutoUserControl Grid.Row="1" />
+                    <local:SalvarExcluirVoltarUserControl Grid.Row="1" />
                 </Grid>
             </ma:MetroTabItem>
         </ma:MetroAnimatedTabControl>

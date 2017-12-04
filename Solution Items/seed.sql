@@ -71,3 +71,9 @@ INSERT INTO tipo_massa (Id, FormaId, MaquinaId, NomeMassa, PesoBase, ValorBase) 
 INSERT INTO tipo_massa (Id, FormaId, MaquinaId, NomeMassa, PesoBase, ValorBase) VALUES (3, 3, 1, 'Fettuccine', 800, 8.75);
 INSERT INTO tipo_massa (Id, FormaId, MaquinaId, NomeMassa, PesoBase, ValorBase) VALUES (4, 4, 2, 'Peni', 300, 3);
 INSERT INTO tipo_massa (Id, FormaId, MaquinaId, NomeMassa, PesoBase, ValorBase) VALUES (5, 5, 1, 'Talharim', 500, 4.75);
+
+-- Estoque
+INSERT INTO estoque (Id, ProdutoId, DataEntrada, DataVencimento, ValorProduto, ValorUnidade, QuantComprada, QuantDisponivel) VALUES(1, 1,'2017-10-04 13:35:25', NULL, 10, 0.1, 100, 100);
+INSERT INTO estoque (Id, ProdutoId, DataEntrada, DataVencimento, ValorProduto, ValorUnidade, QuantComprada, QuantDisponivel) VALUES(2, 2,'2017-12-03 13:35:25', '2018-01-04 13:35:25', 138, 6.9, 200, 200);
+INSERT INTO estoque (Id, ProdutoId, DataEntrada, DataVencimento, ValorProduto, ValorUnidade, QuantComprada, QuantDisponivel) VALUES(3, 3,'2017-12-04 13:35:25', NULL, 204.8, 12.80, 16, 16);
+INSERT INTO estoque (Id, ProdutoId, DataEntrada, DataVencimento, ValorProduto, ValorUnidade, QuantComprada, QuantDisponivel) VALUES(4, 4,'2017-12-01 13:35:25', '2020-12-01 13:35:25', 3, 3, 1, 0);

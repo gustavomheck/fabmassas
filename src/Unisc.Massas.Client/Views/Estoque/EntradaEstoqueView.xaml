@@ -4,12 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:interface="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
              xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d"
              Background="{DynamicResource MaterialDesignPaper}"
              SnapsToDevicePixels="True">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding CarregarCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -23,7 +31,7 @@
                       Margin="{StaticResource MarginCadastro}"
                       HorizontalScrollBarVisibility="Auto"
                       VerticalScrollBarVisibility="Auto">
-            <StackPanel i:EnterKeyTraversal.IsEnabled="True"
+            <StackPanel interface:EnterKeyTraversal.IsEnabled="True"
                         HorizontalAlignment="Stretch"
                         Margin="10,5,10,10">
                 <ComboBox md:HintAssist.Hint="Produto"
@@ -38,7 +46,7 @@
                     <DatePicker md:HintAssist.Hint="Data de Validade"
                                 SelectedDate="{Binding EntidadeSelecionada.DataVencimento}"
                                 Width="{StaticResource LargeWidth}" />
-                    <Button Command="{Binding CadastrarUnidadeMedidaCommand}"
+                    <Button Command="{Binding LimparDataValidadeCommand}"
                             HorizontalAlignment="Left"
                             Margin="10,10,0,0"
                             ToolTip="Limpar"
@@ -57,7 +65,7 @@
                             Width="{StaticResource LargeWidth}" />
                 <TextBox md:HintAssist.Hint="Quantidade"
                          MaxLength="4"
-                         Text="{Binding EntidadeSelecionada.QuantComprada, StringFormat='{}{0:xxxx}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         Text="{Binding EntidadeSelecionada.QuantComprada, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                          Width="{StaticResource LargeWidth}" />
                 <TextBox md:HintAssist.Hint="Preço produto (R$)"
                          md:ValidationAssist.OnlyShowOnFocus="True"
