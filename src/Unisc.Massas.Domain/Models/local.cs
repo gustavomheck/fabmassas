@@ -32,8 +32,8 @@ namespace Unisc.Massas.Domain.Models
         {
             return new Dictionary<string, string>()
             {
+                { "Cliente", "Cliente" },
                 { "Cep", "CEP" },
-                { "Cidade", "Cidade" },
                 { "Logradouro", "Logradouro" },
                 { "Bairro", "Bairro" },
                 { "Complemento", "Complemento" }
@@ -46,10 +46,10 @@ namespace Unisc.Massas.Domain.Models
 
             switch (propertyName)
             {
+                case "Cliente":
+                    return local.Cliente.Nome.ToUpper().Contains(value.ToUpper());
                 case "Cep":
                     return local.Cep.ToString().Contains(value);
-                case "Cidade":
-                    return local.Cidade.ToUpper().Contains(value.ToUpper());
                 case "Logradouro":
                     return local.Logradouro.ToUpper().Contains(value.ToUpper());
                 case "Bairro":

@@ -1,13 +1,14 @@
 ﻿<UserControl x:Class="Unisc.Massas.Client.Views.DashboardView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:local="clr-namespace:Unisc.Massas.Client.Views"
              mc:Ignorable="d"
-             d:DesignHeight="500"
-             d:DesignWidth="800"
+             d:DesignHeight="700"
+             d:DesignWidth="1000"
              Background="{DynamicResource MaterialDesignPaper}">
 
     <Grid>
@@ -23,8 +24,8 @@
                       VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="50*" />
-                    <ColumnDefinition Width="50*" />
+                    <ColumnDefinition Width="40*" />
+                    <ColumnDefinition Width="60*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50*" />
@@ -32,12 +33,12 @@
                 </Grid.RowDefinitions>
 
                 <Border Grid.ColumnSpan="2"
-                        Grid.Row="0"
+                        Grid.Row="1"
                         Background="White"
                         BorderBrush="{StaticResource BorderColor}"
                         BorderThickness="1"
                         CornerRadius="0"
-                        Margin="20,20,20,10">
+                        Margin="20,10,20,20">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
@@ -62,77 +63,182 @@
                     </Grid>
                 </Border>
 
-                <Border Grid.Column="0"
-                        Grid.Row="1"
+                <Grid Grid.Column="0"
+                      Grid.Row="0"
+                      Margin="15,15,5,5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="50*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50*" />
+                        <RowDefinition Height="50*" />
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="0"
+                            Grid.Row="0"
+                            x:Name="CadastroEncomenda"
+                            Height="Auto"
+                            Width="Auto"
+                            Margin="5,5,10,10"
+                            Style="{StaticResource ButtonSuccess}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.SelecionarOpcaoCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                       CommandParameter="{Binding ElementName=CadastroEncomenda, Path=Name}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <StackPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       FontSize="28"
+                                       Margin="0,0,0,6"
+                                       Text="{StaticResource FaCartPlus}"
+                                       TextAlignment="Center"
+                                       Style="{StaticResource TextBlockIconStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       FontSize="20"
+                                       Margin="0,6,0,0"
+                                       TextAlignment="Center"
+                                       Style="{StaticResource TextBlockContentStyle}">
+                                <Run Text="Cadastrar" /><LineBreak /><Run Text="Encomenda" />
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Grid.Column="1"
+                            Grid.Row="0"
+                            x:Name="CadastroCliente"
+                            Height="Auto"
+                            Width="Auto"
+                            Margin="10,5,5,10"
+                            Style="{StaticResource ButtonSuccess}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.SelecionarOpcaoCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                       CommandParameter="{Binding ElementName=CadastroCliente, Path=Name}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <StackPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       FontSize="28"
+                                       Margin="0,0,0,6"
+                                       Text="{StaticResource FaUserPlus}"
+                                       TextAlignment="Center"
+                                       Style="{StaticResource TextBlockIconStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       FontSize="20"
+                                       Margin="0,6,0,0"
+                                       TextAlignment="Center"
+                                       Style="{StaticResource TextBlockContentStyle}">
+                                <Run Text="Cadastrar" /><LineBreak /><Run Text="Cliente" />
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Grid.Column="0"
+                            Grid.Row="1"
+                            x:Name="EntradaEstoque"
+                            Height="Auto"
+                            Width="Auto"
+                            Margin="5,10,10,5"
+                            Style="{StaticResource ButtonPrimary}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.SelecionarOpcaoCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                       CommandParameter="{Binding ElementName=EntradaEstoque, Path=Name}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <StackPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       FontSize="28"
+                                       Margin="0,0,0,6"
+                                       Text="{StaticResource FaCubes}"
+                                       TextAlignment="Center"
+                                       Style="{StaticResource TextBlockIconStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       FontSize="20"
+                                       Margin="0,6,0,0"
+                                       TextAlignment="Center"
+                                       Style="{StaticResource TextBlockContentStyle}">
+                                <Run Text="Entrada de" /><LineBreak /><Run Text="Estoque" />
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Grid.Column="1"
+                            Grid.Row="1"
+                            x:Name="SaidaEstoque"
+                            Height="Auto"
+                            Width="Auto"
+                            Margin="10,10,5,5"
+                            Style="{StaticResource ButtonDanger}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding Path=DataContext.SelecionarOpcaoCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                                       CommandParameter="{Binding ElementName=SaidaEstoque, Path=Name}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <StackPanel>
+                            <TextBlock DockPanel.Dock="Left"
+                                       FontSize="28"
+                                       Margin="0,0,0,6"
+                                       Text="{StaticResource FaCubes}"
+                                       TextAlignment="Center"
+                                       Style="{StaticResource TextBlockIconStyle}" />
+                            <TextBlock DockPanel.Dock="Right"
+                                       FontSize="20"
+                                       Margin="0,6,0,0"
+                                       TextAlignment="Center"
+                                       Style="{StaticResource TextBlockContentStyle}">
+                                <Run Text="Saída de" /><LineBreak /><Run Text="Estoque" />
+                            </TextBlock>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+
+                <Border Grid.Column="1"
+                        Grid.Row="0"
                         Background="White"
                         BorderBrush="{StaticResource BorderColor}"
                         BorderThickness="1"
                         CornerRadius="0"
-                        Margin="20,10,10,20">
+                        Margin="10,20,20,10">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition />
                         </Grid.RowDefinitions>
 
-                        <TextBlock Text="Massas mais vendidas"
+                        <TextBlock Text="Vendas de massas"
                                    Style="{StaticResource TextBlockDashboard}" />
 
-                        <!--<lvc:PieChart Grid.Row="1"
+                        <lvc:PieChart Grid.Row="1"
                                       LegendLocation="Bottom"
                                       Hoverable="False"
                                       DataTooltip="{x:Null}">
                             <lvc:PieChart.Series>
-                                <lvc:PieSeries Title="Maria"
-                                               Values="3"
+                                <lvc:PieSeries Title="Espaguete"
+                                               Values="120"
                                                DataLabels="True"
                                                LabelPoint="{Binding PointLabel}" />
-                                <lvc:PieSeries Title="Charles"
-                                               Values="4"
+                                <lvc:PieSeries Title="Espaguete Fino"
+                                               Values="78"
                                                DataLabels="True"
                                                LabelPoint="{Binding PointLabel}" />
-                                <lvc:PieSeries Title="Frida"
-                                               Values="6"
+                                <lvc:PieSeries Title="Fettuccine"
+                                               Values="96"
                                                DataLabels="True"
                                                LabelPoint="{Binding PointLabel}" />
-                                <lvc:PieSeries Title="Frederic"
-                                               Values="2"
+                                <lvc:PieSeries Title="Peni"
+                                               Values="201"
+                                               DataLabels="True"
+                                               LabelPoint="{Binding PointLabel}" />
+                                <lvc:PieSeries Title="Talharim"
+                                               Values="116"
                                                DataLabels="True"
                                                LabelPoint="{Binding PointLabel}" />
                             </lvc:PieChart.Series>
-                        </lvc:PieChart>-->
-                    </Grid>
-                </Border>
-
-                <Border Grid.Column="1"
-                        Grid.Row="1"
-                        Background="White"
-                        BorderBrush="{StaticResource BorderColor}"
-                        BorderThickness="1"
-                        CornerRadius="0"
-                        Margin="10,10,20,20">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-
-                        <TextBlock Text="Estoque baixo"
-                                   Style="{StaticResource TextBlockDashboard}" />
-
-                        <!--<lvc:CartesianChart Grid.Row="1"
-                                            Series="{Binding SeriesCollection2}"
-                                            LegendLocation="Bottom">
-                            <lvc:CartesianChart.AxisX>
-                                <lvc:Axis Title="Browser"
-                                          Labels="{Binding Labels2}"
-                                          Separator="{x:Static lvc:DefaultAxes.CleanSeparator}" />
-                            </lvc:CartesianChart.AxisX>
-                            <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="Usage"
-                                          LabelFormatter="{Binding Formatter}"></lvc:Axis>
-                            </lvc:CartesianChart.AxisY>
-                        </lvc:CartesianChart>-->
+                        </lvc:PieChart>
                     </Grid>
                 </Border>
             </Grid>

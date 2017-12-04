@@ -8,7 +8,7 @@ namespace Unisc.Massas.Client.ViewModels
     {
         public DashboardViewModel()
         {
-            ViewName = "PAINEL DE CONTROLE";
+            ViewName = "Painel de Controle";
 
             // Vendas
             SeriesCollection = new SeriesCollection
@@ -30,11 +30,17 @@ namespace Unisc.Massas.Client.ViewModels
                 DateTime.Now.AddMonths(-1).ToString("MMM"),
             };
             YFormatter = value => value.ToString("C");
+
+            // Massas
+            PointLabel = chartPoint => String.Format("{0} ({1:P})", chartPoint.Y, chartPoint.Participation);
         }
 
         // Vendas
         public SeriesCollection SeriesCollection { get; set; }
         public string[] Labels { get; set; }
         public Func<double, string> YFormatter { get; set; }
+        
+        // Massas
+        public Func<ChartPoint, string> PointLabel { get; set; }
     }
 }

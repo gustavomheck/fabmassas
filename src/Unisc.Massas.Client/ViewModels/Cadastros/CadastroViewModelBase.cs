@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Windows.Input;
 using Unisc.Massas.Client.Views;
 using Unisc.Massas.Core.Comandos;
@@ -60,6 +61,17 @@ namespace Unisc.Massas.Client.ViewModels
             string errorMsg;
             bool result;
 
+            if (!EntidadeSelecionada.IsValid)
+            {
+                var view = new DialogView()
+                {
+                    DataContext = new DialogViewModel("Dados incorretos", DialogResult.OK)
+                };
+
+                DialogHost.Show(view, "RootDialog");
+                return;
+            }
+
             if (EntidadeSelecionada.Id == 0)
             {
                 result = repositorio.Insert(EntidadeSelecionada, out errorMsg);
@@ -75,6 +87,7 @@ namespace Unisc.Massas.Client.ViewModels
                 {
                     DataContext = new DialogViewModel("O registro não pôde ser salvo", DialogResult.OK)
                 };
+                DialogHost.Show(view, "RootDialog");
             }
             else
             {

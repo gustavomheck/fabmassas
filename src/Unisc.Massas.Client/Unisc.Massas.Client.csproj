@@ -122,7 +122,6 @@
     <Compile Include="ViewModels\Cadastros\CadastroEncomendaViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroFormaViewModel.cs" />
-    <Compile Include="ViewModels\Cadastros\CadastroLocalViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroMaquinaViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroProdutoViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroTipoMassaViewModel.cs" />
@@ -134,6 +133,7 @@
     <Compile Include="ViewModels\Consultas\ConsultaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaFormasViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaLocaisViewModel.cs" />
+    <Compile Include="ViewModels\Consultas\ConsultaLocalViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaMaquinasViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaProdutosViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaTiposMassaViewModel.cs" />
@@ -248,6 +248,9 @@
     </Compile>
     <Compile Include="Views\Consultas\ConsultaFormasView.xaml.cs">
       <DependentUpon>ConsultaFormasView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Consultas\ConsultaLocaisView.xaml.cs">
+      <DependentUpon>ConsultaLocaisView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Consultas\ConsultaMaquinasView.xaml.cs">
       <DependentUpon>ConsultaMaquinasView.xaml</DependentUpon>
@@ -484,6 +487,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Consultas\ConsultaFormasView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Consultas\ConsultaLocaisView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

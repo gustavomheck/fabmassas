@@ -21,4 +21,7 @@
     <system:String x:Key="FaCubes">&#xf1b3;</system:String>
     <system:String x:Key="FaEraser">&#xf12d;</system:String>
     <system:String x:Key="FaList">&#xf03a;</system:String>
+    <system:String x:Key="FaUserPlus">&#xf234;</system:String>
+    <system:String x:Key="FaCartPlus">&#xf217;</system:String>
+    <system:String x:Key="FaHome">&#xf015;</system:String>
 </ResourceDictionary>

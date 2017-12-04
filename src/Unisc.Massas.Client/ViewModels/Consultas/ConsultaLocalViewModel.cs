@@ -3,12 +3,12 @@ using Unisc.Massas.Domain.Models;
 
 namespace Unisc.Massas.Client.ViewModels
 {
-    public class ConsultaLocaisViewModel : ConsultaViewModelBase<Local>
+    public class ConsultaLocalViewModel : ConsultaViewModelBase<Local>
     {
         private readonly ILocalRepositorio localRepositorio;
 
-        public ConsultaLocaisViewModel(ILocalRepositorio localRepositorio) 
-            : base(localRepositorio, "Consulta de Local", "Edição de Local")
+        public ConsultaLocalViewModel(ILocalRepositorio localRepositorio) 
+            : base(localRepositorio, "Consulta de Locais", "Edição de Local")
         {
             this.localRepositorio = localRepositorio;
         }

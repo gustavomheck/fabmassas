@@ -219,7 +219,6 @@ namespace Unisc.Massas.Client.ViewModels
                 {
                     DataContext = new DialogViewModel("O registro não pôde ser salvo", DialogResult.OK)
                 };
-
                 DialogHost.Show(view, "RootDialog");
             }
             else
