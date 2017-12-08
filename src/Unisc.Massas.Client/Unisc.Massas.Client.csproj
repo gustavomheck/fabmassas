@@ -110,12 +110,13 @@
     <Compile Include="Conversores\IntParaStringConverter.cs" />
     <Compile Include="Conversores\SelectedIndexToIsEnabledConverter.cs" />
     <Compile Include="Conversores\SelectedIndexToVisibilityConverter.cs" />
+    <Compile Include="Conversores\StatusEncomendaConverter.cs" />
     <Compile Include="Conversores\TelefoneFormatter.cs" />
     <Compile Include="Conversores\TipoPessoaParaCnpjCpfConverter.cs" />
     <Compile Include="DialogTemplateSelector.cs" />
+    <Compile Include="IoC.cs" />
     <Compile Include="ModalTemplateSelector.cs" />
     <Compile Include="Models\ViaCep.cs" />
-    <Compile Include="Validation\NotEmptyValidationRule.cs" />
     <Compile Include="ViewModels\AjudaViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroClienteViewModel.cs" />
     <Compile Include="ViewModels\Cadastros\CadastroEmpresaViewModel.cs" />

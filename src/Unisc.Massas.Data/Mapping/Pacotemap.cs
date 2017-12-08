@@ -22,8 +22,8 @@ namespace Unisc.Massas.Data.Mapping
             Property(t => t.Quantidade).HasColumnName("Quantidade");
 
             // Relationships
-            HasRequired(t => t.Encomenda).WithMany(t => t.Pacotes).HasForeignKey(d => new { d.EncomendaId });
-            HasRequired(t => t.TipoMassa).WithMany(t => t.Pacotes).HasForeignKey(d => new { d.TipoMassaId });
+            HasRequired(t => t.Encomenda).WithMany(t => t.Pacotes).HasForeignKey(d => new { d.EncomendaId }).WillCascadeOnDelete(true);
+            HasRequired(t => t.TipoMassa).WithMany(t => t.Pacotes).HasForeignKey(d => new { d.TipoMassaId }).WillCascadeOnDelete(true);
         }
     }
 }

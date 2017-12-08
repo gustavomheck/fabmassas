@@ -29,10 +29,12 @@ namespace Unisc.Massas.Data.Mapping
             // Relationships
             HasOptional(t => t.Cliente)
                 .WithMany(t => t.Telefones)
-                .HasForeignKey(d => d.ClienteId);
+                .HasForeignKey(d => d.ClienteId)
+                .WillCascadeOnDelete(true);
             HasOptional(t => t.Empresa)
                 .WithMany(t => t.Telefones)
-                .HasForeignKey(d => d.EmpresaId);
+                .HasForeignKey(d => d.EmpresaId)
+                .WillCascadeOnDelete(true);
         }
     }
 }

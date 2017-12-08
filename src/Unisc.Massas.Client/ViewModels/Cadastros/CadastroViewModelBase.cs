@@ -68,7 +68,7 @@ namespace Unisc.Massas.Client.ViewModels
                     DataContext = new DialogViewModel("Dados incorretos", DialogResult.OK)
                 };
 
-                DialogHost.Show(view, "RootDialog");
+                DialogHost.Show(view, DialogIdentifier);
                 return;
             }
 
@@ -85,9 +85,9 @@ namespace Unisc.Massas.Client.ViewModels
             {
                 var view = new DialogView()
                 {
-                    DataContext = new DialogViewModel("O registro não pôde ser salvo", DialogResult.OK)
+                    DataContext = new DialogViewModel(errorMsg, "O registro não pôde ser salvo", DialogResult.OK)
                 };
-                DialogHost.Show(view, "RootDialog");
+                DialogHost.Show(view, DialogIdentifier);
             }
             else
             {

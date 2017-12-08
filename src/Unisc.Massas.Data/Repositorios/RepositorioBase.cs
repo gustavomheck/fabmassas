@@ -29,7 +29,8 @@ namespace Unisc.Massas.Data.Repositorios
         {
             try
             {
-                _dbSet.Remove(GetById(obj.Id));
+                TEntity e = GetById(obj.Id);
+                _dbSet.Remove(e);
 
                 if (saveChanges)
                     _dbContext.SaveChanges();

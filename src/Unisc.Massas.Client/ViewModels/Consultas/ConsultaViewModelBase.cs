@@ -104,7 +104,7 @@ namespace Unisc.Massas.Client.ViewModels
         [Obsolete("Sobreescrever o método Editar")]
         public virtual async void EditarAsync(UserControl view)
         {
-            object result = await DialogHost.Show(view, "RootDialog");
+            object result = await DialogHost.Show(view, DialogIdentifier);
             TEntity entidade = default(TEntity);
 
             if (result is bool?)
@@ -157,10 +157,12 @@ namespace Unisc.Massas.Client.ViewModels
                 {
                     DataContext = new DialogViewModel("Tem certeza que deseja excluir este registro?", "Excluir registro", DialogResult.CancelDelete)
                 };
-                var result = (bool?)(await DialogHost.Show(view, "RootDialog"));
+                var result = (bool?)(await DialogHost.Show(view, DialogIdentifier));
 
                 if (result.HasValue && result.Value)
                 {
+                    EntidadeSelecionada.ExcluirRelacionamentos();
+
                     int indice = IndiceSelecionado;
 
                     if (repositorio.Delete(EntidadeSelecionada, out var errorMessage))
@@ -177,7 +179,7 @@ namespace Unisc.Massas.Client.ViewModels
                 {
                     DataContext = new DialogViewModel(motivo, DialogResult.OK)
                 };
-                await DialogHost.Show(view, "RootDialog");
+                await DialogHost.Show(view, DialogIdentifier);
             }
 
             return false;
@@ -200,7 +202,7 @@ namespace Unisc.Massas.Client.ViewModels
                     DataContext = new DialogViewModel("Dados incorretos", DialogResult.OK)
                 };
 
-                DialogHost.Show(view, "RootDialog");
+                DialogHost.Show(view, DialogIdentifier);
                 return;
             }
 
@@ -219,7 +221,7 @@ namespace Unisc.Massas.Client.ViewModels
                 {
                     DataContext = new DialogViewModel("O registro não pôde ser salvo", DialogResult.OK)
                 };
-                DialogHost.Show(view, "RootDialog");
+                DialogHost.Show(view, DialogIdentifier);
             }
             else
             {

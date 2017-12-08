@@ -66,10 +66,10 @@
                             </DataGridTextColumn>
                             <DataGridTextColumn Header="Inscrição Estadual"
                                                 Binding="{Binding InscEstadual, Converter={StaticResource InscricaoEstadualFormatter}}"
-                                                Width="12*" />
+                                                Width="13*" />
                             <DataGridTextColumn Header="Razão Social"
                                                 Binding="{Binding RazaoSocial}"
-                                                Width="21*" />
+                                                Width="20*" />
                             <DataGridTextColumn Header="CEP"
                                                 Binding="{Binding Cep, Converter={StaticResource CepFormatter}}"
                                                 Width="9*" />

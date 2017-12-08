@@ -57,6 +57,7 @@
     <Compile Include="Controles\ImageButton.cs" />
     <Compile Include="Controles\MaskedTextBox.cs" />
     <Compile Include="Controles\ModalWindow.cs" />
+    <Compile Include="Controles\NumericTextBox.cs" />
     <Compile Include="Controles\SideMenu.cs" />
     <Compile Include="Controles\SideMenuItem.cs" />
     <Compile Include="Controles\WatermarkTextBox.cs" />

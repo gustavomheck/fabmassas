@@ -28,6 +28,11 @@ namespace Unisc.Massas.Domain.Models
                 IsValid = ValidarObjeto();
                 OnPropertyChanged(nameof(IsValid));
 
+                if (IsValid)
+                {
+                    bool b = true;
+                }
+
                 return ValidarPropriedade(propertyName);
             }
         }
@@ -51,7 +56,11 @@ namespace Unisc.Massas.Domain.Models
 
         protected virtual bool ValidarObjeto()
         {
-            return Validator.TryValidateObject(this, new ValidationContext(this), new Collection<ValidationResult>(), true);
+            var c = new Collection<ValidationResult>();
+            var r = Validator.TryValidateObject(this, new ValidationContext(this), c, true);
+
+            return r;
+
         }
 
         protected virtual string ValidarPropriedade(string propertyName)

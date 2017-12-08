@@ -14,16 +14,11 @@ namespace Unisc.Massas.Client.ViewModels
     /// </summary>
     public abstract class ViewModelBase : IDataErrorInfo, IDialogRequestClose, INotifyPropertyChanged
     {
-        private string _viewName;
-
         public event PropertyChangedEventHandler PropertyChanged;
         public event EventHandler<DialogCloseRequestedEventArgs> CloseRequested;
 
-        public string ViewName
-        {
-            get => _viewName;
-            set => SetValue(ref _viewName, value);
-        }
+        public string DialogIdentifier { get; } = "RootDialog";
+        public string ViewName { get; set; }
 
         string IDataErrorInfo.Error
         {

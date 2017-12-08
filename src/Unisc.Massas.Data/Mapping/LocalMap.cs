@@ -42,7 +42,8 @@ namespace Unisc.Massas.Data.Mapping
             // Relationships
             HasRequired(t => t.Cliente)
                 .WithMany(t => t.Locais)
-                .HasForeignKey(d => d.ClienteId);
+                .HasForeignKey(d => d.ClienteId)
+                .WillCascadeOnDelete(true);
         }
     }
 }

@@ -5,8 +5,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
-             mc:Ignorable="d">
-    
+             xmlns:c="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
+             mc:Ignorable="d"
+             Background="{DynamicResource MaterialDesignPaper}">
+
     <StackPanel i:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"
                 Margin="10,5,10,10">
@@ -15,7 +17,7 @@
                  MaxLength="45"
                  Text="{Binding EntidadeSelecionada.NomeMassa, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource XLargeWidth}" />
-        
+
         <DockPanel>
             <ComboBox md:HintAssist.Hint="Forma"
                       HorizontalAlignment="Left"
@@ -37,7 +39,7 @@
                              Opacity="0.8" />
             </Button>
         </DockPanel>
-        
+
         <DockPanel>
             <ComboBox md:HintAssist.Hint="Máquina"
                       HorizontalAlignment="Left"
@@ -59,17 +61,19 @@
                              Opacity="0.8" />
             </Button>
         </DockPanel>
-        
-        <TextBox md:HintAssist.Hint="Peso no pacote (kg)"
-                 md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="45"
-                 Text="{Binding EntidadeSelecionada.PesoBase, StringFormat='{}{0:###,###,##0.00}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                 Width="{StaticResource RegularWidth}" />
-        <TextBox md:HintAssist.Hint="Preço no pacote (kg)"
-                 md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="45"
-                 Text="{Binding EntidadeSelecionada.ValorBase, StringFormat='{}{0:###,###,##0.00}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                 Width="{StaticResource RegularWidth}" />
+
+        <c:NumericTextBox md:HintAssist.Hint="Peso no pacote (kg)"
+                          md:ValidationAssist.OnlyShowOnFocus="True"
+                          InputType="Decimal"
+                          MaxLength="45"
+                          Text="{Binding EntidadeSelecionada.PesoBase, StringFormat='{}{0:###,###,##0.00}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                          Width="{StaticResource RegularWidth}" />
+        <c:NumericTextBox md:HintAssist.Hint="Preço no pacote (kg)"
+                          md:ValidationAssist.OnlyShowOnFocus="True"
+                          InputType="Decimal"
+                          MaxLength="45"
+                          Text="{Binding EntidadeSelecionada.ValorBase, StringFormat='{}{0:###,###,##0.00}', ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                          Width="{StaticResource RegularWidth}" />
         <Grid Grid.Row="2"
               x:Name="Wrapper"
               Margin="10,20"
@@ -78,7 +82,7 @@
                       AutoGenerateColumns="False"
                       CanUserAddRows="False"
                       CanUserDeleteRows="False"
-                      IsReadOnly="True"                      
+                      IsReadOnly="True"
                       Width="{Binding ElementName=Wrapper, Path=ActualWidth}"
                       SelectionMode="Single">
                 <DataGrid.Columns>

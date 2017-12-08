@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace Unisc.Massas.Domain.Models
 {
@@ -9,6 +10,7 @@ namespace Unisc.Massas.Domain.Models
         public Encomenda()
         {
             DataPedido = DateTime.Now;
+            Status = 0;
             Pacotes = new ObservableCollection<Pacote>();
         }
         
@@ -20,15 +22,20 @@ namespace Unisc.Massas.Domain.Models
         public double Peso { get; set; }
         public decimal Valor { get; set; }
         public int QuantPacotes { get; set; }
+
+        [Range(0, 10, ErrorMessage = "Informe a situação da encomenda")]
         public int Status { get; set; }
+                
         public virtual Cliente Cliente { get; set; }
-        public virtual Empresa Empresa { get; set; }
+        public virtual Empresa Empresa { get; set; }        
         public virtual Local Local { get; set; }
         public virtual ObservableCollection<Pacote> Pacotes { get; set; }
 
         public void AdicionarPacote(TipoMassa tipoMassa, int quantidade)
         {
             QuantPacotes += quantidade;
+            Peso += tipoMassa.PesoBase * quantidade;
+            Valor += tipoMassa.ValorBase * quantidade;
             Pacotes.Add(new Pacote()
             {
                 TipoMassa = tipoMassa,
@@ -42,6 +49,8 @@ namespace Unisc.Massas.Domain.Models
         public void RemoverPacote(Pacote pacote)
         {
             QuantPacotes -= pacote.Quantidade;
+            Peso += pacote.TipoMassa.PesoBase * pacote.Quantidade;
+            Valor += pacote.TipoMassa.ValorBase * pacote.Quantidade;
             Pacotes.Remove(pacote);
         }
 

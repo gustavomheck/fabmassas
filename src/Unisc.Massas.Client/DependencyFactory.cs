@@ -1,10 +1,8 @@
 ﻿using Microsoft.Practices.Unity;
 using System;
 using Unisc.Massas.Client.ViewModels;
-using Unisc.Massas.Core.Servicos;
 using Unisc.Massas.Data.Interfaces;
 using Unisc.Massas.Data.Repositorios;
-using Unisc.Massas.Domain.Models;
 
 namespace Unisc.Massas.Client
 {
@@ -71,14 +69,5 @@ namespace Unisc.Massas.Client
         {
             return Container.Resolve(type);
         }
-
-        /// <summary>
-        /// Resolves the type parameter T to an instance of the appropriate type.
-        /// </summary>
-        //public static object Resolve<T1, T2>() where T1 : CadastroViewModel
-        //                                       where T2 : class, IEntity
-        //{
-        //    return Container.Resolve(typeof(CadastroViewModel<>).MakeGenericType(typeof(T2)));
-        //}
     }
 }

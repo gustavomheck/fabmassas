@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
+using System.Windows;
 using System.Windows.Input;
 using Unisc.Massas.Client.Views;
 using Unisc.Massas.Core;
@@ -32,13 +34,33 @@ namespace Unisc.Massas.Client.ViewModels
             Carregar();            
         }
 
+        public override Encomenda EntidadeSelecionada
+        {
+            get => _entidadeSelecionada;
+            set
+            {
+                if (value != null)
+                {
+                    ClienteSelecionado = value.Cliente;
+                    LocalSelecionado = value.Local;
+                }
+
+                SetValue(ref _entidadeSelecionada, value);
+            }
+        }
+
         public ObservableCollection<Pacote> Pacotes { get; set; }
 
         public Cliente[] Clientes { get; set; }
         public ICollection<Local> Locais => ClienteSelecionado?.Locais;
+
+        [Required(ErrorMessage = "Informe o cliente")]
         public Cliente ClienteSelecionado { get; set; }
+
+        [Required(ErrorMessage = "Informe o local de entrega da encomenda")]
         public Local LocalSelecionado { get; set; }
         public Pacote PacoteSelecionado { get; set; }
+        public ObservableCollection<string> Status { get; set; }
         public ICommand AdicionarPacoteCommand { get; set; }
         public ICommand RemoverPacoteCommand { get; set; }
 
@@ -50,6 +72,12 @@ namespace Unisc.Massas.Client.ViewModels
                 () =>
                 {
                     Clientes = clienteRepositorio.GetAllAsArray();
+                    Status = new ObservableCollection<string>()
+                    {
+                        "Pendente",
+                        "Em Produção",
+                        "Entregue"
+                    };
                 }));
         }
 
@@ -79,6 +107,29 @@ namespace Unisc.Massas.Client.ViewModels
             {
                 EntidadeSelecionada.RemoverPacote(PacoteSelecionado);
             }
+        }
+
+        protected override void Limpar()
+        {
+            base.Limpar();
+            ClienteSelecionado = null;
+            LocalSelecionado = null;
+        }
+
+        protected override void Salvar()
+        {
+            if (LocalSelecionado != null)
+            {
+                EntidadeSelecionada.Cliente = ClienteSelecionado;
+                EntidadeSelecionada.ClienteId = ClienteSelecionado.Id;
+                EntidadeSelecionada.Local = LocalSelecionado;
+                EntidadeSelecionada.LocalId = LocalSelecionado.Id;
+            }
+
+            EntidadeSelecionada.Empresa = IoC.EmpresaEmitente;
+            EntidadeSelecionada.EmpresaId = IoC.EmpresaEmitente.Id;
+
+            base.Salvar();
         }
     }
 }

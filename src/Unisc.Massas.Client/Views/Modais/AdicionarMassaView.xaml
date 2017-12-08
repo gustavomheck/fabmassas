@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:c="clr-namespace:Unisc.Massas.Client"
+             xmlns:ctrl="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
              mc:Ignorable="d"
              Height="Auto"
              Width="360"
              Background="{DynamicResource MaterialDesignPaper}">
-    
+
     <UserControl.InputBindings>
         <KeyBinding Command="{x:Static md:DialogHost.CloseDialogCommand}"
                     Key="Esc" />
@@ -18,7 +19,7 @@
     <UserControl.Resources>
         <c:ModalTemplateSelector x:Key="ModalTemplateSelector" />
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -43,10 +44,12 @@
                       Width="300">
             </ComboBox>
 
-            <TextBox md:HintAssist.Hint="Quantidade"
-                     HorizontalAlignment="Center"
-                     Text="{Binding Quantidade}"
-                     Width="300" />
+            <ctrl:NumericTextBox md:HintAssist.Hint="Quantidade"
+                                 HorizontalAlignment="Center"
+                                 InputType="Integer"
+                                 MaxLength="4"
+                                 Text="{Binding Quantidade}"
+                                 Width="300" />
         </StackPanel>
 
         <ContentControl Grid.Row="2"

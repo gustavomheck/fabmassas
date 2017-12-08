@@ -56,7 +56,9 @@ namespace Unisc.Massas.Domain.Models
             switch (propertyName)
             {
                 case "CnpjCpf":
-                    return cliente.Cpf.Contains(value) || cliente.Cnpj.Contains(value);
+                    if (cliente.Cnpj != null)
+                        return cliente.Cpf.Contains(value) || cliente.Cnpj.Contains(value);
+                    return false;
                 case "Nome":
                     return cliente.Nome.ToUpper().Contains(value.ToUpper());
                 default:
@@ -74,16 +76,8 @@ namespace Unisc.Massas.Domain.Models
 
         public override bool PodeExcluir(out string motivo)
         {
-            if (Encomendas.Any())
-            {
-                motivo = "O Cliente não pode ser excluído porque ele possui pedidos.";
-                return false;
-            }
-            else
-            {
-                motivo = String.Empty;
-                return true;
-            }
+            motivo = "O cliente não pode ser excluído porque ele possui encomendas.";
+            return !Encomendas.Any();
         }
     }
 }

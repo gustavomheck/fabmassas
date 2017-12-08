@@ -50,7 +50,7 @@
                     
                     <TextBox md:HintAssist.Hint="Nome"
                              MaxLength="60"
-                             Text="{Binding EntidadeSelecionada.Nome}"
+                             Text="{Binding EntidadeSelecionada.Nome, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                              Width="{StaticResource XLargeWidth}" />
                     <TextBox md:HintAssist.Hint="Site"
                              MaxLength="60"

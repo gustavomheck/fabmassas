@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using Unisc.Massas.Core.DataAnnotations;
 
 namespace Unisc.Massas.Domain.Models
 {
@@ -12,6 +14,7 @@ namespace Unisc.Massas.Domain.Models
             Telefones = new ObservableCollection<Telefone>();
         }
         
+        [Cnpj]
         [Display(Name = "CNPJ")]
         [Required]
         public string Cnpj { get; set; }
@@ -34,7 +37,11 @@ namespace Unisc.Massas.Domain.Models
         [Required]
         public string Logradouro { get; set; }
         public string Numero { get; set; }
+
+        [Site]
         public string Site { get; set; }
+
+        [Email]
         public string Email { get; set; }
         public virtual ICollection<Encomenda> Encomendas { get; set; }
         public virtual ICollection<Telefone> Telefones { get; set; }
@@ -70,6 +77,12 @@ namespace Unisc.Massas.Domain.Models
                 default:
                     return true;
             }
+        }
+
+        public override bool PodeExcluir(out string motivo)
+        {
+            motivo = "A empresa não pode ser excluída porque ele possui encomendas.";
+            return Encomendas.Any();
         }
 
         public override string ToString()

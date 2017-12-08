@@ -88,5 +88,22 @@ namespace Unisc.Massas.Domain.Models
 
             return resultado;
         }
+
+        public string Endereco
+        {
+            get
+            {
+                string resultado = $"{Logradouro}, {Numero}";
+
+                if (!String.IsNullOrWhiteSpace(Complemento))
+                {
+                    resultado += ", " + Complemento;
+                }
+
+                resultado += $", {Bairro}";
+
+                return resultado;
+            }
+        }
     }
 }

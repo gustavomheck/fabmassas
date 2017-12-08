@@ -77,3 +77,12 @@ INSERT INTO estoque (Id, ProdutoId, DataEntrada, DataVencimento, ValorProduto, V
 INSERT INTO estoque (Id, ProdutoId, DataEntrada, DataVencimento, ValorProduto, ValorUnidade, QuantComprada, QuantDisponivel) VALUES(2, 2,'2017-12-03 13:35:25', '2018-01-04 13:35:25', 138, 6.9, 200, 200);
 INSERT INTO estoque (Id, ProdutoId, DataEntrada, DataVencimento, ValorProduto, ValorUnidade, QuantComprada, QuantDisponivel) VALUES(3, 3,'2017-12-04 13:35:25', NULL, 204.8, 12.80, 16, 16);
 INSERT INTO estoque (Id, ProdutoId, DataEntrada, DataVencimento, ValorProduto, ValorUnidade, QuantComprada, QuantDisponivel) VALUES(4, 4,'2017-12-01 13:35:25', '2020-12-01 13:35:25', 3, 3, 1, 0);
+
+-- Encomenda
+INSERT INTO `encomenda` (`Id`, `ClienteId`, `EmpresaId`, `LocalId`, `DataPedido`, `DataEntrega`, `Peso`, `Valor`, `QuantPacotes`, `Status`) VALUES(1,'1','1','1','2017-12-08 11:00:00','2017-12-14 09:30:00','20000','200','40','0');
+INSERT INTO `encomenda` (`Id`, `ClienteId`, `EmpresaId`, `LocalId`, `DataPedido`, `DataEntrega`, `Peso`, `Valor`, `QuantPacotes`, `Status`) VALUES(2,'2','1','2','2017-12-08 02:10:00','2017-12-10 12:00:00','42500','480','55','1');
+
+-- Pacote
+INSERT INTO `pacotes` (`Id`, `EncomendaId`, `TipoMassaId`, `Quantidade`) VALUES(1, 1, 1, 40);
+INSERT INTO `pacotes` (`Id`, `EncomendaId`, `TipoMassaId`, `Quantidade`) VALUES(2, 2, 2, 5);
+INSERT INTO `pacotes` (`Id`, `EncomendaId`, `TipoMassaId`, `Quantidade`) VALUES(3, 2, 3, 50);

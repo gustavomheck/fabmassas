@@ -4,21 +4,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"  
-             mc:Ignorable="d">
+             xmlns:i="clr-namespace:DeBrasil.Massas.Core.Interface;assembly=Unisc.Massas.Core"
+             xmlns:c="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
+             mc:Ignorable="d"
+             Background="{DynamicResource MaterialDesignPaper}">
+
     <StackPanel i:EnterKeyTraversal.IsEnabled="True"
                 HorizontalAlignment="Stretch"
                 Margin="10,5,10,10">
-        <TextBox md:HintAssist.Hint="CNPJ"
-                 md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="14"
-                 Text="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                 Width="{StaticResource RegularWidth}" />
-        <TextBox md:HintAssist.Hint="CEP"
-                 md:ValidationAssist.OnlyShowOnFocus="True"
-                 MaxLength="8"
-                 Text="{Binding EntidadeSelecionada.Cep, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
-                 Width="{StaticResource SmallWidth}" />
+        <c:MaskedTextBox md:HintAssist.Hint="CNPJ"
+                         md:ValidationAssist.OnlyShowOnFocus="True"
+                         InputMask="00.000.000/0000-00"
+                         UnmaskedText="{Binding EntidadeSelecionada.Cnpj, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         Width="{StaticResource RegularWidth}" />
+        <c:MaskedTextBox md:HintAssist.Hint="CEP"
+                         md:ValidationAssist.OnlyShowOnFocus="True"
+                         InputMask="00000-000"
+                         UnmaskedText="{Binding EntidadeSelecionada.Cep, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                         Width="{StaticResource SmallWidth}" />
         <TextBox md:HintAssist.Hint="Razão Social"
                  md:ValidationAssist.OnlyShowOnFocus="True"
                  MaxLength="60"
@@ -35,22 +38,28 @@
                  Width="{StaticResource XXLargeWidth}" />
         <TextBox md:HintAssist.Hint="Bairro"
                  md:ValidationAssist.OnlyShowOnFocus="True"
+                 MaxLength="60"
                  Text="{Binding EntidadeSelecionada.Bairro, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource XLargeWidth}" />
         <TextBox md:HintAssist.Hint="Número"
+                 MaxLength="20"
                  Text="{Binding EntidadeSelecionada.Numero}"
                  Width="{StaticResource SmallWidth}" />
         <TextBox md:HintAssist.Hint="Inscrição Estadual"
+                 MaxLength="14"
                  Text="{Binding EntidadeSelecionada.InscEstadual}"
                  Width="{StaticResource RegularWidth}" />
         <TextBox md:HintAssist.Hint="Inscrição Municipal"
+                 MaxLength="12"
                  Text="{Binding EntidadeSelecionada.InscMunicipal}"
                  Width="{StaticResource RegularWidth}" />
         <TextBox md:HintAssist.Hint="E-mail"
-                 Text="{Binding EntidadeSelecionada.Email}"
+                 MaxLength="45"
+                 Text="{Binding EntidadeSelecionada.Email, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource LargeWidth}" />
         <TextBox md:HintAssist.Hint="Site"
-                 Text="{Binding EntidadeSelecionada.Site}"
+                 MaxLength="255"
+                 Text="{Binding EntidadeSelecionada.Site, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                  Width="{StaticResource LargeWidth}" />
     </StackPanel>
 </UserControl>

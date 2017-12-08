@@ -3,10 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:c="clr-namespace:Unisc.Massas.Client.Conversores"
              xmlns:ctrl="clr-namespace:Unisc.Massas.Core.Controles;assembly=Unisc.Massas.Core"
-             xmlns:v="clr-namespace:Unisc.Massas.Client.Validation"
              xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:views="clr-namespace:Unisc.Massas.Client.Views"
-             xmlns:w="System.Windows"
              Startup="OnStartup">
     <Application.Resources>
         <ResourceDictionary>
@@ -45,7 +43,7 @@
             <c:CnpjCpfToSelectedIndexConverter x:Key="CnpjCpfToSelectedIndexConverter" />
             <c:TelefoneFormatter x:Key="TelefoneFormatter" />
             <c:TipoPessoaParaCnpjCpfConverter x:Key="TipoPessoaParaCnpjCpfConverter" />
-            <v:NotEmptyValidationRule x:Key="NotEmptyValidationRule" />
+            <c:StatusEncomendaConverter x:Key="StatusEncomendaConverter" />
 
             <Thickness x:Key="MarginCadastro" Left="20" Top="0" Right="0" Bottom="0" />
 
@@ -113,6 +111,16 @@
             </Style>
 
             <Style TargetType="{x:Type ctrl:MaskedTextBox}"
+                   BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
+                <Setter Property="FontSize"
+                        Value="11pt" />
+                <Setter Property="Margin"
+                        Value="8" />
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
+            </Style>
+
+            <Style TargetType="{x:Type ctrl:NumericTextBox}"
                    BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}">
                 <Setter Property="FontSize"
                         Value="11pt" />

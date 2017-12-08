@@ -1,3 +1,5 @@
+DELETE FROM pacotes;
+DELETE FROM encomenda; 
 DELETE FROM `local`; 
 DELETE FROM telefone; 
 DELETE FROM cliente; 
@@ -9,7 +11,6 @@ DELETE FROM forma;
 DELETE FROM estoque; 
 DELETE FROM produto; 
 DELETE FROM unidade_medida; 
-DELETE FROM encomenda; 
 DELETE FROM funcao; 
 DELETE FROM funcao_usuario; 
 DELETE FROM permissao; 

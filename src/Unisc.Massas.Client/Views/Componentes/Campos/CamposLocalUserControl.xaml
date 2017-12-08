@@ -18,7 +18,7 @@
             <c:MaskedTextBox md:HintAssist.Hint="CEP"
                              md:ValidationAssist.OnlyShowOnFocus="True"
                              InputMask="00000-000"
-                             UnmaskedText="{Binding EntidadeSelecionada.Cep, Converter={StaticResource IntParaStringConverter}}"
+                             UnmaskedText="{Binding EntidadeSelecionada.Cep}"
                              Width="{StaticResource SmallWidth}">
                 <i:Interaction.Behaviors>
                     <b:EventToCommandBehavior Command="{Binding BuscarCepCommand}"

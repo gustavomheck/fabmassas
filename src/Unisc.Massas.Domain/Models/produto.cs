@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace Unisc.Massas.Domain.Models
 {
@@ -28,6 +29,24 @@ namespace Unisc.Massas.Domain.Models
         public virtual UnidadeMedida UnidadeMedida { get; set; }
         public virtual ICollection<Estoque> Estoques { get; set; }
         public virtual ICollection<TipoMassa> TiposMassas { get; set; }
+
+        public override bool PodeExcluir(out string motivo)
+        {
+            if (TiposMassas.Any())
+            {
+                motivo = "Este produto não pode ser excluído porque possui encomendas";
+                return false;
+            }
+
+            if (Estoques.Any())
+            {
+                motivo = "Este produto não pode ser excluído porque possui estoque";
+                return false;
+            }
+
+            motivo = String.Empty;
+            return true;
+        }
 
         public override string ToString() => Nome + " - " + Codigo; 
     }

@@ -10,7 +10,6 @@ namespace Unisc.Massas.Domain.Models
     {
         public TipoMassa()
         {
-            //Encomendas = new ObservableCollection<Encomenda>();
             Ingredientes = new ObservableCollection<Produto>();
             Pacotes = new ObservableCollection<Pacote>();
         }
@@ -32,7 +31,6 @@ namespace Unisc.Massas.Domain.Models
 
         [Required(ErrorMessage = "Selecione a Máquina")]
         public virtual Maquina Maquina { get; set; }
-        //public virtual ICollection<Encomenda> Encomendas { get; set; }
 
         public virtual ICollection<Pacote> Pacotes { get; set; }
 

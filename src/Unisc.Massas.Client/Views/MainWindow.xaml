@@ -201,17 +201,13 @@
                          Text="Venda de massas para restaurantes e festas" />
                 </TextBlock>
 
-                <Button Grid.Column="3"
-                        Height="Auto"
-                        Width="Auto"
-                        Margin="0,0,29,0"
-                        Style="{DynamicResource ToolButton}">
-                    <md:PackIcon Kind="FoodVariant"
-                                 Height="26"
-                                 Width="26"
-                                 Foreground="White" />
-                </Button>
-                
+                <md:PackIcon Grid.Column="3"
+                             Kind="Buffer"
+                             Margin="0,0,29,0"
+                             Height="26"
+                             Width="26"
+                             Foreground="White"
+                             VerticalAlignment="Center" />
                 <TextBlock Grid.Column="5"
                            Margin="0,0,16,0"
                            FontFamily="{DynamicResource MaterialDesignFont}"

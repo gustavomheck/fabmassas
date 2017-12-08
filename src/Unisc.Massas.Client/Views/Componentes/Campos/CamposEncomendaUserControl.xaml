@@ -22,33 +22,37 @@
                     HorizontalAlignment="Stretch"
                     Margin="10,10,10,10">
             <ComboBox md:HintAssist.Hint="Cliente"
+                      x:Name="comboBoxClientes"
                       DisplayMemberPath="Nome"
                       ItemsSource="{Binding Clientes}"
-                      SelectedItem="{Binding ClienteSelecionado}"
+                      SelectedItem="{Binding ClienteSelecionado, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                       SelectedValue="{Binding ClienteSelecionado.Id}"
                       SelectedValuePath="Id"
                       HorizontalAlignment="Left"
                       Width="700" />
             <ComboBox md:HintAssist.Hint="Local de Entrega"
+                      IsEnabled="{Binding ElementName=comboBoxClientes, Path=SelectedIndex, Converter={StaticResource SelectedIndexToIsEnabledConverter}}"
                       ItemsSource="{Binding Locais}"
-                      SelectedItem="{Binding LocalSelecionado}"
+                      SelectedItem="{Binding LocalSelecionado, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
                       SelectedValue="{Binding LocalSelecionado.Id}"
                       SelectedValuePath="Id"
                       HorizontalAlignment="Left"
                       Width="700" />
+            <DatePicker md:HintAssist.Hint="Data do Pedido"
+                        SelectedDate="{Binding EntidadeSelecionada.DataPedido}"
+                        Width="{StaticResource LargeWidth}" />
             <DatePicker md:HintAssist.Hint="Data de Entrega"
                         DisplayDateStart="{x:Static s:DateTime.Today}"
+                        SelectedDate="{Binding EntidadeSelecionada.DataEntrega}"
                         Width="{StaticResource LargeWidth}" />
             <md:TimePicker md:HintAssist.Hint="Horário máximo para entrega"
+                           SelectedTime="{Binding EntidadeSelecionada.DataEntrega}"
                            Width="{StaticResource LargeWidth}" />
             <ComboBox md:HintAssist.Hint="Status"
                       HorizontalAlignment="Left"
-                      SelectedIndex="{Binding Status}"
-                      Width="{StaticResource RegularWidth}">
-                <ComboBoxItem>Pendente</ComboBoxItem>
-                <ComboBoxItem>Em Produção</ComboBoxItem>
-                <ComboBoxItem>Entregue</ComboBoxItem>
-            </ComboBox>
+                      ItemsSource="{Binding Status}"
+                      SelectedIndex="{Binding EntidadeSelecionada.Status, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged}"
+                      Width="{StaticResource RegularWidth}" />
         </StackPanel>
 
         <DataGrid Grid.Row="1"
