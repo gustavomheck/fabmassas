@@ -131,7 +131,6 @@
     <Compile Include="ViewModels\Consultas\ConsultaClientesViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaEmpresasViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaEncomendasViewModel.cs" />
-    <Compile Include="ViewModels\Consultas\ConsultaEstoqueViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaFormasViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaLocaisViewModel.cs" />
     <Compile Include="ViewModels\Consultas\ConsultaLocalViewModel.cs" />
@@ -207,6 +206,9 @@
     <Compile Include="Views\Componentes\Campos\CamposUnidadeMedidaUserControl.xaml.cs">
       <DependentUpon>CamposUnidadeMedidaUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Componentes\Campos\CamposSaidaEstoqueUserControl.xaml.cs">
+      <DependentUpon>CamposSaidaEstoqueUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Componentes\CancelarAdicionarUserControl.xaml.cs">
       <DependentUpon>CancelarAdicionarUserControl.xaml</DependentUpon>
     </Compile>
@@ -242,9 +244,6 @@
     </Compile>
     <Compile Include="Views\Consultas\ConsultaEncomendasView.xaml.cs">
       <DependentUpon>ConsultaEncomendasView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Consultas\ConsultaEstoqueView.xaml.cs">
-      <DependentUpon>ConsultaEstoqueView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Consultas\ConsultaFormasView.xaml.cs">
       <DependentUpon>ConsultaFormasView.xaml</DependentUpon>
@@ -434,6 +433,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Componentes\Campos\CamposSaidaEstoqueUserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Componentes\CancelarAdicionarUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -479,10 +482,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Consultas\ConsultaEncomendasView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Consultas\ConsultaEstoqueView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

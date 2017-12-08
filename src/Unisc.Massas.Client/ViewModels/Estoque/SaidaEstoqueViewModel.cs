@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Unisc.Massas.Data.Interfaces;
+using Unisc.Massas.Domain.Models;
 
 namespace Unisc.Massas.Client.ViewModels
 {
-    public class SaidaEstoqueViewModel
+    public class SaidaEstoqueViewModel : ConsultaViewModelBase<Estoque>
     {
-        //public SaidaEstoqueViewModel() : base("Saída de Produto no Estoque")
-        //{
+        private readonly IEstoqueRepositorio estoqueRepositorio;
 
-        //}
+        public SaidaEstoqueViewModel(IEstoqueRepositorio estoqueRepositorio)
+            : base(estoqueRepositorio, "Produtos em Estoque", "Saída de Produto no Estoque")
+        {
+            this.estoqueRepositorio = estoqueRepositorio;
+        }
     }
 }

@@ -426,18 +426,6 @@
                                 </i:Interaction.Triggers>
                             </RadioButton>
 
-                            <RadioButton x:Name="ConsultaEstoque"
-                                         Content="ESTOQUE"
-                                         IsChecked="{Binding ConsultaEstoqueIsChecked}"
-                                         Style="{StaticResource RadioButtonTabControlStyle}">
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Checked">
-                                        <i:InvokeCommandAction Command="{Binding SelecionarOpcaoCommand}"
-                                                               CommandParameter="{Binding ElementName=ConsultaEstoque, Path=Name}" />
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </RadioButton>
-
                             <RadioButton x:Name="ConsultaFormas"
                                          Content="FORMAS"
                                          Style="{StaticResource RadioButtonTabControlStyle}">

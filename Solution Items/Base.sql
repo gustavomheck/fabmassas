@@ -12,10 +12,6 @@ MySQL - 5.6.21-log : Database - massas
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`massas` /*!40100 DEFAULT CHARACTER SET utf8 */;
-
-USE `massas`;
-
 /*Table structure for table `cliente` */
 
 DROP TABLE IF EXISTS `cliente`;
@@ -30,7 +26,7 @@ CREATE TABLE `cliente` (
   `Site` varchar(255) DEFAULT NULL,
   `Email` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 /*Data for the table `cliente` */
 
@@ -64,7 +60,7 @@ CREATE TABLE `empresa` (
   `Site` varchar(255) DEFAULT NULL,
   `Email` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=952 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `empresa` */
 
@@ -92,9 +88,12 @@ CREATE TABLE `encomenda` (
   CONSTRAINT `fk_encomenda_cliente1` FOREIGN KEY (`ClienteId`) REFERENCES `cliente` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_encomenda_empresa1` FOREIGN KEY (`EmpresaId`) REFERENCES `empresa` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_encomenda_local1` FOREIGN KEY (`LocalId`) REFERENCES `local` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `encomenda` */
+
+insert  into `encomenda`(`Id`,`ClienteId`,`EmpresaId`,`LocalId`,`DataPedido`,`DataEntrega`,`Peso`,`Valor`,`QuantPacotes`,`Status`) values (1,1,1,1,'2017-12-08 11:00:00','2017-12-14 09:30:00',20000,'200',40,0);
+insert  into `encomenda`(`Id`,`ClienteId`,`EmpresaId`,`LocalId`,`DataPedido`,`DataEntrega`,`Peso`,`Valor`,`QuantPacotes`,`Status`) values (2,2,1,2,'2017-12-08 02:10:00','2017-12-10 12:00:00',42500,'480',55,1);
 
 /*Table structure for table `estoque` */
 
@@ -112,9 +111,14 @@ CREATE TABLE `estoque` (
   PRIMARY KEY (`Id`,`ProdutoId`),
   KEY `fk_estoque_produto1_idx` (`ProdutoId`),
   CONSTRAINT `fk_estoque_produto1` FOREIGN KEY (`ProdutoId`) REFERENCES `produto` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `estoque` */
+
+insert  into `estoque`(`Id`,`ProdutoId`,`DataEntrada`,`DataVencimento`,`ValorProduto`,`ValorUnidade`,`QuantComprada`,`QuantDisponivel`) values (1,1,'2017-10-04 13:35:25',NULL,'10','0',100,100);
+insert  into `estoque`(`Id`,`ProdutoId`,`DataEntrada`,`DataVencimento`,`ValorProduto`,`ValorUnidade`,`QuantComprada`,`QuantDisponivel`) values (2,2,'2017-12-03 13:35:25','2018-01-04 13:35:25','138','7',200,200);
+insert  into `estoque`(`Id`,`ProdutoId`,`DataEntrada`,`DataVencimento`,`ValorProduto`,`ValorUnidade`,`QuantComprada`,`QuantDisponivel`) values (3,3,'2017-12-04 13:35:25',NULL,'205','13',16,16);
+insert  into `estoque`(`Id`,`ProdutoId`,`DataEntrada`,`DataVencimento`,`ValorProduto`,`ValorUnidade`,`QuantComprada`,`QuantDisponivel`) values (4,4,'2017-12-01 13:35:25','2020-12-01 13:35:25','3','3',1,0);
 
 /*Table structure for table `forma` */
 
@@ -124,7 +128,7 @@ CREATE TABLE `forma` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(45) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `forma` */
 
@@ -178,8 +182,8 @@ CREATE TABLE `local` (
   `Complemento` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `fk_local_cliente1_idx` (`ClienteId`),
-  CONSTRAINT `fk_local_cliente1` FOREIGN KEY (`ClienteId`) REFERENCES `cliente` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_local_cliente1` FOREIGN KEY (`ClienteId`) REFERENCES `cliente` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 /*Data for the table `local` */
 
@@ -201,7 +205,7 @@ CREATE TABLE `maquina` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Nome` varchar(45) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `maquina` */
 
@@ -220,11 +224,15 @@ CREATE TABLE `pacotes` (
   PRIMARY KEY (`Id`,`EncomendaId`,`TipoMassaId`),
   KEY `fk_encomenda_has_tipo_massa_tipo_massa1_idx` (`TipoMassaId`),
   KEY `fk_encomenda_has_tipo_massa_encomenda1_idx` (`EncomendaId`),
-  CONSTRAINT `fk_encomenda_has_tipo_massa_encomenda1` FOREIGN KEY (`EncomendaId`) REFERENCES `encomenda` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_encomenda_has_tipo_massa_tipo_massa1` FOREIGN KEY (`TipoMassaId`) REFERENCES `tipo_massa` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_encomenda_has_tipo_massa_encomenda1` FOREIGN KEY (`EncomendaId`) REFERENCES `encomenda` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_encomenda_has_tipo_massa_tipo_massa1` FOREIGN KEY (`TipoMassaId`) REFERENCES `tipo_massa` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 /*Data for the table `pacotes` */
+
+insert  into `pacotes`(`Id`,`EncomendaId`,`TipoMassaId`,`Quantidade`) values (1,1,1,40);
+insert  into `pacotes`(`Id`,`EncomendaId`,`TipoMassaId`,`Quantidade`) values (2,2,2,5);
+insert  into `pacotes`(`Id`,`EncomendaId`,`TipoMassaId`,`Quantidade`) values (3,2,3,50);
 
 /*Table structure for table `permissao` */
 
@@ -293,22 +301,22 @@ CREATE TABLE `telefone` (
   PRIMARY KEY (`Id`),
   KEY `fk_telefone_empresa1_idx` (`EmpresaId`),
   KEY `fk_telefone_cliente1_idx` (`ClienteId`),
-  CONSTRAINT `fk_telefone_cliente1` FOREIGN KEY (`ClienteId`) REFERENCES `cliente` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_telefone_empresa1` FOREIGN KEY (`EmpresaId`) REFERENCES `empresa` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=531 DEFAULT CHARSET=utf8;
+  CONSTRAINT `fk_telefone_cliente1` FOREIGN KEY (`ClienteId`) REFERENCES `cliente` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `fk_telefone_empresa1` FOREIGN KEY (`EmpresaId`) REFERENCES `empresa` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1291 DEFAULT CHARSET=utf8;
 
 /*Data for the table `telefone` */
 
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (521,NULL,1,37172949,'Telefone fixo');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (522,NULL,2,37170914,'Telefone fixo');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (523,NULL,3,37154829,'');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (524,NULL,4,89980978,'Celular');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (525,NULL,5,37156759,'Número de emergência');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (526,NULL,6,37176683,'');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (527,NULL,7,37194249,'');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (528,NULL,8,98992847,'Celular');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (529,NULL,9,37176667,'');
-insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (530,NULL,10,37172949,'Telefone fixo');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1281,NULL,1,37172949,'Telefone fixo');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1282,NULL,2,37170914,'Telefone fixo');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1283,NULL,3,37154829,'');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1284,NULL,4,89980978,'Celular');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1285,NULL,5,37156759,'Número de emergência');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1286,NULL,6,37176683,'');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1287,NULL,7,37194249,'');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1288,NULL,8,98992847,'Celular');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1289,NULL,9,37176667,'');
+insert  into `telefone`(`Id`,`EmpresaId`,`ClienteId`,`Numero`,`Observacao`) values (1290,NULL,10,37172949,'Telefone fixo');
 
 /*Table structure for table `tipo_massa` */
 
@@ -326,7 +334,7 @@ CREATE TABLE `tipo_massa` (
   KEY `fk_tipo_massa_maquina1` (`MaquinaId`),
   CONSTRAINT `fk_tipo_massa_forma1` FOREIGN KEY (`FormaId`) REFERENCES `forma` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_tipo_massa_maquina1` FOREIGN KEY (`MaquinaId`) REFERENCES `maquina` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Data for the table `tipo_massa` */
 
@@ -361,7 +369,7 @@ CREATE TABLE `unidade_medida` (
   `Nome` varchar(20) NOT NULL,
   `Sigla` varchar(6) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 /*Data for the table `unidade_medida` */
 

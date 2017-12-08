@@ -1,7 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Text;
-using Unisc.Massas.Data.Interfaces;
+﻿using Unisc.Massas.Data.Interfaces;
 using Unisc.Massas.Domain.Models;
 
 namespace Unisc.Massas.Client.ViewModels

@@ -72,11 +72,22 @@ namespace Unisc.Massas.Client.ViewModels
             }
 
             if (op.StartsWith("Cadastro"))
+            {
                 TabIndex = 1;
+            }
             else if (op.StartsWith("Consulta"))
+            {
                 TabIndex = 2;
+            }
             else if (op.EndsWith("Estoque"))
+            {
                 TabIndex = 3;
+
+                if (op.Equals("EntradaEstoque"))
+                    EntradaEstoqueIsChecked = true;
+                else if (op.Equals("SaidaEstoque"))
+                    SaidaEstoqueIsChecked = true;
+            }
         }
     }
 }
